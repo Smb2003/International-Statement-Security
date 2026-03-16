@@ -87,7 +87,7 @@ export default function CinematicCanvas() {
     
     // Plane state
     const planes: PlaneState[] = [
-      { t: Math.PI/2, speed: 0.009, trailPoints: [], maxTrail: 180 },
+      { t: Math.PI/2, speed: 0.021, trailPoints: [], maxTrail: 180 },
       // { t: Math.PI / 2, speed: 0.012, trailPoints: [], maxTrail: 180 },
     ]
 

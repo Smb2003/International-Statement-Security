@@ -34,7 +34,7 @@ export default function TickerSection() {
               style={{
                 fontFamily: 'Orbitron, monospace',
                 fontSize: 13, letterSpacing: '4px',
-                color: 'rgba(0,212,255,0.28)',
+                color: 'rgb(0, 213, 255)',
                 textTransform: 'uppercase',
                 whiteSpace: 'nowrap',
                 display: 'flex', alignItems: 'center', gap: 56,

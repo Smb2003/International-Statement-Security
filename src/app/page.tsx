@@ -15,6 +15,7 @@ import { useEffect, useRef } from 'react'
 import GlobalSecurityOps from '@/components/sections/WhatWeOperate'
 import SplashScreen from '@/components/ui/SplashScreen'
 import AudioPlayer from '@/components/sections/Audio'
+import SecurityServicesCards from '@/components/sections/ProfessionalSecurity'
 // import music from '../../public/audio/mountain-war.mp3'
 // Load the 3D canvas scene client-side only (Three.js needs the browser)
 const CinematicCanvas = dynamic(
@@ -56,6 +57,7 @@ export default function Home() {
         <HeroSection />
         <TickerSection />
         <GlobalSecurityOps/>
+        <SecurityServicesCards/>
         <ServicesSection />
         <WhyUsSection />
         <LocationsSection />

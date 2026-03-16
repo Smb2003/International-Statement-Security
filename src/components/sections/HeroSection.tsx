@@ -81,8 +81,8 @@ export default function HeroSection() {
         transition={{ delay: 1.8, duration: 0.6 }}
         style={{
           position: 'absolute',
-          top: 'clamp(70px, 8vw, 86px)',
-          right: 'clamp(16px, 4vw, 52px)',
+          top: 'clamp(70px, 8vw, 96px)',
+          right: 'clamp(16px, 4vw, 32px)',
           flexWrap: 'wrap',
           display: 'flex',
           gap: 10, 
@@ -97,8 +97,8 @@ export default function HeroSection() {
             <span className={`blink-dot${s.amber ? ' amber' : ''}`} />
             <span style={{
               fontFamily: '"Share Tech Mono", monospace',
-              fontSize: 9, letterSpacing: '2px',
-              color: 'rgba(0,212,255,0.55)', textTransform: 'uppercase',
+              fontSize: 16, letterSpacing: '2px',
+              color: 'rgba(0,212,255,0.55)', textTransform: 'uppercase', fontWeight:"bold"
             }}>
               {s.label}
             </span>
@@ -111,14 +111,14 @@ export default function HeroSection() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        style={{ position: 'relative', zIndex: 5, maxWidth: 650 }}
+        style={{ position: 'relative', zIndex: 5, maxWidth: 750 }}
       >
         {/* Eyebrow */}
         <motion.div
           variants={itemVariants}
           style={{
             fontFamily: '"Share Tech Mono", monospace',
-            fontSize: 12, letterSpacing: '4px',
+            fontSize: 16, letterSpacing: '4px',
             color: 'var(--c)', textTransform: 'uppercase',
             marginBottom: 22,
             display: 'flex', alignItems: 'center', gap: 12,
@@ -151,8 +151,8 @@ export default function HeroSection() {
         <motion.p
           variants={itemVariants}
           style={{
-            fontSize: 'clamp(17px, 5vw, 17px)', color: 'var(--muted)',
-            lineHeight: 1.75, maxWidth: 500, marginBottom: 34,
+            fontSize: 'clamp(20px, 5vw, 22px)', color: 'var(--muted)',
+            lineHeight: 1.75, maxWidth: 600, marginBottom: 34,
           }}
         >
           Tailored close protection and security services for VVIP clients, royal families,
@@ -170,7 +170,7 @@ export default function HeroSection() {
               key={loc.id}
               style={{
                 fontFamily: '"Share Tech Mono", monospace',
-                fontSize: 9, letterSpacing: '2px',
+                fontSize: 16, letterSpacing: '2px',
                 color: 'rgba(0,212,255,0.65)',
                 border: '1px solid rgba(0,212,255,0.18)',
                 padding: '5px 13px', textTransform: 'uppercase',

@@ -147,7 +147,7 @@ export default function Navbar() {
         className="nav-desktop"
         style={{
           display: 'flex',
-          gap: 36,
+          gap: 48,
           listStyle: 'none',
           margin: 0,
           padding: 0,
@@ -159,7 +159,8 @@ export default function Navbar() {
               href={link.href}
               style={{
                 fontFamily: '"Share Tech Mono", monospace',
-                fontSize: 16,
+                fontSize: 17,
+                fontWeight:"bold",
                 letterSpacing: '2px',
                 color: 'var(--muted)',
                 textDecoration: 'none',
