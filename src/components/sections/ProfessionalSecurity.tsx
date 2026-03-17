@@ -2,12 +2,15 @@
 
 import { useState, useRef, useEffect } from 'react'
 import Particles from './../../utils/Particles'
+import SecurityGuard from "@/assets/security guard.webp"
+import FAQS from "@/assets/FAQs.webp"
+import FuturisticGlobe from "@/assets/Futuristic-global.webp"
 const services = [
   {
     id: 1,
     title: 'Executive Protection',
     subtitle: 'VIP & Corporate Security',
-    image: 'https://images.unsplash.com/photo-1529655683826-aba9b3e77383?w=700&h=500&fit=crop&q=85',
+    image: SecurityGuard,
     icon: `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="17" cy="11" r="5.5" stroke="white" stroke-width="1.8"/>
       <path d="M6 30c0-6.075 4.925-11 11-11s11 4.925 11 11" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
@@ -21,7 +24,7 @@ const services = [
     id: 2,
     title: 'Close Protection',
     subtitle: 'Personal Security Detail',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&h=500&fit=crop&q=85',
+    image: FAQS,
     icon: `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="8" y="15" width="18" height="14" rx="2.5" stroke="white" stroke-width="1.8"/>
       <path d="M12 15v-4a5 5 0 0110 0v4" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
@@ -33,7 +36,7 @@ const services = [
     id: 3,
     title: 'Special Events',
     subtitle: 'Event & Asset Protection',
-    image: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=700&h=500&fit=crop&q=85',
+    image: FuturisticGlobe,
     icon: `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="17" cy="17" r="12" stroke="white" stroke-width="1.8"/>
       <circle cx="17" cy="17" r="4" stroke="white" stroke-width="1.8"/>
@@ -132,7 +135,7 @@ export default function SecurityServicesCards() {
   return (
     <div style={{
       position: 'relative',
-      minHeight: '100vh',
+      minHeight: '20vh',
       background: 'radial-gradient(ellipse 120% 100% at 50% 50%, #080f1d 0%, #05080c 55%, #1c56a1 100%)',
       display: 'flex',
       flexDirection: 'column',
@@ -140,6 +143,7 @@ export default function SecurityServicesCards() {
       justifyContent: 'center',
       padding: 'clamp(48px,7vw,60px) clamp(20px,5vw,30px)',
       overflow: 'hidden',
+      zIndex:10
     }}>
 
       <style>{`
@@ -190,7 +194,7 @@ export default function SecurityServicesCards() {
 
         .svc-card {
           position: relative;
-          width: clamp(210px, 26vw, 300px);
+          width: clamp(210px, 26vw, 240px);
           cursor: pointer;
           animation: cardIn 0.65s cubic-bezier(0.22,1,0.36,1) both;
           transition: transform 0.4s cubic-bezier(0.34,1.5,0.64,1);
@@ -217,8 +221,8 @@ export default function SecurityServicesCards() {
         }
 
         .card-img {
-          width:100%; height:100%; object-fit:cover; object-position:center 20%;
-          filter: brightness(0.45) saturate(0.55) contrast(1.1);
+          width:100%; height:100%; object-fit:fill; object-position:center 20%;
+          filter: brightness(0.95) saturate(0.65) contrast(1.3);
           transition: filter 0.45s ease, transform 0.5s ease;
           display: block;
         }
@@ -335,7 +339,7 @@ export default function SecurityServicesCards() {
         .tick-r { right:0; }
         .svc-card:hover .tick-l,
         .svc-card:hover .tick-r {
-          background:rgba(0,230,255,1);
+          background:rgb(15, 80, 88);
           box-shadow:0 0 14px rgba(0,220,255,1), 0 0 28px rgba(0,180,255,0.6);
         }
 
@@ -398,8 +402,8 @@ export default function SecurityServicesCards() {
         }
       `}</style>
         
-       <Particles
-        particleColors={["#1a6aff","#1a90ff","#2ab8ff"]}
+       {/* <Particles
+        particleColors={["#1a6aff","#105ae3","#85cbee"]}
         particleCount={1000}
         particleSpread={10}
         speed={0.11}
@@ -410,7 +414,7 @@ export default function SecurityServicesCards() {
         pixelRatio={5}
         className={{}}
         style={{ position:"absolute", inset:0, width:"100%", height:"100%", zIndex:0, opacity:0.55 }}
-      />
+      /> */}
       {/* Animated background canvas */}
       <BackgroundCanvas />
 
@@ -438,7 +442,7 @@ export default function SecurityServicesCards() {
           >
             {/* Main clipped body */}
             <div className="card-body">
-              <img src={svc.image} alt={svc.title} className="card-img" />
+              <img src={svc.image.src} alt={svc.title} className="card-img" />
               <div className="card-overlay" />
               <div className="card-lightning-l" />
               <div className="card-lightning-r" />

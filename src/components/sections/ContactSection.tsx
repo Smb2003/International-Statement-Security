@@ -378,9 +378,9 @@ export default function ContactSection() {
     width: '100%',
     background: 'rgba(0,212,255,0.02)',
     border: '1px solid rgba(0,212,255,0.12)',
-    color: 'var(--text, #cce8f4)',
+    color: 'var(--text, #cce8f4)', 
     padding: '12px 15px',
-    fontSize: 14,
+    fontSize: 16,
     fontFamily: 'Rajdhani, sans-serif',
     outline: 'none',
     marginBottom: 16,
@@ -391,7 +391,7 @@ export default function ContactSection() {
 
   const labelStyle: React.CSSProperties = {
     fontFamily: "'Share Tech Mono', 'Courier New', monospace",
-    fontSize: 9,
+    fontSize: 13,
     letterSpacing: '2.5px',
     color: 'var(--c, #00d4ff)',
     textTransform: 'uppercase' as const,
@@ -455,12 +455,12 @@ export default function ContactSection() {
 
         .contact-submit-btn {
           width: 100%;
-          background: transparent;
+          background: linear-gradient(90deg, #0055cc, #084c9a, #0055cc);
           border: 1px solid var(--c, #00d4ff);
-          color: var(--c, #00d4ff);
+          color: var(--c, #04343e);
           padding: 15px;
           font-family: 'Share Tech Mono', 'Courier New', monospace;
-          font-size: 11px;
+          font-size: 14px;
           letter-spacing: 3px;
           text-transform: uppercase;
           cursor: pointer;
@@ -476,7 +476,14 @@ export default function ContactSection() {
         .contact-submit-btn:active {
           transform: scale(0.98);
         }
-
+        .contact-input {
+          background: #07111a;
+          color: #cce8f4;
+        }
+        .contact-input option {
+          background: #07111a;
+          color: #cce8f4;
+        }
         /* Input focus via class instead of inline onFocus */
         .contact-input:focus {
           border-color: rgba(0,212,255,0.45) !important;
@@ -491,7 +498,7 @@ export default function ContactSection() {
         }
         .stag-label {
           font-family: 'Rajdhani', sans-serif;
-          font-size: 11px; letter-spacing: 0.25em;
+          font-size: 14px; letter-spacing: 0.25em;
           color: var(--c, #00d4ff); text-transform: uppercase;
         }
 
@@ -533,8 +540,8 @@ export default function ContactSection() {
           <p
             style={{
               fontFamily: 'Rajdhani, sans-serif',
-              fontSize: 'clamp(14px, 1.6vw, 16px)',
-              color: '#3a6878',
+              fontSize: 'clamp(16px, 1.6vw, 16px)',
+              color: '#e5eef0',
               lineHeight: 1.7,
               maxWidth: 520,
               margin: 0,
@@ -664,8 +671,8 @@ export default function ContactSection() {
                     <span
                       style={{
                         fontFamily: 'Rajdhani, sans-serif',
-                        fontSize: 'clamp(11px, 1.2vw, 12px)',
-                        color: 'var(--muted, #3a6878)',
+                        fontSize: 'clamp(14px, 1.2vw, 14px)',
+                        color: 'var(--muted, #bbdfea)',
                         lineHeight: 1.5,
                       }}
                     >
@@ -691,7 +698,7 @@ export default function ContactSection() {
                 <div
                   style={{
                     fontFamily: 'Orbitron, monospace',
-                    fontSize: 12,
+                    fontSize: 13,
                     color: 'var(--c, #00d4ff)',
                     letterSpacing: '2px',
                     marginBottom: 14,
@@ -764,7 +771,7 @@ export default function ContactSection() {
                 <div
                   style={{
                     fontFamily: "'Share Tech Mono', monospace",
-                    fontSize: 8,
+                    fontSize: 14,
                     letterSpacing: '2.5px',
                     color: 'rgba(0,212,255,0.6)',
                     textTransform: 'uppercase' as const,
@@ -776,7 +783,7 @@ export default function ContactSection() {
                 <div
                   style={{
                     fontFamily: 'Orbitron, monospace',
-                    fontSize: 'clamp(13px, 1.6vw, 16px)',
+                    fontSize: 'clamp(17px, 1.6vw, 18px)',
                     fontWeight: 600,
                     color: '#cce8f4',
                     marginBottom: 6,
@@ -787,8 +794,8 @@ export default function ContactSection() {
                 <p
                   style={{
                     fontFamily: 'Rajdhani, sans-serif',
-                    fontSize: 'clamp(12px, 1.2vw, 13px)',
-                    color: '#3a6878',
+                    fontSize: 'clamp(16px, 1.2vw, 16px)',
+                    color: '#e4eff3',
                     lineHeight: 1.5,
                     margin: 0,
                   }}
@@ -809,7 +816,7 @@ export default function ContactSection() {
               <div
                 style={{
                   fontFamily: "'Share Tech Mono', monospace",
-                  fontSize: 8,
+                  fontSize: 12,
                   letterSpacing: '2.5px',
                   color: 'rgba(0,212,255,0.6)',
                   textTransform: 'uppercase' as const,
@@ -825,7 +832,7 @@ export default function ContactSection() {
                   style={{
                     display: 'flex',
                     gap: 14,
-                    padding: 'clamp(10px, 1.5vw, 14px) 0',
+                    padding: 'clamp(14px, 1.5vw, 14px) 0',
                     borderBottom:
                       i < PROCESS_STEPS.length - 1
                         ? '1px solid rgba(0,212,255,0.05)'
@@ -835,7 +842,7 @@ export default function ContactSection() {
                   <span
                     style={{
                       fontFamily: 'Orbitron, monospace',
-                      fontSize: 11,
+                      fontSize: 14,
                       color: 'var(--c, #00d4ff)',
                       minWidth: 22,
                       paddingTop: 2,
@@ -848,7 +855,7 @@ export default function ContactSection() {
                     <div
                       style={{
                         fontFamily: 'Orbitron, monospace',
-                        fontSize: 'clamp(11px, 1.3vw, 13px)',
+                        fontSize: 'clamp(18px, 1.3vw, 16px)',
                         fontWeight: 600,
                         color: '#cce8f4',
                         marginBottom: 4,
@@ -859,8 +866,8 @@ export default function ContactSection() {
                     <p
                       style={{
                         fontFamily: 'Rajdhani, sans-serif',
-                        fontSize: 'clamp(12px, 1.2vw, 13px)',
-                        color: '#3a6878',
+                        fontSize: 'clamp(16px, 1.2vw, 16px)',
+                        color: '#cce3ea',
                         lineHeight: 1.5,
                         margin: 0,
                       }}

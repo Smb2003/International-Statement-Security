@@ -418,6 +418,7 @@ export default function GlobalSecurityOps() {
       backgroundSize: "100% 100%",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
+      zIndex:10
      }}>
 
       <style>{`

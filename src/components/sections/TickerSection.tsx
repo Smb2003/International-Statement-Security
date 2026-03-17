@@ -13,7 +13,7 @@ export default function TickerSection() {
         borderBottom: '1px solid rgba(0,212,255,0.07)',
         overflow: 'hidden',
         position: 'relative',
-        zIndex: 2,
+        zIndex: 10,
       }}
     >
       <p style={{

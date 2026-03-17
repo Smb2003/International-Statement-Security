@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { SITE_CONFIG, STATS, LOCATIONS } from '@/data/siteData'
-
+import HeroImage from "@/assets/Landing-Page-Hero.webp"
 // Framer Motion variants for staggered entrance
 const containerVariants = {
   hidden: {},
@@ -56,10 +56,15 @@ export default function HeroSection() {
         position: 'relative',
         minHeight: '100vh',
         display: 'flex',
-        width:"100vw",
+        // width:"100vw",
         alignItems: 'center',
         padding: '120px clamp(0px, 6vw, 50px) 100px',
         overflow: 'hidden',
+        backgroundImage: `url(${HeroImage.src})`,
+        backgroundSize: "100% 100%",
+        backgroundPosition: "contain",
+        backgroundRepeat: "no-repeat",
+        // background:"red",
         zIndex: 1,
       }}
     >
@@ -173,6 +178,7 @@ export default function HeroSection() {
                 fontSize: 16, letterSpacing: '2px',
                 color: 'rgba(0,212,255,0.65)',
                 border: '1px solid rgba(0,212,255,0.18)',
+                background:'rgba(7, 62, 73, 0.87)',
                 padding: '5px 13px', textTransform: 'uppercase',
                 transition: 'all 0.2s', cursor: 'none',
               }}

@@ -1,94 +1,3 @@
-// 'use client'
-
-// import { useState, useEffect } from 'react'
-// import Link from 'next/link'
-// import { motion } from 'framer-motion'
-// import Logo from "@/assets/LogoISSS.png"
-// import { SITE_CONFIG } from '@/data/siteData'
-
-// const NAV_LINKS = [
-//   { label: 'About', href: '#about' },
-//   { label: 'Services', href: '#services' },
-//   { label: 'Locations', href: '#locations' },
-//   { label: 'Contact', href: '#contact' },
-// ]
-
-// export default function Navbar() {
-//   const [scrolled, setScrolled] = useState(false)
-
-//   useEffect(() => {
-//     const onScroll = () => setScrolled(window.scrollY > 40)
-//     window.addEventListener('scroll', onScroll)
-//     return () => window.removeEventListener('scroll', onScroll)
-//   }, [])
-
-//   return (
-//     <motion.nav
-//       initial={{ opacity: 0, y: -20 }}
-//       animate={{ opacity: 1, y: 0 }}
-//       transition={{ duration: 0.6, delay: 0.2 }}
-//       style={{
-//         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
-//         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-//         padding: '16px 52px',
-//         background: scrolled
-//           ? 'rgba(3,7,15,0.96)'
-//           : 'linear-gradient(180deg, rgba(3,7,15,0.92) 0%, transparent 100%)',
-//         borderBottom: `1px solid ${scrolled ? 'rgba(0,212,255,0.12)' : 'rgba(0,212,255,0.05)'}`,
-//         backdropFilter: 'blur(12px)',
-//         transition: 'all 0.3s ease',
-//       }}
-//     >
-//       {/* Logo */}
-//       <Link
-//         href="/"
-//         style={{
-//           fontFamily: 'Orbitron, monospace',
-//           fontSize: 13,
-//           fontWeight: 700,
-//           letterSpacing: '3px',
-//           color: 'var(--text)',
-//           textDecoration: 'none',
-//         }}
-//       >
-//         <img src={Logo.src} alt="" width={70} />
-//         {/* <span style={{ color: 'var(--c)' }}>{SITE_CONFIG.shortName}</span> */}
-//         {/* {' · Statement Security'} */}
-//       </Link>
-
-//       {/* Nav links */}
-//       <ul style={{ display: 'flex', gap: 36, listStyle: 'none', margin: 0, padding: 0 }}>
-//         {NAV_LINKS.map(link => (
-//           <li key={link.href}>
-//             <a
-//               href={link.href}
-//               style={{
-//                 fontFamily: '"Share Tech Mono", monospace',
-//                 fontSize: 20,
-//                 letterSpacing: '2px',
-//                 color: 'var(--muted)',
-//                 textDecoration: 'none',
-//                 textTransform: 'uppercase',
-//                 transition: 'color 0.2s',
-//                 cursor: 'none',
-//               }}
-//               onMouseEnter={e => (e.currentTarget.style.color = 'var(--c)')}
-//               onMouseLeave={e => (e.currentTarget.style.color = 'var(--muted)')}
-//             >
-//               {link.label}
-//             </a>
-//           </li>
-//         ))}
-//       </ul>
-
-//       {/* CTA button */}
-//       <a href="#contact" className="btn-primary" style={{ fontSize: 15, padding: '9px 22px' }}>
-//         ▶ Request Brief
-//       </a>
-//     </motion.nav>
-//   )
-// }
-
 
 'use client'
 
@@ -98,7 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import Logo from "@/assets/LogoISSS.png"
 
 const NAV_LINKS = [
-  { label: 'About', href: '#about' },
+  { label: 'About', href: '/About' },
   { label: 'Services', href: '#services' },
   { label: 'Locations', href: '#locations' },
   { label: 'Contact', href: '#contact' },
@@ -155,7 +64,7 @@ export default function Navbar() {
       >
         {NAV_LINKS.map(link => (
           <li key={link.href}>
-            <a
+            <Link
               href={link.href}
               style={{
                 fontFamily: '"Share Tech Mono", monospace',
@@ -168,7 +77,7 @@ export default function Navbar() {
               }}
             >
               {link.label}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>

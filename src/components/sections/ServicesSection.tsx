@@ -113,6 +113,7 @@ export default function ServicesSection() {
         background: 'var(--bg2, #07111a)',
         position: 'relative',
         zIndex: 2,
+        fontFamily:'monospace',
       }}
     >
       <style>{`
@@ -179,7 +180,7 @@ export default function ServicesSection() {
         .tag-pill {
           display: inline-block;
           font-family: 'Rajdhani', sans-serif;
-          font-size: 10px;
+          font-size: 11px;
           font-weight: 600;
           letter-spacing: 0.08em;
           color: rgba(0,212,255,0.55);
@@ -191,6 +192,7 @@ export default function ServicesSection() {
         }
 
         .section-tag-dash {
+          font-family:'Orbitron',monospace; 
           display: inline-block;
           width: 28px;
           height: 1px;
@@ -200,8 +202,8 @@ export default function ServicesSection() {
         }
 
         .section-tag-label {
-          font-family: 'Rajdhani', sans-serif;
-          font-size: 11px;
+          font-family:'Orbitron',monospace; 
+          font-size: 16px;
           letter-spacing: 0.25em;
           color: var(--c, #00d4ff);
           text-transform: uppercase;
@@ -235,7 +237,7 @@ export default function ServicesSection() {
         /* Responsive typography */
         .srv-number {
           font-family: 'Share Tech Mono', 'Courier New', monospace;
-          font-size: 10px;
+          font-size: 13px;
           letter-spacing: 2px;
           color: rgba(0,212,255,0.3);
           margin-bottom: 18px;
@@ -243,7 +245,7 @@ export default function ServicesSection() {
 
         .srv-title {
           font-family: 'Orbitron', monospace;
-          font-size: clamp(12px, 1.4vw, 14px);
+          font-size: clamp(14px, 1.4vw, 20px);
           font-weight: 600;
           letter-spacing: 0.3px;
           line-height: 1.3;
@@ -253,8 +255,7 @@ export default function ServicesSection() {
         }
 
         .srv-desc {
-          font-family: 'Rajdhani', sans-serif;
-          font-size: clamp(13px, 1.3vw, 14px);
+          font-size: clamp(12px, 1.3vw, 17px);
           line-height: 1.65;
           margin-bottom: 16px;
           color: var(--muted, #3a6878);

@@ -38,7 +38,7 @@ export default function SplashScreen() {
     // Auto-hide after 4 seconds even if no click
     const timer = setTimeout(() => {
       setVisible(false)
-    }, 4000)
+    }, 2000)
 
     return () => clearTimeout(timer)
   }, [])

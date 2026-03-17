@@ -1,5 +1,10 @@
+
 import type { Metadata } from 'next'
 import './globals.css'
+import Navbar from '@/components/layout/Navbar'
+import Footer from '@/components/layout/Footer'
+import SplashScreen from '@/components/ui/SplashScreen'
+import CustomCursor from '@/components/ui/CustomCursor'
 
 export const metadata: Metadata = {
   title: 'International Statement Security Services | Elite Protection Worldwide',
@@ -23,7 +28,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+
+      <body>
+        <Navbar />
+        <SplashScreen />
+        {/* Custom cursor — replaces the default OS cursor */}
+        <CustomCursor />
+        {children}
+        <Footer/>  
+      </body>
+      
     </html>
   )
 }

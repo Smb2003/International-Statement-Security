@@ -62,6 +62,7 @@ export default function WhyUsSection() {
         position: 'relative',
         zIndex: 2,
         background: 'var(--bg, #07111a)',
+        fontFamily:"monospace",
       }}
     >
       <style>{`
@@ -135,7 +136,7 @@ export default function WhyUsSection() {
 
         .why-tag-label {
           font-family: 'Rajdhani', sans-serif;
-          font-size: 11px;
+          font-size: 16px;
           letter-spacing: 0.25em;
           color: var(--c, #00d4ff);
           text-transform: uppercase;
@@ -217,7 +218,7 @@ export default function WhyUsSection() {
               <h3
                 style={{
                   fontFamily: 'Orbitron, monospace',
-                  fontSize: 'clamp(12px, 1.4vw, 15px)',
+                  fontSize: 'clamp(12px, 1.4vw, 18px)',
                   fontWeight: 600,
                   color: 'var(--text, #cce8f4)',
                   marginBottom: 11,
@@ -231,7 +232,7 @@ export default function WhyUsSection() {
               <p
                 style={{
                   fontFamily: 'Rajdhani, sans-serif',
-                  fontSize: 'clamp(13px, 1.3vw, 14px)',
+                  fontSize: 'clamp(13px, 1.3vw, 16px)',
                   color: 'var(--muted, #cce8f4)',
                   lineHeight: 1.7,
                   margin: 0,

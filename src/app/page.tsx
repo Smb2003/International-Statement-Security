@@ -16,6 +16,10 @@ import GlobalSecurityOps from '@/components/sections/WhatWeOperate'
 import SplashScreen from '@/components/ui/SplashScreen'
 import AudioPlayer from '@/components/sections/Audio'
 import SecurityServicesCards from '@/components/sections/ProfessionalSecurity'
+import FactsSection from '@/components/sections/FactSection'
+import MissionStatement from '@/components/sections/MissionStatements'
+import FaqSection from '@/components/sections/FAQsection'
+import AboutContact from '@/components/sections/AboutSection'
 // import music from '../../public/audio/mountain-war.mp3'
 // Load the 3D canvas scene client-side only (Three.js needs the browser)
 const CinematicCanvas = dynamic(
@@ -33,20 +37,11 @@ export default function Home() {
         loop
         preload="auto"
       />
-      <SplashScreen />
-
-      {/* Custom cursor — replaces the default OS cursor */}
-      <CustomCursor />
-
       {/* Scroll behavior smoother (Lenis) */}
       <ScrollReveal />
 
       {/* Full-screen fixed 3D canvas — renders behind everything */}
       <CinematicCanvas />
-
-      {/* Navigation */}
-      <Navbar />
-
     
       {/* Page sections — each is its own component you can edit independently */}
       <main style={{
@@ -57,14 +52,16 @@ export default function Home() {
         <HeroSection />
         <TickerSection />
         <GlobalSecurityOps/>
+        <LocationsSection />
         <SecurityServicesCards/>
+        <FactsSection/>
         <ServicesSection />
         <WhyUsSection />
-        <LocationsSection />
+        <MissionStatement/>
+        <FaqSection/>
+        <AboutContact/>
         <ContactSection />
       </main>
-
-      <Footer />
     </div>
   )
 }
