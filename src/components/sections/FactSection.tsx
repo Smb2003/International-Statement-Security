@@ -206,7 +206,7 @@ export default function FactsSection() {
         }
 
         .facts-title {
-        //   font-family: 'Rajdhani', sans-serif;
+          font-family:'Orbitron',monospace;
           font-size: clamp(26px, 4vw, 48px);
           font-weight: 600;
           color: #d4eef8;
@@ -219,7 +219,7 @@ export default function FactsSection() {
           color: #00ccff;
           display: block;
           font-size: clamp(30px, 4.8vw, 58px);
-          text-shadow: 0 0 28px rgba(0,200,255,0.6), 0 0 60px rgba(0,150,255,0.3);
+          text-shadow: 0 0 28px rgba(0, 200, 255, 0.09), 0 0 60px rgba(0,150,255,0.3);
         }
 
         /* ── Stats grid ── */
@@ -409,7 +409,7 @@ export default function FactsSection() {
           line-height: 1;
           margin-bottom: 14px;
           letter-spacing: -0.01em;
-          text-shadow: 0 0 20px rgba(0,215,255,0.9), 0 0 45px rgba(0,165,255,0.55), 0 0 75px rgba(0,105,225,0.3);
+          text-shadow: 0 0 20px rgba(0, 217, 255, 0.22), 0 0 45px rgba(0, 166, 255, 0.27), 0 0 75px rgba(0,105,225,0.3);
         }
 
         /* Label */
@@ -439,7 +439,7 @@ export default function FactsSection() {
           .deco-shield { display:none; }
         }
       `}</style>
-      <Particles
+      {/* <Particles
         particleColors={["#1d2f51","#133472","#1a4b64"]}
         particleCount={3000}    
         particleSpread={10}
@@ -451,7 +451,7 @@ export default function FactsSection() {
         pixelRatio={5}
         className={{}}
         style={{ position:"absolute", inset:0, width:"100%", height:"100%", zIndex:0, opacity:0.55 }}
-      />
+      /> */}
       {/* Decorative shield */}
       <svg className="deco-shield" viewBox="0 0 200 220" fill="none">
         <path d="M100 10L20 45V105C20 155 55 195 100 210C145 195 180 155 180 105V45L100 10Z"

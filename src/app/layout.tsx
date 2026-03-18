@@ -31,7 +31,7 @@ export default function RootLayout({
 
       <body>
         <Navbar />
-        <SplashScreen />
+        {/* <SplashScreen /> */}
         {/* Custom cursor — replaces the default OS cursor */}
         <CustomCursor />
         {children}

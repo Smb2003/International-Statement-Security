@@ -102,7 +102,7 @@ const faqs = [
   { id: '03', q: 'What is the quality of your services?', a: 'We maintain the highest international standards. All personnel undergo multi-tier vetting, continuous training, and performance assessment. Quality assurance is embedded at every level of our operations.' },
   { id: '04', q: 'Who will protect me? Can I have information about specific agents?', a: 'Client safety is paramount. We provide detailed operator profiles upon request for approved clients. All assignments are matched based on your specific threat profile and environment.' },
   { id: '05', q: 'To who do you provide your services?', a: 'We serve HNW individuals, C-suite executives, diplomats, government officials, celebrities, and corporations requiring elite protection worldwide.' },
-  { id: '06', q: 'Where do you provide your services?', a: 'Our operations span six continents — with active cells in London, New York, Dubai, Abu Dhabi, Doha, and Tirana. We deploy globally within hours.' },
+  { id: '06', q: 'Where do you provide your services?', a: 'Our operations span six continents — with active cells in London, New York, Dubai, Abu Dhabi, Doha, Rome and Tirana. We deploy globally within hours.' },
 ]
 
 // ── Accordion item ────────────────────────────────────────
@@ -214,7 +214,7 @@ export default function FaqSection() {
         //   text-align:center
         }
         .faq-main-title {
-          font-family: 'Rajdhani', sans-serif;
+          font-family:'Orbitron',monospace;
           font-size: clamp(22px,4vw,46px); font-weight: 700;
           color: #d0e8f6; margin: 0; line-height: 1.1; letter-spacing: 0.04em;
           text-transform: uppercase;
@@ -342,8 +342,8 @@ export default function FaqSection() {
         .form-panel .fc.br { bottom:4px; right:4px; border-bottom:1.5px solid #00aaff; border-right:1.5px solid #00aaff; box-shadow:0 0 6px rgba(0,170,255,0.5); }
 
         .form-title {
-          font-family: 'Rajdhani', sans-serif;
-          font-size: clamp(15px,1.8vw,28px); font-weight: 700;
+          font-family:'Orbitron',monospace;
+          font-size: clamp(15px,1.8vw,20px); font-weight: 700;
           color: #c8e4f2; text-transform: uppercase;
           letter-spacing: 0.12em; margin-bottom: 22px;
         }

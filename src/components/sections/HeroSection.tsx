@@ -226,7 +226,7 @@ export default function HeroSection() {
           <div
             key={stat.label}
             style={{
-              padding: '20px 28px', textAlign: 'center',
+              padding: '14px 28px', textAlign: 'center',
               borderRight: i < STATS.length - 1 ? '1px solid rgba(0,212,255,0.08)' : 'none',
             }}
           >
@@ -235,15 +235,15 @@ export default function HeroSection() {
               data-suffix={stat.suffix}
               data-display={stat.display || ''}
               style={{
-                fontFamily: 'Orbitron, monospace',
-                fontSize: 28, fontWeight: 700, color: 'var(--text)', lineHeight: 1,
+                fontFamily: 'sans-serif',
+                fontSize: 32, fontWeight: 700, color: 'var(--text)', lineHeight: 1,
               }}
             >
               {stat.display || stat.value + stat.suffix}
             </div>
             <div style={{
               fontFamily: '"Share Tech Mono", monospace',
-              fontSize: 9, letterSpacing: '2px',
+              fontSize: 13, letterSpacing: '2px',
               color: 'var(--muted)', textTransform: 'uppercase', marginTop: 5,
             }}>
               {stat.label}

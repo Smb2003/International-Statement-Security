@@ -5,6 +5,8 @@ import Particles from './../../utils/Particles'
 import SecurityGuard from "@/assets/security guard.webp"
 import FAQS from "@/assets/FAQs.webp"
 import FuturisticGlobe from "@/assets/Futuristic-global.webp"
+import Bg from "@/assets/Executive-Security-Technology-Theme.webp"
+import CloseProtection from "@/assets/CloseProtection.jpeg"
 const services = [
   {
     id: 1,
@@ -24,7 +26,7 @@ const services = [
     id: 2,
     title: 'Close Protection',
     subtitle: 'Personal Security Detail',
-    image: FAQS,
+    image: CloseProtection,
     icon: `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="8" y="15" width="18" height="14" rx="2.5" stroke="white" stroke-width="1.8"/>
       <path d="M12 15v-4a5 5 0 0110 0v4" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
@@ -143,6 +145,11 @@ export default function SecurityServicesCards() {
       justifyContent: 'center',
       padding: 'clamp(48px,7vw,60px) clamp(20px,5vw,30px)',
       overflow: 'hidden',
+      backgroundImage:`url(${Bg.src})`,
+      backgroundSize:"100% ",
+      backgroundPosition:"cover",
+      opacity:0.9,
+      backgroundRepeat:"no-repeat",
       zIndex:10
     }}>
 
@@ -194,7 +201,8 @@ export default function SecurityServicesCards() {
 
         .svc-card {
           position: relative;
-          width: clamp(210px, 26vw, 240px);
+          width: clamp(210px, 26vw, 200px);
+          height: clamp(200px,20vh,200px)
           cursor: pointer;
           animation: cardIn 0.65s cubic-bezier(0.22,1,0.36,1) both;
           transition: transform 0.4s cubic-bezier(0.34,1.5,0.64,1);
@@ -221,7 +229,7 @@ export default function SecurityServicesCards() {
         }
 
         .card-img {
-          width:100%; height:100%; object-fit:fill; object-position:center 20%;
+          width:100%; height:100%; object-fit:cover; object-position:center 20%;
           filter: brightness(0.95) saturate(0.65) contrast(1.3);
           transition: filter 0.45s ease, transform 0.5s ease;
           display: block;
@@ -364,7 +372,7 @@ export default function SecurityServicesCards() {
         .card-title {
           position:absolute; bottom:22px; left:0; right:0; text-align:center;
           font-family:'Rajdhani',sans-serif; font-weight:700;
-          font-size:clamp(13px,1.4vw,20px); letter-spacing:0.1em;
+          font-size:clamp(13px,1.4vw,18px); letter-spacing:0.1em;
           color:#b8dcf5; z-index:9; pointer-events:none;
           text-shadow:0 0 14px rgba(0,180,255,0.6), 0 1px 4px rgba(0,0,0,0.8);
           transition:color 0.3s, text-shadow 0.3s;
@@ -398,7 +406,7 @@ export default function SecurityServicesCards() {
         }
 
         @media (max-width:640px) {
-          .svc-card { width:clamp(170px,72vw,260px); }
+          .svc-card { width:clamp(170px,72vw,240px); }
         }
       `}</style>
         
@@ -416,7 +424,7 @@ export default function SecurityServicesCards() {
         style={{ position:"absolute", inset:0, width:"100%", height:"100%", zIndex:0, opacity:0.55 }}
       /> */}
       {/* Animated background canvas */}
-      <BackgroundCanvas />
+      {/* <BackgroundCanvas /> */}
 
       {/* Atmospheric glow blobs */}
       <div style={{ position:'absolute', inset:0, zIndex:0, pointerEvents:'none' }}>

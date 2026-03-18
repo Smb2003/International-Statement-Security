@@ -100,9 +100,11 @@ export default function LocationsSection() {
 
         /* Content */
         .loc-content {
-          position: relative;
+          position: absolute;
+          top:0px;
+          left:20%;
           z-index: 2;
-          padding: clamp(40px, 8vw, 100px) clamp(16px, 5vw, 52px);
+          padding: clamp(40px, 8vw, 40px) clamp(16px, 5vw, 22px);
         }
 
         .stag-wrap { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
@@ -184,49 +186,49 @@ export default function LocationsSection() {
 
           {/* Header */}
         <motion.div
-  initial={{ opacity: 0, y: 28 }}
-  animate={inView ? { opacity: 1, y: 0 } : {}}
-  transition={{ duration: 0.7 }}
-  style={{
-   marginTop: "clamp(-10px, -5vw, -2vw)",
-    marginBottom: 'clamp(28px, 6vw, 100px)',
-    textAlign: "center",
-    maxWidth: "900px",
-    marginInline: "auto",
-    paddingInline: "clamp(16px,4vw,40px)"
-  }}
->
-  <h2
-    style={{
-      fontFamily: 'Orbitron, monospace',
-      fontWeight: 900,
-      fontSize: 'clamp(24px, 5vw, 56px)',
-      letterSpacing: '0.12em',
-      color: '#cce8f4',
-      lineHeight: 1.2,
-      marginBottom: "clamp(10px,2vw,20px)"
-    }}
-  >
-    Deployed{" "}
-    <em style={{ color: 'var(--c, #00d4ff)', fontStyle: 'normal' }}>
-      Worldwide
-    </em>
-  </h2>
+          initial={{ opacity: 0, y: 28 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7 }}
+          style={{
+          marginTop: "clamp(-10px, -5vw, -2vw)",
+            marginBottom: 'clamp(28px, 6vw, 100px)',
+            textAlign: "center",
+            maxWidth: "900px",
+            marginInline: "auto",
+            paddingInline: "clamp(16px,4vw,40px)"
+          }}
+        >
+          <h2
+            style={{
+              fontFamily: 'Orbitron, monospace',
+              fontWeight: 900,
+              fontSize: 'clamp(24px, 5vw, 56px)',
+              letterSpacing: '0.12em',
+              color: '#cce8f4',
+              lineHeight: 1.2,
+              marginBottom: "clamp(10px,2vw,20px)"
+            }}
+          >
+            Deployed{" "}
+            <em style={{ color: 'var(--c, #00d4ff)', fontStyle: 'normal' }}>
+              Worldwide
+            </em>
+          </h2>
 
-  <p
-    style={{
-      fontFamily: 'Rajdhani, sans-serif',
-      fontSize: 'clamp(10px, 2vw, 20px)',
-      color: '#b9d4dc',
-      lineHeight: 1.8,
-      maxWidth: "700px",
-      margin: "0 auto"
-    }}
-  >
-    Strategic presence across Europe, Middle East, and North America —
-    ready to deploy within hours, anywhere.
-  </p>
-</motion.div>
+          <p
+            style={{
+              fontFamily: 'Rajdhani, sans-serif',
+              fontSize: 'clamp(10px, 2vw, 18px)',
+              color: '#b9d4dc',
+              lineHeight: 1,
+              maxWidth: "800px",
+              margin: "0 auto"
+            }}
+          >
+            Strategic presence across Europe, Middle East, and North America —
+            ready to deploy within hours, anywhere.
+          </p>
+        </motion.div>
 
           {/* Add your map / tabs / detail panel here when ready */}
 

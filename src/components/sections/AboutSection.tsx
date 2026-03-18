@@ -164,7 +164,7 @@ export default function AboutContact() {
         }
 
         .ac-heading {
-          font-family: 'Rajdhani', sans-serif;
+          font-family:'Orbitron',monospace;
           font-size: clamp(40px, 4.5vw, 62px);
           width:100%;
         //   text-align:center;
@@ -313,7 +313,7 @@ export default function AboutContact() {
 
         /* Form heading */
         .form-heading {
-          font-family: 'Rajdhani', sans-serif;
+          font-family:'Orbitron',monospace;
           font-size: clamp(22px,2.8vw,40px);
           font-weight: 700; line-height: 1.15;
           margin-bottom: 22px;

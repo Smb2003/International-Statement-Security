@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-
+import Bg from "@/assets/Executive-Security-Technology-Theme.webp"
 // ── Mock data (replace with your WHY_US import from @/data/siteData) ──
 interface WhyUsItem {
   num: string
@@ -62,6 +62,11 @@ export default function WhyUsSection() {
         position: 'relative',
         zIndex: 2,
         background: 'var(--bg, #07111a)',
+        backgroundImage:`url(${Bg.src})`,
+        backgroundSize:"100% ",
+        backgroundPosition:"cover",
+        opacity:0.9,
+        backgroundRepeat:"no-repeat",
         fontFamily:"monospace",
       }}
     >
@@ -92,7 +97,7 @@ export default function WhyUsSection() {
 
         .cyber-card {
           border: 1px solid rgba(0, 212, 255, 0.1);
-          background: rgba(0, 212, 255, 0.02);
+          background: rgba(0, 213, 255, 0.54);
           position: relative;
           overflow: hidden;
           transition: border-color 0.3s, background 0.3s, transform 0.3s;
@@ -103,7 +108,7 @@ export default function WhyUsSection() {
           position: absolute;
           top: 0; left: 0; right: 0;
           height: 1px;
-          background: linear-gradient(to right, transparent, rgba(0,212,255,0.25), transparent);
+          background: linear-gradient(to right, transparent, rgba(0, 213, 255, 0.74), transparent);
           transform: scaleX(0);
           transform-origin: left;
           transition: transform 0.4s ease;

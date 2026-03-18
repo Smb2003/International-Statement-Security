@@ -1,5 +1,5 @@
 'use client'
-
+import Bg from "@/assets/Landing-Page-Hero.webp"
 const checkItems = [
   'Bodyguard Hire',
   'Private Security and Personal Protection',
@@ -19,13 +19,18 @@ export default function MissionStatement() {
         .mission-section {
           position: relative;
           min-height: 100vh;
-          background: radial-gradient(ellipse 140% 100% at 55% 45%, #051228 0%, #030d1e 50%, #020810 100%);
+          // background: radial-gradient(ellipse 140% 100% at 55% 45%, #051228 0%, #030d1e 50%, #020810 100%);
           display: flex;
           align-items: center;
           justify-content: center;
           padding: clamp(48px,7vw,100px) clamp(20px,5vw,64px);
           overflow: hidden;
           font-family: 'Rajdhani', sans-serif;
+          backgroundImage:url(${Bg.src}),
+          backgroundSize:"100% ",
+          backgroundPosition:"cover",
+          opacity:0.9,
+          backgroundRepeat:"no-repeat",
           z-index:10;
         }
 

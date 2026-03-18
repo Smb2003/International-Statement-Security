@@ -495,7 +495,7 @@ export default function GlobalSecurityOps() {
       {/* Particles */}
       <Particles
         particleColors={["#1a6aff","#1a90ff","#2ab8ff"]}
-        particleCount={8500}
+        particleCount={4500}
         particleSpread={10}
         speed={0.11}
         particleBaseSize={90}
@@ -518,7 +518,7 @@ export default function GlobalSecurityOps() {
           <h1 style={{ fontSize:"clamp(26px,4.5vw,54px)", fontWeight:900, color:"#cce8ff", letterSpacing:"0.18em", margin:"0 0 12px", fontFamily:"Orbitron,monospace", textShadow:"0 0 50px rgba(30,140,255,0.35)" }}>
             GLOBAL SECURITY <span style={{ color:"#3ab0ff" }}>OPERATIONS</span>
           </h1>
-          <p style={{ color:"#3a6880", fontSize:13, letterSpacing:"0.22em", margin:0, fontFamily:"Rajdhani,sans-serif", fontWeight:500 }}>
+          <p style={{ color:"#f2f6f8", fontSize:22, letterSpacing:"0.22em", margin:0, fontFamily:"Rajdhani,sans-serif", fontWeight:500 }}>
             Elite Executive Protection &amp; Strategic Security Services Worldwide
           </p>
         </div>
@@ -553,7 +553,7 @@ export default function GlobalSecurityOps() {
                       <span style={{ color:isHighlighted?"#3ab0ff":"rgba(30,160,255,0.5)", margin:"0 10px", fontWeight:300 }}>–</span>
                       {loc.country}
                     </div>
-                    <div style={{ fontSize:17, color:isHighlighted?"#3ab0ff":"rgb(30, 161, 255)", fontFamily:"Rajdhani,sans-serif", fontWeight:500, letterSpacing:"0.04em", transition:"color 0.2s" }}>
+                    <div style={{ fontSize:20, color:isHighlighted?"#bfd6e5":"rgb(198, 224, 243)", fontFamily:"Rajdhani,sans-serif", fontWeight:500, letterSpacing:"0.04em", transition:"color 0.2s" }}>
                       {loc.service}
                     </div>
                   </div>
@@ -578,7 +578,7 @@ export default function GlobalSecurityOps() {
         {/* Footer */}
         <div style={{ marginTop:44, textAlign:"center" }}>
           <div style={{ height:3, width:400, background:"linear-gradient(to right,transparent,rgba(11, 125, 246, 0.95),transparent)", margin:"0 auto 14px" }}/>
-          <p style={{ fontSize:15, letterSpacing:"0.22em", color:"#1f8df4", fontFamily:"Orbitron,monospace", margin:0 }}>
+          <p style={{ fontSize:18, letterSpacing:"0.22em", color:"#1f8df4", fontFamily:"Orbitron,monospace", margin:0 }}>
             SECURE NETWORK ◈ ENCRYPTED CHANNEL ◈ AUTHORIZED PERSONNEL ONLY
           </p>
         </div>

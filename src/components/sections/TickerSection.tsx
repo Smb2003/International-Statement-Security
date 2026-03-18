@@ -19,7 +19,7 @@ export default function TickerSection() {
       <p style={{
         textAlign: 'center',
         fontFamily: '"Share Tech Mono", monospace',
-        fontSize: 9, letterSpacing: '3px',
+        fontSize: 19, letterSpacing: '3px',
         color: 'var(--muted)', textTransform: 'uppercase',
         marginBottom: 24,
       }}>
@@ -33,7 +33,7 @@ export default function TickerSection() {
               key={i}
               style={{
                 fontFamily: 'Orbitron, monospace',
-                fontSize: 13, letterSpacing: '4px',
+                fontSize: 19, letterSpacing: '4px',
                 color: 'rgb(0, 213, 255)',
                 textTransform: 'uppercase',
                 whiteSpace: 'nowrap',

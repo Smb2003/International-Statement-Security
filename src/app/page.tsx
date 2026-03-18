@@ -41,7 +41,7 @@ export default function Home() {
       <ScrollReveal />
 
       {/* Full-screen fixed 3D canvas — renders behind everything */}
-      <CinematicCanvas />
+      {/* <CinematicCanvas /> */}
     
       {/* Page sections — each is its own component you can edit independently */}
       <main style={{

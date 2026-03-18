@@ -69,7 +69,6 @@ export default function Navbar() {
               style={{
                 fontFamily: '"Share Tech Mono", monospace',
                 fontSize: 17,
-                fontWeight:"bold",
                 letterSpacing: '2px',
                 color: 'var(--muted)',
                 textDecoration: 'none',
