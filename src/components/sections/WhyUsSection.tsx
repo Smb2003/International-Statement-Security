@@ -96,8 +96,8 @@ export default function WhyUsSection() {
         }
 
         .cyber-card {
-          border: 1px solid rgba(0, 212, 255, 0.1);
-          background: rgba(0, 213, 255, 0.54);
+          border: 1px solid rgba(0, 213, 255, 0.83);
+          background: rgba(89, 205, 228, 0.87);
           position: relative;
           overflow: hidden;
           transition: border-color 0.3s, background 0.3s, transform 0.3s;
@@ -108,7 +108,7 @@ export default function WhyUsSection() {
           position: absolute;
           top: 0; left: 0; right: 0;
           height: 1px;
-          background: linear-gradient(to right, transparent, rgba(0, 213, 255, 0.74), transparent);
+          background: linear-gradient(to right, rgba(0, 213, 255, 0.54), rgba(0, 213, 255, 0.74));
           transform: scaleX(0);
           transform-origin: left;
           transition: transform 0.4s ease;
@@ -120,7 +120,7 @@ export default function WhyUsSection() {
 
         .cyber-card:hover {
           border-color: rgba(0, 212, 255, 0.3);
-          background: rgba(0, 212, 255, 0.04);
+          background: rgba(0, 213, 255, 0.29);
           transform: translateY(-4px);
         }
 

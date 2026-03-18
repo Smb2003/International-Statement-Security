@@ -20,12 +20,13 @@ import FactsSection from '@/components/sections/FactSection'
 import MissionStatement from '@/components/sections/MissionStatements'
 import FaqSection from '@/components/sections/FAQsection'
 import AboutContact from '@/components/sections/AboutSection'
+import CinematicCanvas from '@/components/3d/CinematicCanvas'
 // import music from '../../public/audio/mountain-war.mp3'
 // Load the 3D canvas scene client-side only (Three.js needs the browser)
-const CinematicCanvas = dynamic(
-  () => import('@/components/3d/CinematicCanvas'),
-  { ssr: false }
-)
+// const CinematicCanvas = dynamic(
+//   () => import('@/components/3d/CinematicCanvas'),
+//   { ssr: false }
+// )
 
 
 export default function Home() {
@@ -41,7 +42,7 @@ export default function Home() {
       <ScrollReveal />
 
       {/* Full-screen fixed 3D canvas — renders behind everything */}
-      {/* <CinematicCanvas /> */}
+      <CinematicCanvas />
     
       {/* Page sections — each is its own component you can edit independently */}
       <main style={{

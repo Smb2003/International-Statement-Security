@@ -216,7 +216,7 @@ export default function HeroSection() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.6, duration: 0.8 }}
         style={{
-          position: 'absolute', bottom: 0, left: 0, right: 0, zIndex: 5,
+          position: 'absolute', bottom: 0, left: 0, right: 0, zIndex: 100,
           display: 'grid', gridTemplateColumns: `repeat(${STATS.length}, 1fr)`,
           background: 'rgba(3,7,15,0.88)', backdropFilter: 'blur(14px)',
           borderTop: '1px solid rgba(0,212,255,0.1)',

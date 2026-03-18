@@ -33,7 +33,7 @@ body {
   background: var(--bg);
   color: var(--text);
   overflow-x: hidden;
-  cursor: none; /* Custom cursor replaces default */
+  /* cursor: none; Custom cursor replaces default */
 }
 
 /* Hide default cursor on interactive elements too */
