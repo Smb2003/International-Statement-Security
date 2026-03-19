@@ -102,7 +102,7 @@ export default function LocationsSection() {
         .loc-content {
           position: absolute;
           top:0px;
-          left:20%;
+          left:clamp(5%,20%);
           z-index: 2;
           padding: clamp(40px, 8vw, 40px) clamp(16px, 5vw, 22px);
         }
@@ -166,7 +166,7 @@ export default function LocationsSection() {
       </div>
        <Particles
         particleColors={["#B10608","#B10608","#B10608"]}
-        particleCount={5500}
+        particleCount={3500}
         particleSpread={10}
         speed={0.11}
         particleBaseSize={70}
@@ -195,17 +195,20 @@ export default function LocationsSection() {
             textAlign: "center",
             maxWidth: "900px",
             marginInline: "auto",
-            paddingInline: "clamp(16px,4vw,40px)"
+            paddingInline: "clamp(16px,4vw,40px)",
+            display:"flex",justifyContent:"center",
+            alignItems:"center",
+            flexDirection:"column",
           }}
         >
           <h2
             style={{
               fontFamily: 'Orbitron, monospace',
               fontWeight: 900,
-              fontSize: 'clamp(24px, 5vw, 56px)',
+              fontSize: 'clamp(10px, 5vw, 56px)',
               letterSpacing: '0.12em',
               color: '#cce8f4',
-              lineHeight: 1.2,
+              lineHeight: 0.7,
               marginBottom: "clamp(10px,2vw,20px)"
             }}
           >

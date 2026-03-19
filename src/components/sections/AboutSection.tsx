@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import Owners from "@/assets/Team_ISSS-removebg-preview.png"
+import Owners from "@/assets/sdfds.webp"
 
 // ── Animated canvas background ────────────────────────────
 function ParticleCanvas() {

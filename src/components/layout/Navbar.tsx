@@ -9,8 +9,9 @@ import Logo from "@/assets/LogoISSS.png"
 const NAV_LINKS = [
   { label: 'About', href: '/About' },
   { label: 'Services', href: '#services' },
-  { label: 'Locations', href: '#locations' },
+  { label: 'Gallery', href: '/Gallery' },
   { label: 'Contact', href: '#contact' },
+  { label: 'Careers', href: '/Career' },
 ]
 
 export default function Navbar() {
@@ -115,7 +116,7 @@ export default function Navbar() {
               top: '70px',
               left: 0,
               right: 0,
-              background: '#050B18',
+              background: '#000000',
               padding: '30px 20px',
               display: 'flex',
               flexDirection: 'column',
@@ -141,7 +142,7 @@ export default function Navbar() {
               </a>
             ))}
 
-            <a href="#contact" className="btn-primary">
+            <a href="#contact" className="btn-primary" style={{background:"#ff0d00"}}>
               ▶ Request Brief
             </a>
           </motion.div>

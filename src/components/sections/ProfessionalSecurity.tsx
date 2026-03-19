@@ -42,41 +42,41 @@ const services = [
     title: 'Special Events',
     subtitle: 'Event & Asset Protection',
     image: EventProtection,
-    icon: `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="17" cy="17" r="12" stroke="white" stroke-width="1.8"/>
-      <circle cx="17" cy="17" r="4" stroke="white" stroke-width="1.8"/>
-      <line x1="17" y1="5" x2="17" y2="11" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-      <line x1="17" y1="23" x2="17" y2="29" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-      <line x1="5" y1="17" x2="11" y2="17" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-      <line x1="23" y1="17" x2="29" y2="17" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+    icon:`<svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="17" cy="11" r="5.5" stroke="white" stroke-width="1.8"/>
+      <path d="M6 30c0-6.075 4.925-11 11-11s11 4.925 11 11" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="8" cy="14" r="3.8" stroke="rgba(255,255,255,0.7)" stroke-width="1.4"/>
+      <path d="M2 28c0-3.866 3.134-7 7-7" stroke="rgba(255,255,255,0.7)" stroke-width="1.4" stroke-linecap="round"/>
+      <circle cx="26" cy="14" r="3.8" stroke="rgba(255,255,255,0.7)" stroke-width="1.4"/>
+      <path d="M32 28c0-3.866-3.134-7-7-7" stroke="rgba(255,255,255,0.7)" stroke-width="1.4" stroke-linecap="round"/>
     </svg>`,
   },
-  {
-    id: 4,
-    title: 'Residential Security',
-    subtitle: 'Event & Asset Protection',
-    image: FuturisticGlobe,
-    icon: `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="17" cy="17" r="12" stroke="white" stroke-width="1.8"/>
-      <circle cx="17" cy="17" r="4" stroke="white" stroke-width="1.8"/>
-      <line x1="17" y1="5" x2="17" y2="11" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-      <line x1="17" y1="23" x2="17" y2="29" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-      <line x1="5" y1="17" x2="11" y2="17" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-      <line x1="23" y1="17" x2="29" y2="17" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-    </svg>`,
-  },
+  // {
+  //   id: 4,
+  //   title: 'Residential Security',
+  //   subtitle: 'Event & Asset Protection',
+  //   image: FuturisticGlobe,
+  //   icon: `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+  //     <circle cx="17" cy="17" r="12" stroke="white" stroke-width="1.8"/>
+  //     <circle cx="17" cy="17" r="4" stroke="white" stroke-width="1.8"/>
+  //     <line x1="17" y1="5" x2="17" y2="11" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+  //     <line x1="17" y1="23" x2="17" y2="29" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+  //     <line x1="5" y1="17" x2="11" y2="17" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+  //     <line x1="23" y1="17" x2="29" y2="17" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+  //   </svg>`,
+  // },
   {
     id: 5,
     title: 'Celebrity Security',
     subtitle: 'Event & Asset Protection',
     image: CelebrityProtection,
     icon: `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="17" cy="17" r="12" stroke="white" stroke-width="1.8"/>
-      <circle cx="17" cy="17" r="4" stroke="white" stroke-width="1.8"/>
-      <line x1="17" y1="5" x2="17" y2="11" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-      <line x1="17" y1="23" x2="17" y2="29" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-      <line x1="5" y1="17" x2="11" y2="17" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-      <line x1="23" y1="17" x2="29" y2="17" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="17" cy="11" r="5.5" stroke="white" stroke-width="1.8"/>
+      <path d="M6 30c0-6.075 4.925-11 11-11s11 4.925 11 11" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="8" cy="14" r="3.8" stroke="rgba(255,255,255,0.7)" stroke-width="1.4"/>
+      <path d="M2 28c0-3.866 3.134-7 7-7" stroke="rgba(255,255,255,0.7)" stroke-width="1.4" stroke-linecap="round"/>
+      <circle cx="26" cy="14" r="3.8" stroke="rgba(255,255,255,0.7)" stroke-width="1.4"/>
+      <path d="M32 28c0-3.866-3.134-7-7-7" stroke="rgba(255,255,255,0.7)" stroke-width="1.4" stroke-linecap="round"/>
     </svg>`,
   },
   {
@@ -85,12 +85,12 @@ const services = [
     subtitle: 'Event & Asset Protection',
     image: CorporateSecurity,
     icon: `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="17" cy="17" r="12" stroke="white" stroke-width="1.8"/>
-      <circle cx="17" cy="17" r="4" stroke="white" stroke-width="1.8"/>
-      <line x1="17" y1="5" x2="17" y2="11" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-      <line x1="17" y1="23" x2="17" y2="29" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-      <line x1="5" y1="17" x2="11" y2="17" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-      <line x1="23" y1="17" x2="29" y2="17" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="17" cy="11" r="5.5" stroke="white" stroke-width="1.8"/>
+      <path d="M6 30c0-6.075 4.925-11 11-11s11 4.925 11 11" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="8" cy="14" r="3.8" stroke="rgba(255,255,255,0.7)" stroke-width="1.4"/>
+      <path d="M2 28c0-3.866 3.134-7 7-7" stroke="rgba(255,255,255,0.7)" stroke-width="1.4" stroke-linecap="round"/>
+      <circle cx="26" cy="14" r="3.8" stroke="rgba(255,255,255,0.7)" stroke-width="1.4"/>
+      <path d="M32 28c0-3.866-3.134-7-7-7" stroke="rgba(255,255,255,0.7)" stroke-width="1.4" stroke-linecap="round"/>
     </svg>`,
   },
 ]
@@ -191,11 +191,11 @@ export default function SecurityServicesCards() {
       padding: 'clamp(48px,7vw,60px) clamp(20px,5vw,30px)',
       overflow: 'hidden',
       backgroundImage:`url(${Bg.src})`,
-      backgroundSize:"100% 100%",
-      backgroundPosition:"cover",
+      backgroundSize:"cover",
+      backgroundPosition:"center",
       // opacity:0.9,
       backgroundRepeat:"no-repeat",
-      zIndex:0
+      zIndex:1
     }}>
 
       <style>{`

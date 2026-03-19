@@ -1,470 +1,436 @@
 'use client'
 
 import { useRef, useEffect } from 'react'
-import Owners  from "@/assets/Team_ISSS-removebg-preview.png"
-// ── Animated particle canvas ──────────────────────────────
-function ParticleBg() {
-  const ref = useRef<HTMLCanvasElement>(null)
-  useEffect(() => {
-    const canvas = ref.current
-    if (!canvas) return
-    const ctx = canvas.getContext('2d')!
-    let raf: number, w = 0, h = 0
-    interface P { x: number; y: number; vx: number; vy: number; r: number; o: number }
-    let pts: P[] = []
+import { motion, useInView } from 'framer-motion'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-    const init = () => {
-      w = canvas.width = canvas.offsetWidth
-      h = canvas.height = canvas.offsetHeight
-      pts = Array.from({ length: 90 }, () => ({
-        x: Math.random() * w, y: Math.random() * h,
-        vx: (Math.random() - .5) * 0.35, vy: (Math.random() - .5) * 0.35,
-        r: Math.random() * 1.6 + 0.5, o: Math.random() * 0.5 + 0.15,
-      }))
-    }
+gsap.registerPlugin(ScrollTrigger)
 
-    const draw = () => {
-      raf = requestAnimationFrame(draw)
-      ctx.clearRect(0, 0, w, h)
-      pts.forEach(p => {
-        p.x += p.vx; p.y += p.vy
-        if (p.x < 0) p.x = w; if (p.x > w) p.x = 0
-        if (p.y < 0) p.y = h; if (p.y > h) p.y = 0
-      })
-      for (let i = 0; i < pts.length; i++) {
-        for (let j = i + 1; j < pts.length; j++) {
-          const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y
-          const d = Math.sqrt(dx * dx + dy * dy)
-          if (d < 120) {
-            ctx.beginPath(); ctx.moveTo(pts[i].x, pts[i].y); ctx.lineTo(pts[j].x, pts[j].y)
-            ctx.strokeStyle = `rgba(0,150,255,${0.11 * (1 - d / 120)})`; ctx.lineWidth = 0.5; ctx.stroke()
-          }
-        }
-      }
-      pts.forEach(p => {
-        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(0,190,255,${p.o})`; ctx.fill()
-      })
-      // static dot grid
-      const gap = 26
-      for (let gx = gap; gx < w; gx += gap)
-        for (let gy = gap; gy < h; gy += gap) {
-          ctx.beginPath(); ctx.arc(gx, gy, 0.8, 0, Math.PI * 2)
-          ctx.fillStyle = 'rgba(0,120,220,0.09)'; ctx.fill()
-        }
-    }
-    init(); window.addEventListener('resize', init); draw()
-    return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', init) }
-  }, [])
-  return <canvas ref={ref} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 0 }} />
-}
-
-// ── Shield SVG icon ───────────────────────────────────────
-const ShieldIcon = () => (
-  <svg viewBox="0 0 50 56" width="40" height="46" fill="none">
-    <path d="M25 2L46 10v18C46 44 35 52 25 54 15 52 4 44 4 28V10z" stroke="url(#sg)" strokeWidth="2"/>
-    <path d="M19 27l5 5 10-12" stroke="#00aaff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#0077ff"/><stop offset="1" stopColor="#00aaff"/></linearGradient></defs>
-  </svg>
-)
-
-const TeamIcon = () => (
-  <svg viewBox="0 0 56 48" width="46" height="40" fill="none">
-    <defs><linearGradient id="tg" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#0077ff"/><stop offset="1" stopColor="#00aaff"/></linearGradient></defs>
-    <circle cx="14" cy="14" r="7" stroke="url(#tg)" strokeWidth="1.8"/>
-    <path d="M4 38c0-5.523 4-10 10-10s10 4.477 10 10" stroke="url(#tg)" strokeWidth="1.8" strokeLinecap="round"/>
-    <circle cx="42" cy="14" r="7" stroke="url(#tg)" strokeWidth="1.8"/>
-    <path d="M32 38c0-5.523 4-10 10-10s10 4.477 10 10" stroke="url(#tg)" strokeWidth="1.8" strokeLinecap="round"/>
-    <circle cx="28" cy="12" r="8" stroke="url(#tg)" strokeWidth="2"/>
-    <path d="M16 42c0-6 5-12 12-12s12 6 12 12" stroke="url(#tg)" strokeWidth="2" strokeLinecap="round"/>
-  </svg>
-)
-
-const GlobeIcon = () => (
-  <svg viewBox="0 0 48 48" width="42" height="42" fill="none">
-    <defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#0077ff"/><stop offset="1" stopColor="#00aaff"/></linearGradient></defs>
-    <circle cx="24" cy="24" r="20" stroke="url(#gg)" strokeWidth="2"/>
-    <ellipse cx="24" cy="24" rx="10" ry="20" stroke="url(#gg)" strokeWidth="1.5"/>
-    <line x1="4" y1="24" x2="44" y2="24" stroke="url(#gg)" strokeWidth="1.5"/>
-    <line x1="8" y1="14" x2="40" y2="14" stroke="url(#gg)" strokeWidth="1" opacity=".7"/>
-    <line x1="8" y1="34" x2="40" y2="34" stroke="url(#gg)" strokeWidth="1" opacity=".7"/>
-  </svg>
-)
-
-// ── Corner brackets component ─────────────────────────────
-const Brackets = ({ size = 32, color = '#00aaff', glow = '#0066cc' }: { size?: number; color?: string; glow?: string }) => {
-  const s = size, sw = 2, r = `drop-shadow(0 0 4px ${glow})`
-  const p = { fill: 'none' as const, stroke: color, strokeWidth: sw, strokeLinecap: 'round' as const }
-  return (
-    <>
-      {[
-        [`M3,${s*.55} L3,3 L${s*.55},3`, 'top-0 left-0'],
-        [`M${s*.45},3 L${s-3},3 L${s-3},${s*.55}`, 'top-0 right-0'],
-        [`M3,${s*.45} L3,${s-3} L${s*.55},${s-3}`, 'bottom-0 left-0'],
-        [`M${s*.45},${s-3} L${s-3},${s-3} L${s-3},${s*.45}`, 'bottom-0 right-0'],
-      ].map(([d, cls], i) => (
-        <svg key={i} className={`absolute ${cls} pointer-events-none corner-svg`} width={s} height={s} style={{ filter: r }}>
-          <path d={d as string} {...p} />
-        </svg>
-      ))}
-    </>
-  )
-}
-
-// ── Large security scene SVG ──────────────────────────────
-const AgentScene = () => (
-  <svg viewBox="0 0 400 280" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <radialGradient id="abg" cx="50%" cy="50%" r="70%">
-        <stop offset="0%" stopColor="#0a1e35"/><stop offset="100%" stopColor="#020c18"/>
-      </radialGradient>
-      <linearGradient id="gnd" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stopColor="#0033aa" stopOpacity=".35"/><stop offset="100%" stopColor="transparent" stopOpacity="0"/>
-      </linearGradient>
-      <filter id="ag"><feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    </defs>
-    <rect width="400" height="280" fill="url(#abg)"/>
-    {/* Ground */}
-    <rect x="0" y="240" width="400" height="40" fill="#040c18"/>
-    <rect x="0" y="238" width="400" height="6" fill="url(#gnd)"/>
-    {/* BG car */}
-    <rect x="240" y="130" width="160" height="68" rx="7" fill="#040d1a"/>
-    <rect x="258" y="112" width="122" height="42" rx="5" fill="#050e1c"/>
-    <ellipse cx="268" cy="200" rx="14" ry="14" fill="#020810" stroke="#0a1828" strokeWidth="2"/>
-    <ellipse cx="372" cy="200" rx="14" ry="14" fill="#020810" stroke="#0a1828" strokeWidth="2"/>
-    <rect x="252" y="140" width="28" height="16" rx="2" fill="#060f1e" opacity=".8"/>
-    <rect x="308" y="140" width="28" height="16" rx="2" fill="#060f1e" opacity=".8"/>
-    {/* Agent 1 */}
-    <g filter="url(#ag)">
-      <ellipse cx="95" cy="54" rx="26" ry="30" fill="#0c1e32"/>
-      <rect x="67" y="82" width="56" height="120" rx="5" fill="#07101e"/>
-      <path d="M79 84l16 18 16-18" fill="none" stroke="#0d1d2e" strokeWidth="3"/>
-      <rect x="90" y="84" width="10" height="70" rx="2" fill="#1a1a2a"/>
-      <rect x="70" y="198" width="20" height="48" rx="5" fill="#050d1a"/>
-      <rect x="96" y="198" width="20" height="48" rx="5" fill="#050d1a"/>
-      <ellipse cx="80" cy="246" rx="18" ry="7" fill="#030810"/>
-      <ellipse cx="106" cy="246" rx="18" ry="7" fill="#030810"/>
-      <path d="M67 88Q44 136 42 178" stroke="#07101e" strokeWidth="22" strokeLinecap="round" fill="none"/>
-      <path d="M123 88Q144 136 142 178" stroke="#07101e" strokeWidth="22" strokeLinecap="round" fill="none"/>
-      <ellipse cx="42" cy="180" rx="12" ry="10" fill="#060e1c"/>
-      <ellipse cx="142" cy="180" rx="12" ry="10" fill="#060e1c"/>
-      <rect x="76" y="46" width="14" height="9" rx="4" fill="#030810"/>
-      <rect x="96" y="46" width="14" height="9" rx="4" fill="#030810"/>
-      <line x1="90" y1="50" x2="96" y2="50" stroke="#0a1420" strokeWidth="2"/>
-    </g>
-    {/* Agent 2 */}
-    <g transform="translate(155,20)" filter="url(#ag)">
-      <ellipse cx="55" cy="46" rx="22" ry="26" fill="#0b1c2e"/>
-      <rect x="31" y="70" width="48" height="110" rx="5" fill="#060f1c"/>
-      <path d="M43 72l12 16 12-16" fill="none" stroke="#0c1a2a" strokeWidth="3"/>
-      <rect x="38" y="178" width="18" height="46" rx="5" fill="#050c18"/>
-      <rect x="62" y="178" width="18" height="46" rx="5" fill="#050c18"/>
-      <ellipse cx="47" cy="224" rx="16" ry="7" fill="#030810"/>
-      <ellipse cx="71" cy="224" rx="16" ry="7" fill="#030810"/>
-      <path d="M31 74Q12 118 10 158" stroke="#060f1c" strokeWidth="20" strokeLinecap="round" fill="none"/>
-      <path d="M79 74Q96 118 94 158" stroke="#060f1c" strokeWidth="20" strokeLinecap="round" fill="none"/>
-    </g>
-    {/* Reflection lines */}
-    <line x1="60" y1="245" x2="200" y2="245" stroke="#0033aa" strokeWidth="0.5" opacity=".4"/>
-  </svg>
-)
-
-// ── Small scene SVGs ──────────────────────────────────────
-const SmallScene = ({ v }: { v: number }) => {
-  const bgs = ['#08182c','#091520','#0a1828']
-  const fc = ['#060f1c','#050d1a','#060e1c']
-  return (
-    <>
-      { v === 0 && <>
-        <img src={Owners.src} alt="" />
-      </>}
-      {v === 1 && <>
-        <img src={Owners.src} alt="" />
-      </>}
-      {v === 2 && <>
-        <img src={Owners.src} alt="" />
-      </>
-    }
-    </>
-
-  )
-}
-
-// ── HUD frame wrapper ─────────────────────────────────────
-const HUDFrame = ({ children, small }: { children: React.ReactNode; small?: boolean }) => (
-  <div className="hud-frame" style={{
-    position: 'relative',
-    borderRadius: small ? 8 : 10,
-    padding: 2,
-    background: 'linear-gradient(135deg,rgba(0,120,255,.5),rgba(0,60,160,.2),rgba(0,200,255,.4))',
-  }}>
-    <div style={{
-      position: 'relative', borderRadius: small ? 6 : 8,
-      overflow: 'hidden', background: '#040e1e',
-    }}>
-      {/* Scan lines */}
-      <div style={{ position:'absolute', inset:0, zIndex:2, pointerEvents:'none', background:'repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,70,180,0.04) 3px,rgba(0,70,180,0.04) 4px)' }} />
-      {/* Status dot */}
-      {!small && <div style={{ position:'absolute', bottom:8, right:10, zIndex:3, width:7, height:7, borderRadius:'50%', background:'#00aaff', boxShadow:'0 0 8px #0077ff', animation:'twinkle 1.5s ease-in-out infinite' }} />}
-      <Brackets size={small ? 22 : 36} color={small ? '#0088ff' : '#00aaff'} glow={small ? '#0055cc' : '#0077ff'} />
-      <div style={{ position:'relative', zIndex:1 }}>{children}</div>
-    </div>
-  </div>
-)
-
-// ── Stats data ────────────────────────────────────────────
-const stats = [
-  { icon: <ShieldIcon />, value: '25+ YEARS', label: 'Of Experience' },
-  { icon: <TeamIcon />,   value: 'ELITE',     label: 'Security Forces' },
-  { icon: <GlobeIcon />,  value: 'GLOBAL',    label: 'Services' },
+// ── Data ───────────────────────────────────────────────────
+const STATS = [
+  { value: '2012', label: 'Established' },
+  { value: '25+',  label: 'Years Combined Experience' },
+  { value: '7',    label: 'Global Locations' },
+  { value: '24/7', label: 'Operational Readiness' },
+]
+const SERVICES = [
+  { title: 'Close Protection',      desc: 'Discreet, close-range protection for individuals requiring constant security in both public and private environments.' },
+  { title: 'Executive Protection',  desc: 'Comprehensive, intelligence-led protection strategies designed for executives, high-net-worth individuals, and corporate leaders.' },
+  { title: 'Secure Transportation', desc: 'Professional security drivers and controlled vehicle operations ensuring safe, efficient, and confidential movement.' },
+]
+const ADDITIONAL = [
+  'Private and corporate security', 'Child and family protection',
+  'Protection of assets and high-value goods', 'Close protection chauffeur services',
+  'Residential security teams',
+]
+const LOCATIONS = [
+  'Tirana, Albania', 'Rome, Italy', 'Dubai, UAE',
+  'Abu Dhabi, UAE',  'Doha, Qatar', 'New York City, USA',
+  'London, United Kingdom',
+]
+const STANDARDS = ['Discretion', 'Precision', 'Reliability', 'Operational excellence']
+const REASONS = [
+  'Elite, vetted professionals with military and special forces backgrounds',
+  'Global operational capability',
+  'Tailored, client-focused security solutions',
+  'Proven experience in complex and high-risk environments',
+  'Uncompromising commitment to quality and professionalism',
 ]
 
-// ── Main export ───────────────────────────────────────────
-export default function AboutPage() {
+// ── Spark canvas ───────────────────────────────────────────
+function SparkBg() {
+  const ref = useRef<HTMLCanvasElement>(null)
+  useEffect(() => {
+    const c = ref.current; if (!c) return
+    const ctx = c.getContext('2d')!
+    let raf: number
+    const resize = () => { c.width = c.offsetWidth; c.height = c.offsetHeight }
+    resize(); window.addEventListener('resize', resize)
+    interface S { x:number;y:number;vx:number;vy:number;life:number;max:number;r:number }
+    const sparks: S[] = []
+    let f = 0
+    const draw = () => {
+      raf = requestAnimationFrame(draw); f++
+      ctx.clearRect(0, 0, c.width, c.height)
+      if (f % 8 === 0)
+        for (let i = 0; i < 2; i++)
+          sparks.push({ x:Math.random()*c.width, y:Math.random()*c.height, vx:(Math.random()-.5)*.4, vy:-Math.random()*.5-.1, life:0, max:80+Math.random()*100, r:Math.random()*1.5+.4 })
+      for (let gx = 24; gx < c.width; gx += 24)
+        for (let gy = 24; gy < c.height; gy += 24) {
+          ctx.beginPath(); ctx.arc(gx, gy, .8, 0, Math.PI*2)
+          ctx.fillStyle = 'rgba(180,10,10,0.08)'; ctx.fill()
+        }
+      for (let i = sparks.length-1; i >= 0; i--) {
+        const s = sparks[i]; s.x+=s.vx; s.y+=s.vy; s.life++
+        if (s.life > s.max) { sparks.splice(i,1); continue }
+        const a = Math.sin((s.life/s.max)*Math.PI)*.6
+        ctx.beginPath(); ctx.arc(s.x,s.y,s.r,0,Math.PI*2)
+        ctx.fillStyle=`rgba(220,30,30,${a})`; ctx.shadowBlur=6; ctx.shadowColor='rgba(200,20,20,.4)'; ctx.fill(); ctx.shadowBlur=0
+      }
+    }
+    draw()
+    return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', resize) }
+  }, [])
+  return <canvas ref={ref} style={{position:'fixed',inset:0,width:'100%',height:'100%',zIndex:0,pointerEvents:'none'}}/>
+}
+
+// ── Reveal wrapper ─────────────────────────────────────────
+function Reveal({ children, delay=0, className='' }: { children: React.ReactNode; delay?: number; className?: string }) {
+  const r = useRef<HTMLDivElement>(null)
+  const v = useInView(r, { once: true, margin: '-50px' })
+  return (
+    <motion.div ref={r} initial={{ opacity:0, y:24 }} animate={v?{opacity:1,y:0}:{}}
+      transition={{ duration:.62, delay, ease:[.22,1,.36,1] }} className={className}>
+      {children}
+    </motion.div>
+  )
+}
+
+// ── Section label ──────────────────────────────────────────
+function Label({ children }: { children: React.ReactNode }) {
+  return (
+    <div style={{ display:'flex', alignItems:'center', gap:8, marginBottom:'clamp(10px,1.5vw,16px)' }}>
+      <span style={{ width:18, height:1.5, background:'rgba(200,30,30,0.65)', display:'block', flexShrink:0 }}/>
+      <p style={{ fontSize:'clamp(8px,1vw,10px)', fontWeight:700, letterSpacing:'0.28em', color:'rgba(200,50,50,0.85)', textTransform:'uppercase', margin:0 }}>
+        {children}
+      </p>
+    </div>
+  )
+}
+
+// ── Futuristic card ────────────────────────────────────────
+function FCard({ children, accent=false, style={} }: { children: React.ReactNode; accent?: boolean; style?: React.CSSProperties }) {
+  return (
+    <div style={{
+      position:'relative', padding:'clamp(16px,2.5vw,28px)', overflow:'hidden',
+      border: accent ? '1px solid rgba(200,30,30,0.35)' : '1px solid rgba(255,255,255,0.07)',
+      background: accent ? 'linear-gradient(135deg,rgba(120,0,0,0.18),rgba(0,0,0,0.4))' : 'rgba(255,255,255,0.035)',
+      backdropFilter:'blur(10px)',
+      clipPath:'polygon(0 0,calc(100% - 12px) 0,100% 12px,100% 100%,12px 100%,0 calc(100% - 12px))',
+      ...style,
+    }}>
+      <span style={{position:'absolute',top:0,left:0,width:10,height:10,borderTop:'1.5px solid rgba(200,30,30,0.55)',borderLeft:'1.5px solid rgba(200,30,30,0.55)'}}/>
+      <span style={{position:'absolute',bottom:0,right:0,width:10,height:10,borderBottom:'1.5px solid rgba(200,30,30,0.55)',borderRight:'1.5px solid rgba(200,30,30,0.55)'}}/>
+      {children}
+    </div>
+  )
+}
+
+// ── Pill tag ───────────────────────────────────────────────
+function Pill({ children, red=false }: { children: React.ReactNode; red?: boolean }) {
+  return (
+    <div style={{
+      padding:'clamp(7px,1vw,10px) clamp(10px,1.5vw,14px)',
+      fontSize:'clamp(11px,1.3vw,14px)', lineHeight:1.4,
+      border: red ? '1px solid rgba(200,30,30,0.3)' : '1px solid rgba(255,255,255,0.08)',
+      background: red ? 'rgba(100,0,0,0.18)' : 'rgba(0,0,0,0.3)',
+      color: red ? '#e8a0a0' : '#c0c0c0',
+      clipPath:'polygon(0 0,calc(100% - 7px) 0,100% 7px,100% 100%,7px 100%,0 calc(100% - 7px))',
+    }}>
+      {children}
+    </div>
+  )
+}
+
+// ── Bullet list ────────────────────────────────────────────
+function BList({ items }: { items: string[] }) {
+  return (
+    <div style={{ display:'flex', flexDirection:'column', gap:'clamp(8px,1.2vw,12px)' }}>
+      {items.map((item,i) => (
+        <div key={i} style={{ display:'flex', alignItems:'flex-start', gap:10 }}>
+          <span style={{ width:5,height:5,borderRadius:'50%',background:'rgba(220,40,40,0.8)',flexShrink:0,marginTop:'clamp(4px,0.6vw,7px)',boxShadow:'0 0 5px rgba(200,20,20,0.5)' }}/>
+          <p style={{ fontSize:'clamp(12px,1.4vw,15px)', color:'#e0e0e0', lineHeight:1.6, margin:0 }}>{item}</p>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+// ── Body text helper ───────────────────────────────────────
+const bodyStyle = (color='#c0c0c0', mb=12): React.CSSProperties => ({
+  fontSize: 'clamp(13px,1.4vw,16px)', color, lineHeight:1.7, marginBottom:mb,
+})
+
+// ── Main ───────────────────────────────────────────────────
+export default function AboutUsPage() {
+  const pageRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo('.about-hero-h1 span', { opacity:0, y:28 },
+        { opacity:1, y:0, duration:.65, stagger:.04, ease:'power3.out', delay:.2 })
+    }, pageRef)
+    return () => ctx.revert()
+  }, [])
+
   return (
     <>
+      {/* ── Responsive styles ── */}
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap');
 
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-        @keyframes twinkle {
-          0%,100% { opacity:.15; transform:scale(.7); }
-          50%      { opacity:1;  transform:scale(1.6); }
+        /* Hero inner grid: side-by-side on md+, stacked on mobile */
+        .about-hero-inner {
+          display: grid;
+          grid-template-columns: 1fr auto;
+          gap: clamp(20px,3vw,40px);
+          align-items: end;
         }
-        @keyframes hudGlow {
-          0%,100% { box-shadow:0 0 22px rgba(0,100,220,.5),0 0 50px rgba(0,60,180,.3); }
-          50%      { box-shadow:0 0 36px rgba(0,170,255,.75),0 0 80px rgba(0,100,220,.45); }
-        }
-        @keyframes cornerPulse {
-          0%,100% { opacity:.8; }
-          50%      { opacity:1; filter:drop-shadow(0 0 7px #00aaff); }
-        }
-        @keyframes btnGlow {
-          0%,100% { box-shadow:0 0 14px rgba(0,100,220,.55),0 0 30px rgba(0,60,180,.3); }
-          50%      { box-shadow:0 0 24px rgba(0,170,255,.8),0 0 50px rgba(0,100,220,.4); }
-        }
-        @keyframes scanMove {
-          0%   { top:-4%; opacity:.8; }
-          100% { top:110%; opacity:0; }
+        @media (max-width: 640px) {
+          .about-hero-inner {
+            grid-template-columns: 1fr;
+          }
+          .about-stats-card {
+            min-width: unset !important;
+            width: 100%;
+          }
         }
 
-        .hud-frame { animation: hudGlow 3.5s ease-in-out infinite; border-radius:10px; }
-        .corner-svg { animation: cornerPulse 2.5s ease-in-out infinite; }
-
-        .learn-btn {
-          animation: btnGlow 2.5s ease-in-out infinite;
-          transition: transform .2s, background .2s;
-        }
-        .learn-btn:hover {
-          background: linear-gradient(90deg,#0055dd,#0088ff,#0055dd) !important;
-          transform: translateY(-2px);
-        }
-
-        .stat-icon { transition: transform .3s, filter .3s; filter:drop-shadow(0 0 5px #0055cc); }
-        .stat-card:hover .stat-icon { transform:scale(1.1); filter:drop-shadow(0 0 10px #00aaff); }
-
-        /* ── About page section ── */
-        .about-section {
-          position: relative;
-          min-height: 100vh;
-          display: flex;
+        /* CTA bottom grid: side-by-side on md+, stacked on mobile */
+        .about-cta-inner {
+          display: grid;
+          grid-template-columns: 1fr auto;
+          gap: clamp(20px,3vw,40px);
           align-items: center;
-          justify-content: center;
-          overflow: hidden;
-          background: linear-gradient(155deg,#020c1a 0%,#031525 45%,#051d35 75%,#020c1a 100%);
-          padding: clamp(48px,7vw,96px) clamp(18px,5vw,60px);
-          font-family: 'Barlow', sans-serif;
+          position: relative;
+        }
+        @media (max-width: 640px) {
+          .about-cta-inner {
+            grid-template-columns: 1fr;
+          }
+          .about-cta-btns {
+            flex-direction: row !important;
+            flex-wrap: wrap;
+          }
+          .about-cta-btns button {
+            flex: 1;
+            min-width: 140px;
+          }
         }
 
-        /* Perspective floor */
-        .about-section::after {
-          content:'';
-          position:absolute; bottom:0; left:0; right:0; height:36%;
-          background-image:
-            linear-gradient(rgba(0,120,220,.055) 1px,transparent 1px),
-            linear-gradient(90deg,rgba(0,120,220,.055) 1px,transparent 1px);
-          background-size:50px 50px;
-          transform:perspective(500px) rotateX(60deg);
-          transform-origin:bottom;
-          pointer-events:none; z-index:1;
-        }
-
-        .about-inner {
-          position:relative; z-index:2;
-          width:100%; max-width:1200px; margin:0 auto;
-          display:grid;
-          grid-template-columns:1fr 1fr;
-          gap:clamp(28px,5vw,60px);
-          align-items:start;
-        }
-
-        @media(max-width:900px){
-          .about-inner { grid-template-columns:1fr; gap:36px; }
-          .right-col { order: -1; }
-        }
-
-        /* Left text */
-        .tag-row { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
-        .tag-dash { width:70px; height:1px; background:linear-gradient(90deg,#0066cc,transparent); }
-        .tag-label { color:#5a80a0; font-size:15px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; }
-
-        .main-title {
-          font-family:'Barlow Condensed',sans-serif;
-          font-size:clamp(2rem,6vw,6rem);
-          font-weight:900; line-height:1.02;
-          margin-bottom:clamp(16px,2vw,24px);
-        }
-        .title-white { color:#fff; display:block; text-shadow:0 0 28px rgba(255,255,255,.18); }
-        .title-blue  { color:#1a9fff; display:block; text-shadow:0 0 18px #0077ff,0 0 38px #0055cc,0 0 65px #003399; letter-spacing:-.01em; }
-
-        .title-bar {
-          width:56px; height:3px;
-          background:linear-gradient(90deg,#0077ff,#00aaff);
-          border-radius:2px; box-shadow:0 0 10px #0077ff;
-          margin-bottom:clamp(18px,2.5vw,28px);
-        }
-
-        .stats-row {
-          display:flex; gap:clamp(20px,4vw,48px);
-          margin-bottom:clamp(18px,2.5vw,28px);
-          flex-wrap:wrap;
-        }
-        .stat-card { display:flex; flex-direction:column; align-items:center; gap:5px; min-width:72px; cursor:default; }
-        .stat-value {
-          color:#1a9fff;
-          font-family:'Barlow Condensed',sans-serif;
-          font-weight:800; font-size:clamp(.8rem,1.8vw,1.95rem);
-          letter-spacing:.06em;
-          text-shadow:0 0 10px #0077ff;
-        }
-        .stat-label { color:#5a7a90; font-size:9px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; text-align:center; }
-
-        .body-text { color:#8aaabf; font-size:clamp(13px,1.4vw,20px); line-height:1.7; margin-bottom:clamp(18px,2.5vw,28px); max-width:480px; }
-        .body-text span.hl { color:#1a9fff; font-weight:700; text-shadow:0 0 8px #0066ff; }
-
-        /* Right column images */
-        .right-col { display:flex; flex-direction:column; gap:clamp(10px,1.5vw,16px); }
-        .small-row { display:flex; gap:clamp(8px,1.2vw,14px); }
-        .small-item { flex:1; }
-
-        /* Circuit traces */
-        .circuits {
-          position:absolute; inset:0; pointer-events:none;
-          z-index:1; opacity:.22;
+        /* Badge text truncate on tiny screens */
+        @media (max-width: 420px) {
+          .about-badge-text { font-size: 7px !important; letter-spacing: 0.16em !important; }
         }
       `}</style>
 
-      <section className="about-section">
-        <ParticleBg />
+      <div ref={pageRef} style={{ minHeight:'100vh', background:'#000', color:'#e0e0e0', position:'relative', overflowX:'hidden', paddingTop:12 }}>
+        <SparkBg/>
+        <div style={{ position:'fixed', inset:0, zIndex:0, pointerEvents:'none',
+          background:'radial-gradient(ellipse 80% 55% at 50% 0%, rgba(140,0,0,0.22) 0%, transparent 70%)' }}/>
 
-        {/* Circuit traces */}
-        <svg className="circuits" xmlns="http://www.w3.org/2000/svg">
-          <line x1="0" y1="10%" x2="7%" y2="10%" stroke="#0077ff" strokeWidth="1"/>
-          <circle cx="7%" cy="10%" r="2.5" fill="#00aaff"/>
-          <line x1="7%" y1="10%" x2="7%" y2="22%" stroke="#0077ff" strokeWidth="1"/>
-          <circle cx="7%" cy="22%" r="2" fill="#00aaff"/>
-          <line x1="7%" y1="22%" x2="20%" y2="22%" stroke="#0077ff" strokeWidth="1"/>
-          <line x1="0" y1="88%" x2="10%" y2="88%" stroke="#0077ff" strokeWidth="1"/>
-          <circle cx="10%" cy="88%" r="2" fill="#00aaff"/>
-          <line x1="10%" y1="88%" x2="10%" y2="76%" stroke="#0077ff" strokeWidth="1"/>
-          <line x1="100%" y1="15%" x2="93%" y2="15%" stroke="#0077ff" strokeWidth="1"/>
-          <circle cx="93%" cy="15%" r="2.5" fill="#00aaff"/>
-          <line x1="93%" y1="15%" x2="93%" y2="28%" stroke="#0077ff" strokeWidth="1"/>
-          <line x1="100%" y1="80%" x2="91%" y2="80%" stroke="#0077ff" strokeWidth="1"/>
-          <circle cx="91%" cy="80%" r="2" fill="#00aaff"/>
-          {[[3,45],[5,68],[14,92],[88,44],[96,60],[48,4],[72,94],[25,6]].map(([x,y],i)=>(
-            <circle key={i} cx={`${x}%`} cy={`${y}%`} r="1.5" fill="#00ccff" opacity=".8"/>
-          ))}
-        </svg>
+        <main style={{
+          position:'relative', zIndex:2,
+          maxWidth:1200, margin:'0 auto',
+          padding:'clamp(72px,10vw,120px) clamp(14px,5vw,48px) clamp(48px,8vw,100px)',
+        }}>
 
-        {/* Ambient blobs */}
-        {[{l:'8%',t:'50%',w:480,c:'#001d55'},{l:'75%',t:'35%',w:400,c:'#002e88'},{l:'50%',t:'88%',w:300,c:'#001133'}].map((b,i)=>(
-          <div key={i} style={{ position:'absolute', left:b.l, top:b.t, width:b.w, height:b.w, borderRadius:'50%', background:`radial-gradient(circle,${b.c} 0%,transparent 70%)`, filter:'blur(65px)', opacity:.45, transform:'translate(-50%,-50%)', zIndex:0, pointerEvents:'none' }}/>
-        ))}
+          {/* ══ SECTION 1 — Hero ══════════════════════════ */}
+          <section style={{
+            display:'grid', gridTemplateColumns:'1fr',
+            gap:'clamp(24px,4vw,48px)',
+            paddingBottom:'clamp(32px,5vw,60px)',
+            borderBottom:'1px solid rgba(200,30,30,0.14)',
+            marginBottom:'clamp(32px,5vw,56px)',
+          }}>
 
-        <div className="about-inner">
-
-          {/* ── LEFT: text ── */}
-          <div>
-            <div className="tag-row">
-              <span className="tag-label">About Us</span>
-              <div className="tag-dash" />
-            </div>
-
-            <h1 className="main-title">
-              <span className="title-white">We Are</span>
-              <span className="title-blue">Statement</span>
-              <span className="title-white">Security</span>
-            </h1>
-            <div className="title-bar" />
-
-            {/* Stats */}
-            <div className="stats-row">
-              {stats.map((s, i) => (
-                <div key={i} className="stat-card">
-                  <div className="stat-icon">{s.icon}</div>
-                  <span className="stat-value">{s.value}</span>
-                  <span className="stat-label">{s.label}</span>
-                </div>
-              ))}
-            </div>
-
-            <p className="body-text">
-              The safety and security of our clients is our ultimate goal. International Statement Security Services was founded in 2012 by an ex-special forces soldier and is recognised as the best bodyguard service.
-            </p>
-            <p className="body-text">
-              <span className="hl">With over 25 years</span> of experience in providing protection and bodyguard services, we also offer{' '}
-              <span className="hl">private security, close protection, asset protection, and residential security teams.</span>
-            </p>
-
-            <button className="learn-btn" style={{
-              background:'linear-gradient(90deg,#0033aa,#0055cc,#0033aa)',
-              border:'1.5px solid #0077ff',
-              borderRadius:6,
-              padding:'12px 28px',
-              color:'#fff',
-              fontSize:13, fontWeight:700,
-              fontFamily:"'Barlow Condensed',sans-serif",
-              letterSpacing:'.16em',
-              textTransform:'uppercase',
-              cursor:'pointer',
-              display:'flex', alignItems:'center', gap:10,
-            }}>
-              Learn More
-              <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
-                <path d="M2 2L7 7L2 12" stroke="#00aaff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M9 2L14 7L9 12" stroke="#00aaff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
-          </div>
-
-          {/* ── RIGHT: images ── */}
-          <div className="right-col">
-            {/* Large */}
-            <HUDFrame>
-              <div style={{ aspectRatio:'16/11', background:'#040e1e' }}>
-                {/* <AgentScene /> */}
-                <img src={Owners?.src}/>
+            {/* Badge */}
+            <motion.div initial={{opacity:0,y:14}} animate={{opacity:1,y:0}} transition={{duration:.55}}>
+              <div style={{ display:'inline-flex', alignItems:'center', gap:8, border:'1px solid rgba(200,30,30,0.3)', background:'rgba(100,0,0,0.15)', padding:'clamp(4px,0.6vw,6px) clamp(10px,1.5vw,16px)', clipPath:'polygon(0 0,calc(100% - 7px) 0,100% 7px,100% 100%,7px 100%,0 calc(100% - 7px))' }}>
+                <span style={{ width:5,height:5,borderRadius:'50%',background:'#cc2020',boxShadow:'0 0 6px rgba(200,20,20,0.7)',flexShrink:0 }}/>
+                <span className="about-badge-text" style={{ fontSize:'clamp(8px,1vw,11px)', fontWeight:700, letterSpacing:'0.22em', color:'rgba(200,80,80,0.9)', textTransform:'uppercase' }}>
+                  International Statement Security Services
+                </span>
               </div>
-            </HUDFrame>
+            </motion.div>
 
-            {/* Three small */}
-            <div className="small-row">
-              {[0,1,2].map(v => (
-                <div key={v} className="small-item">
-                  <HUDFrame small>
-                    <div style={{ aspectRatio:'4/3', background:'#030c18' }}>
-                      <SmallScene v={v} />
-                    </div>
-                  </HUDFrame>
+            {/* Hero inner: title + stats */}
+            <div className="about-hero-inner">
+              <div>
+                <h1 className="about-hero-h1" style={{ fontFamily:"'Orbitron',monospace", fontSize:'clamp(1.7rem,5.5vw,4rem)', fontWeight:900, lineHeight:1.05, letterSpacing:'0.04em', marginBottom:'clamp(14px,2vw,20px)' }}>
+                  {'About Us'.split('').map((ch,i) => (
+                    <span key={i} style={{ opacity:0, display: ch===' ' ? 'inline' : 'inline-block' }}>{ch}</span>
+                  ))}
+                </h1>
+                <p style={{ ...bodyStyle('#c0c0c0', 10), maxWidth:620 }}>
+                  Protection is not just a service — it is a responsibility we uphold with
+                  <strong style={{ color:'#fff', fontWeight:700 }}> precision, discipline, and absolute discretion.</strong>
+                </p>
+                <p style={{ ...bodyStyle('#999', 0), maxWidth:600 }}>
+                  Founded in 2012 by a former special forces professional, built on operational expertise and a commitment to delivering uncompromising security solutions. Today, we are a trusted global provider of close protection, executive protection, and secure transportation services.
+                </p>
+              </div>
+
+              {/* Stats grid */}
+              <Reveal delay={.28}>
+                <FCard accent style={{ minWidth:'clamp(180px,22vw,240px)' }} >
+                  <div className="about-stats-card" style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'clamp(12px,1.8vw,18px)' }}>
+                    {STATS.map(s => (
+                      <div key={s.label}>
+                        <div style={{ fontFamily:"'Orbitron',monospace", fontSize:'clamp(15px,2vw,22px)', fontWeight:700, color:'#fff', textShadow:'0 0 14px rgba(220,40,40,0.45)', lineHeight:1 }}>{s.value}</div>
+                        <div style={{ fontSize:'clamp(9px,1vw,11px)', color:'#666', marginTop:4, letterSpacing:'0.05em', lineHeight:1.3 }}>{s.label}</div>
+                      </div>
+                    ))}
+                  </div>
+                </FCard>
+              </Reveal>
+            </div>
+          </section>
+
+          {/* ══ SECTION 2 — Who We Are / Standard ══════════ */}
+          <section style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(min(100%,280px),1fr))', gap:'clamp(14px,2.5vw,22px)', marginBottom:'clamp(32px,5vw,56px)' }}>
+            <Reveal delay={.05}>
+              <FCard style={{ height:'100%' }}>
+                <Label>Who We Are</Label>
+                <p style={bodyStyle('#ddd', 10)}>We are a team of highly trained professionals drawn from elite military units, special forces, and law enforcement backgrounds.</p>
+                <p style={bodyStyle('#bbb', 10)}>With over 25 years of combined real-world experience, our operatives are selected for their ability to perform in high-pressure environments while maintaining the highest standards of professionalism and confidentiality.</p>
+                <p style={bodyStyle('#bbb', 0)}>Every assignment is approached with strategic planning, situational awareness, and attention to detail — ensuring our clients remain secure at all times.</p>
+              </FCard>
+            </Reveal>
+            <Reveal delay={.12}>
+              <FCard accent style={{ height:'100%' }}>
+                <Label>Our Standard</Label>
+                <p style={bodyStyle('#ddd', 16)}>Our personnel are carefully selected, highly experienced, and continuously trained to meet the demands of modern security challenges.</p>
+                <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:'clamp(8px,1.2vw,12px)', marginBottom:'clamp(14px,2vw,18px)' }}>
+                  {STANDARDS.map(s => (
+                    <motion.div key={s} whileHover={{ scale:1.03 }} transition={{ type:'spring', stiffness:300 }}>
+                      <Pill red>{s}</Pill>
+                    </motion.div>
+                  ))}
                 </div>
+                <p style={bodyStyle('#bbb', 0)}>We focus not only on response, but on prevention — identifying risks before they become threats.</p>
+              </FCard>
+            </Reveal>
+          </section>
+
+          {/* ══ SECTION 3 — What We Do ══════════════════════ */}
+          <section style={{ marginBottom:'clamp(32px,5vw,56px)' }}>
+            <Reveal><Label>What We Do</Label></Reveal>
+            <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(min(100%,220px),1fr))', gap:'clamp(12px,2vw,18px)', marginBottom:'clamp(12px,1.5vw,16px)' }}>
+              {SERVICES.map((s, i) => (
+                <Reveal key={s.title} delay={i*.1}>
+                  <motion.div whileHover={{ y:-4 }} transition={{ type:'spring', stiffness:250 }}>
+                    <FCard style={{ height:'100%' }}>
+                      <div style={{ fontFamily:"'Orbitron',monospace", fontSize:'clamp(9px,1vw,11px)', color:'rgba(200,40,40,0.6)', letterSpacing:'0.2em', marginBottom:'clamp(7px,1vw,10px)' }}>
+                        {String(i+1).padStart(2,'0')}
+                      </div>
+                      <h3 style={{ fontSize:'clamp(13px,1.6vw,18px)', fontWeight:700, color:'#fff', marginBottom:'clamp(7px,1vw,10px)', lineHeight:1.2 }}>{s.title}</h3>
+                      <p style={bodyStyle('#bbb', 0)}>{s.desc}</p>
+                    </FCard>
+                  </motion.div>
+                </Reveal>
               ))}
             </div>
-          </div>
+            <Reveal delay={.14}>
+              <FCard>
+                <p style={{ fontSize:'clamp(8px,1vw,11px)', fontWeight:700, letterSpacing:'0.22em', color:'rgba(200,50,50,0.8)', textTransform:'uppercase', marginBottom:'clamp(10px,1.2vw,14px)' }}>
+                  Additional Services
+                </p>
+                <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill,minmax(min(100%,160px),1fr))', gap:'clamp(7px,1vw,10px)' }}>
+                  {ADDITIONAL.map((a, i) => (
+                    <motion.div key={a} initial={{ opacity:0, x:-8 }} whileInView={{ opacity:1, x:0 }}
+                      viewport={{ once:true }} transition={{ delay: i*.06, duration:.38 }}>
+                      <Pill>{a}</Pill>
+                    </motion.div>
+                  ))}
+                </div>
+              </FCard>
+            </Reveal>
+          </section>
 
-        </div>
-      </section>
+          {/* ══ SECTION 4 — Locations / Why Us ═════════════ */}
+          <section style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(min(100%,280px),1fr))', gap:'clamp(14px,2.5vw,22px)', marginBottom:'clamp(32px,5vw,56px)' }}>
+            <Reveal delay={.05}>
+              <FCard style={{ height:'100%' }}>
+                <Label>Global Operations</Label>
+                <p style={bodyStyle('#ddd', 14)}>We operate across key international locations, delivering consistent, high-level protection worldwide.</p>
+                <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fill,minmax(min(100%,140px),1fr))', gap:'clamp(6px,1vw,8px)', marginBottom:14 }}>
+                  {LOCATIONS.map((loc, i) => (
+                    <motion.div key={loc} initial={{ opacity:0, scale:.9 }} whileInView={{ opacity:1, scale:1 }}
+                      viewport={{ once:true }} transition={{ delay:i*.055 }}>
+                      <Pill red>{loc}</Pill>
+                    </motion.div>
+                  ))}
+                </div>
+                <p style={bodyStyle('#aaa', 0)}>Our global presence allows us to support clients seamlessly across multiple regions and environments.</p>
+              </FCard>
+            </Reveal>
+            <Reveal delay={.12}>
+              <FCard accent style={{ height:'100%' }}>
+                <Label>Why Choose Us</Label>
+                <BList items={REASONS} />
+              </FCard>
+            </Reveal>
+          </section>
+
+          {/* ══ SECTION 5 — CTA ════════════════════════════ */}
+          <Reveal>
+            <div style={{
+              position:'relative', padding:'clamp(22px,4vw,46px)',
+              border:'1px solid rgba(200,30,30,0.3)',
+              background:'linear-gradient(135deg, rgba(120,0,0,0.22) 0%, rgba(0,0,0,0.5) 100%)',
+              backdropFilter:'blur(12px)',
+              clipPath:'polygon(0 0,calc(100% - 18px) 0,100% 18px,100% 100%,18px 100%,0 calc(100% - 18px))',
+              boxShadow:'0 0 50px rgba(120,0,0,0.16)',
+              overflow:'hidden',
+            }}>
+              {/* Corner brackets */}
+              {['tl','tr','bl','br'].map(c => (
+                <span key={c} style={{
+                  position:'absolute',
+                  top: c.startsWith('t') ? 0 : 'auto', bottom: c.startsWith('b') ? 0 : 'auto',
+                  left: c.endsWith('l') ? 0 : 'auto', right: c.endsWith('r') ? 0 : 'auto',
+                  width:14, height:14,
+                  borderTop: c.startsWith('t') ? '2px solid rgba(220,40,40,0.65)' : 'none',
+                  borderBottom: c.startsWith('b') ? '2px solid rgba(220,40,40,0.65)' : 'none',
+                  borderLeft: c.endsWith('l') ? '2px solid rgba(220,40,40,0.65)' : 'none',
+                  borderRight: c.endsWith('r') ? '2px solid rgba(220,40,40,0.65)' : 'none',
+                }}/>
+              ))}
+              <div style={{position:'absolute',inset:0,pointerEvents:'none',background:'radial-gradient(ellipse at 30% 50%, rgba(160,0,0,0.12) 0%, transparent 65%)'}}/>
+
+              <div className="about-cta-inner">
+                <div>
+                  <Label>Our Commitment</Label>
+                  <h2 style={{ fontFamily:"'Orbitron',monospace", fontSize:'clamp(1rem,2.5vw,1.85rem)', fontWeight:700, lineHeight:1.2, color:'#fff', marginBottom:'clamp(10px,1.5vw,14px)', letterSpacing:'0.03em' }}>
+                    We operate with integrity.<br/>We deliver with precision.
+                  </h2>
+                  <p style={{ ...bodyStyle('#ccc', 0), maxWidth:520 }}>
+                    At International Statement Security Services, the safety, privacy, and confidence of our clients are our highest priorities. We protect without compromise across every assignment, environment, and location.
+                  </p>
+                </div>
+
+                <div className="about-cta-btns" style={{ display:'flex', flexDirection:'column', gap:'clamp(8px,1.2vw,12px)', flexShrink:0 }}>
+                  {[
+                    { label:'Request Protection Services', primary: true },
+                    { label:'Contact Our Team', primary: false },
+                  ].map(btn => (
+                    <motion.button key={btn.label} whileHover={{ scale:1.03 }} whileTap={{ scale:.97 }}
+                      style={{
+                        padding:'clamp(9px,1.2vw,12px) clamp(14px,2vw,22px)',
+                        fontSize:'clamp(9px,1vw,11px)', fontWeight:700, letterSpacing:'0.16em',
+                        textTransform:'uppercase', cursor:'pointer', whiteSpace:'nowrap',
+                        border: btn.primary ? 'none' : '1px solid rgba(255,255,255,0.12)',
+                        background: btn.primary ? '#cc1a1a' : 'rgba(255,255,255,0.04)',
+                        color:'#fff',
+                        clipPath:'polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px))',
+                        boxShadow: btn.primary ? '0 0 22px rgba(200,20,20,0.4)' : 'none',
+                        transition:'all .2s',
+                      }}
+                      onMouseEnter={e => { if (!btn.primary) (e.currentTarget as HTMLElement).style.borderColor='rgba(200,30,30,0.5)' }}
+                      onMouseLeave={e => { if (!btn.primary) (e.currentTarget as HTMLElement).style.borderColor='rgba(255,255,255,0.12)' }}
+                    >
+                      {btn.label}
+                    </motion.button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+        </main>
+      </div>
     </>
   )
 }

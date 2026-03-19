@@ -346,62 +346,62 @@ const CrosshairIcon = ({ active }: { active: boolean }) => (
   </svg>
 )
 
-// const WorldMap = () => (
-//   <svg viewBox="0 0 1400 700" style={{ position:"absolute", inset:0, width:"100%", height:"100%", opacity:0.15 }} xmlns="http://www.w3.org/2000/svg">
-//     <g stroke="#1a6aff" strokeWidth="0.35" opacity="0.5">
-//       {[70,140,210,280,350,420,490,560,630].map(y=><line key={y} x1="0" y1={y} x2="1400" y2={y}/>)}
-//       {[100,200,300,400,500,600,700,800,900,1000,1100,1200,1300].map(x=><line key={x} x1={x} y1="0" x2={x} y2="700"/>)}
-//     </g>
-//     {/* North America */}
-//     <path d="M80,75 L195,58 L275,78 L315,138 L295,218 L255,275 L215,315 L175,295 L138,255 L98,198 L68,138 Z" fill="#071828" stroke="#1a6aff" strokeWidth="0.9"/>
-//     <path d="M175,295 L238,305 L258,355 L238,415 L208,455 L188,435 L178,395 L168,355 Z" fill="#071828" stroke="#1a6aff" strokeWidth="0.9"/>
-//     {/* South America */}
-//     <path d="M218,415 L275,395 L315,435 L325,515 L305,595 L275,645 L248,635 L228,575 L208,495 Z" fill="#071828" stroke="#1a6aff" strokeWidth="0.9"/>
-//     {/* Europe */}
-//     <path d="M575,55 L678,50 L718,76 L728,128 L698,158 L658,168 L618,158 L588,128 Z" fill="#091e30" stroke="#1a6aff" strokeWidth="0.9"/>
-//     {/* Africa */}
-//     <path d="M595,195 L698,180 L758,215 L778,315 L758,428 L718,498 L678,518 L638,498 L595,428 L578,325 Z" fill="#071828" stroke="#1a6aff" strokeWidth="0.9"/>
-//     {/* Middle East */}
-//     <path d="M728,155 L818,150 L858,185 L848,248 L798,275 L758,265 Z" fill="#091e30" stroke="#1a8aff" strokeWidth="1"/>
-//     {/* Asia */}
-//     <path d="M818,45 L1098,38 L1178,76 L1198,158 L1158,218 L1078,258 L978,268 L898,248 L848,198 L828,138 Z" fill="#071828" stroke="#1a6aff" strokeWidth="0.9"/>
-//     {/* India */}
-//     <path d="M898,238 L958,232 L978,288 L958,358 L928,388 L898,368 L878,308 Z" fill="#071828" stroke="#1a6aff" strokeWidth="0.7"/>
-//     {/* SE Asia */}
-//     <path d="M1078,255 L1158,248 L1178,295 L1148,335 L1098,328 Z" fill="#071828" stroke="#1a6aff" strokeWidth="0.7"/>
-//     {/* Australia */}
-//     <path d="M1078,375 L1198,358 L1258,398 L1268,478 L1218,528 L1138,538 L1078,498 Z" fill="#071828" stroke="#1a6aff" strokeWidth="0.9"/>
-//     {/* Glowing dots at key locations */}
-//     {[[155,138],[620,108],[790,192],[858,172],[1098,158],[290,345]].map(([cx,cy],i)=>(
-//       <g key={i}>
-//         <circle cx={cx} cy={cy} r="4.5" fill="#1a8aff" opacity="0.95"/>
-//         <circle cx={cx} cy={cy} r="9"   fill="none" stroke="#1a8aff" strokeWidth="0.8" opacity="0.45"/>
-//         <circle cx={cx} cy={cy} r="16"  fill="none" stroke="#1a8aff" strokeWidth="0.4" opacity="0.2"/>
-//       </g>
-//     ))}
-//     {/* Connection lines */}
-//     <g stroke="#1a6aff" strokeWidth="0.6" opacity="0.3" strokeDasharray="5 7">
-//       <line x1="155" y1="138" x2="620" y2="108"/>
-//       <line x1="620" y1="108" x2="790" y2="192"/>
-//       <line x1="790" y1="192" x2="858" y2="172"/>
-//       <line x1="858" y1="172" x2="1098" y2="158"/>
-//       <line x1="155" y1="138" x2="290" y2="345"/>
-//       <line x1="620" y1="108" x2="790" y2="192"/>
-//     </g>
-//   </svg>
-// )
+const WorldMap = () => (
+  <svg viewBox="0 0 1400 700" style={{ position:"absolute", inset:0, width:"100%", height:"100%", opacity:0.15 }} xmlns="http://www.w3.org/2000/svg">
+    <g stroke="#1a6aff" strokeWidth="0.35" opacity="0.5">
+      {[70,140,210,280,350,420,490,560,630].map(y=><line key={y} x1="0" y1={y} x2="1400" y2={y}/>)}
+      {[100,200,300,400,500,600,700,800,900,1000,1100,1200,1300].map(x=><line key={x} x1={x} y1="0" x2={x} y2="700"/>)}
+    </g>
+    {/* North America */}
+    <path d="M80,75 L195,58 L275,78 L315,138 L295,218 L255,275 L215,315 L175,295 L138,255 L98,198 L68,138 Z" fill="#071828" stroke="#1a6aff" strokeWidth="0.9"/>
+    <path d="M175,295 L238,305 L258,355 L238,415 L208,455 L188,435 L178,395 L168,355 Z" fill="#071828" stroke="#1a6aff" strokeWidth="0.9"/>
+    {/* South America */}
+    <path d="M218,415 L275,395 L315,435 L325,515 L305,595 L275,645 L248,635 L228,575 L208,495 Z" fill="#071828" stroke="#1a6aff" strokeWidth="0.9"/>
+    {/* Europe */}
+    <path d="M575,55 L678,50 L718,76 L728,128 L698,158 L658,168 L618,158 L588,128 Z" fill="#091e30" stroke="#1a6aff" strokeWidth="0.9"/>
+    {/* Africa */}
+    <path d="M595,195 L698,180 L758,215 L778,315 L758,428 L718,498 L678,518 L638,498 L595,428 L578,325 Z" fill="#071828" stroke="#1a6aff" strokeWidth="0.9"/>
+    {/* Middle East */}
+    <path d="M728,155 L818,150 L858,185 L848,248 L798,275 L758,265 Z" fill="#091e30" stroke="#1a8aff" strokeWidth="1"/>
+    {/* Asia */}
+    <path d="M818,45 L1098,38 L1178,76 L1198,158 L1158,218 L1078,258 L978,268 L898,248 L848,198 L828,138 Z" fill="#071828" stroke="#1a6aff" strokeWidth="0.9"/>
+    {/* India */}
+    <path d="M898,238 L958,232 L978,288 L958,358 L928,388 L898,368 L878,308 Z" fill="#071828" stroke="#1a6aff" strokeWidth="0.7"/>
+    {/* SE Asia */}
+    <path d="M1078,255 L1158,248 L1178,295 L1148,335 L1098,328 Z" fill="#071828" stroke="#1a6aff" strokeWidth="0.7"/>
+    {/* Australia */}
+    <path d="M1078,375 L1198,358 L1258,398 L1268,478 L1218,528 L1138,538 L1078,498 Z" fill="#071828" stroke="#1a6aff" strokeWidth="0.9"/>
+    {/* Glowing dots at key locations */}
+    {[[155,138],[620,108],[790,192],[858,172],[1098,158],[290,345]].map(([cx,cy],i)=>(
+      <g key={i}>
+        <circle cx={cx} cy={cy} r="4.5" fill="#1a8aff" opacity="0.95"/>
+        <circle cx={cx} cy={cy} r="9"   fill="none" stroke="#1a8aff" strokeWidth="0.8" opacity="0.45"/>
+        <circle cx={cx} cy={cy} r="16"  fill="none" stroke="#1a8aff" strokeWidth="0.4" opacity="0.2"/>
+      </g>
+    ))}
+    {/* Connection lines */}
+    <g stroke="#1a6aff" strokeWidth="0.6" opacity="0.3" strokeDasharray="5 7">
+      <line x1="155" y1="138" x2="620" y2="108"/>
+      <line x1="620" y1="108" x2="790" y2="192"/>
+      <line x1="790" y1="192" x2="858" y2="172"/>
+      <line x1="858" y1="172" x2="1098" y2="158"/>
+      <line x1="155" y1="138" x2="290" y2="345"/>
+      <line x1="620" y1="108" x2="790" y2="192"/>
+    </g>
+  </svg>
+)
 
-// const RadarRings = () => (
-//   <svg viewBox="0 0 580 580" style={{ position:"absolute", right:"-3%", top:"50%", transform:"translateY(-50%)", width:"40%", height:"82%", opacity:0.18, pointerEvents:"none" }}>
-//     {[265,225,185,145,105,65,28].map((r,i)=>(
-//       <circle key={i} cx="290" cy="290" r={r} fill="none" stroke="#1a7aff" strokeWidth={i===0?0.9:0.5} strokeDasharray={i%2===0?"5 5":undefined}/>
-//     ))}
-//     <line x1="0"   y1="290" x2="580" y2="290" stroke="#1a7aff" strokeWidth="0.4" opacity="0.55"/>
-//     <line x1="290" y1="0"   x2="290" y2="580" stroke="#1a7aff" strokeWidth="0.4" opacity="0.55"/>
-//     <line x1="80"  y1="80"  x2="500" y2="500" stroke="#1a7aff" strokeWidth="0.3" opacity="0.28"/>
-//     <line x1="500" y1="80"  x2="80"  y2="500" stroke="#1a7aff" strokeWidth="0.3" opacity="0.28"/>
-//   </svg>
-// )
+const RadarRings = () => (
+  <svg viewBox="0 0 580 580" style={{ position:"absolute", right:"-3%", top:"50%", transform:"translateY(-50%)", width:"40%", height:"82%", opacity:0.18, pointerEvents:"none" }}>
+    {[265,225,185,145,105,65,28].map((r,i)=>(
+      <circle key={i} cx="290" cy="290" r={r} fill="none" stroke="#1a7aff" strokeWidth={i===0?0.9:0.5} strokeDasharray={i%2===0?"5 5":undefined}/>
+    ))}
+    <line x1="0"   y1="290" x2="580" y2="290" stroke="#1a7aff" strokeWidth="0.4" opacity="0.55"/>
+    <line x1="290" y1="0"   x2="290" y2="580" stroke="#1a7aff" strokeWidth="0.4" opacity="0.55"/>
+    <line x1="80"  y1="80"  x2="500" y2="500" stroke="#1a7aff" strokeWidth="0.3" opacity="0.28"/>
+    <line x1="500" y1="80"  x2="80"  y2="500" stroke="#1a7aff" strokeWidth="0.3" opacity="0.28"/>
+  </svg>
+)
 
 export default function GlobalSecurityOps() {
   const [activeId,  setActiveId]  = useState<number | null>(null)
@@ -419,9 +419,9 @@ export default function GlobalSecurityOps() {
     <div style={{ 
       position:"relative", 
       overflow:"hidden", 
-      // background:"#092345f5", 
+      background:'radial-gradient(ellipse 80% 55% rgba(140,0,0,0.22) at 50% 0%, rgba(140,0,0,0.22) 0%, black  70%)', 
       minHeight:"100vh",
-      backgroundImage: `url(${bgImage.src})`, // your image
+      // backgroundImage: `url(${bgImage.src})`, // your image
       backgroundSize: "cover",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
@@ -517,17 +517,17 @@ export default function GlobalSecurityOps() {
       /> */}
 
       {/* Vignette */}
-      <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse 110% 100% at 50% 50%, transparent 35%, #ff0d00 100%)", pointerEvents:"none", zIndex:1 }}/>
+      <div style={{ position:"absolute", inset:0, background:"#000", pointerEvents:"none", zIndex:1 }}/>
 
       {/* Content */}
       <div style={{ position:"relative", zIndex:2, padding:"clamp(40px,6vw,72px) clamp(16px,5vw,40px)", display:"flex", flexDirection:"column", alignItems:"center" }}>
 
         {/* Header */}
         <div style={{ textAlign:"center", marginBottom:50 }}>
-          <h1 style={{ fontSize:"clamp(26px,4.5vw,54px)", fontWeight:900, color:"#cce8ff", letterSpacing:"0.18em", margin:"0 0 12px", fontFamily:"Orbitron,monospace", textShadow:"0 0 50px #ff0d00" }}>
+          <h1 style={{ fontSize:"clamp(20px,4.5vw,54px)", fontWeight:900, color:"#cce8ff", letterSpacing:"0.18em", margin:"0 0 12px", fontFamily:"Orbitron,monospace", textShadow:"0 0 50px #ff0d00" }}>
             GLOBAL SECURITY <span style={{ color:"#FF0D00" }}>OPERATIONS</span>
           </h1>
-          <p style={{ color:"#f2f6f8", fontSize:22, letterSpacing:"0.22em", margin:0, fontFamily:"Rajdhani,sans-serif", fontWeight:500 }}>
+          <p style={{ color:"#f2f6f8", fontSize:'clamp(5px,15px,22px)', letterSpacing:"0.22em", margin:0, fontFamily:"Rajdhani,sans-serif", fontWeight:500 }}>
             Elite Executive Protection &amp; Strategic Security Services Worldwide
           </p>
         </div>

@@ -52,13 +52,13 @@ export default function Home() {
          {/* <AudioPlayer/> */}
         <HeroSection />
         <TickerSection />
-        <SecurityServicesCards/>
         <LocationsSection />
+        <MissionStatement/>
+        <SecurityServicesCards/>
         <GlobalSecurityOps/>
         <ServicesSection />
         <FactsSection/>
         <WhyUsSection />
-        <MissionStatement/>
         <FaqSection/>
         <AboutContact/>
         <ContactSection />

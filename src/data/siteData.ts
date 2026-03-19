@@ -16,7 +16,7 @@ export const STATS = [
   { value: 25, suffix: '+', label: 'Years Experience' },
   { value: 127, suffix: '', label: 'Elite Operators' },
   { value: 2800, suffix: 'k', label: 'Assets Protected', display: '2.8k' },
-  { value: 8, suffix: '', label: 'Global Locations' },
+  { value: 7, suffix: '', label: 'Global Locations' },
 ]
 
 export const LOCATIONS = [
@@ -90,6 +90,19 @@ export const LOCATIONS = [
   {
     id: '06',
     city: 'Abu Dhabi',
+    country: 'UAE',
+    region: 'Middle East · UAE Operations',
+    description:
+      'UAE operations covering Abu Dhabi and Dubai circuits, supporting UHNWI clients, government liaisons, and luxury estate protection.',
+    tags: ['UHNWI', 'Government Liaison', 'Estate Security'],
+    mapX: 587,
+    mapY: 150,
+    lat: 24.5,
+    lon: 54.4,
+  },
+  {
+    id: '07',
+    city: 'Dubai',
     country: 'UAE',
     region: 'Middle East · UAE Operations',
     description:

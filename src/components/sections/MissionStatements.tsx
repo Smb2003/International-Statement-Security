@@ -1,6 +1,6 @@
 'use client'
 import Bg from "@/assets/Landing-Page-Hero.webp"
-import MissionStatementImg from "@/assets/missionstament (1).webp"
+import MissionStatementImg from "@/assets/missionEP.webp"
 const checkItems = [
   'Bodyguard Hire',
   'Private Security and Personal Protection',
@@ -28,8 +28,8 @@ export default function MissionStatement() {
           overflow: hidden;
           font-family: 'Rajdhani', sans-serif;
           backgroundImage:url(${Bg.src}),
-          backgroundSize:"100% ",
-          backgroundPosition:"cover",
+          backgroundSize:"fill",
+          backgroundPosition:"center",
           opacity:0.9,
           backgroundRepeat:"no-repeat",
           z-index:10;
