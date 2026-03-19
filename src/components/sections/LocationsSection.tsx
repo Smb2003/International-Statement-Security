@@ -102,7 +102,7 @@ export default function LocationsSection() {
         .loc-content {
           position: absolute;
           top:0px;
-          left:clamp(5%,20%);
+          right:clamp(10%,20%,60%);
           z-index: 2;
           padding: clamp(40px, 8vw, 40px) clamp(16px, 5vw, 22px);
         }
@@ -144,12 +144,24 @@ export default function LocationsSection() {
           .loc-detail-panel { flex-direction:column; align-items:flex-start; }
           .loc-divider { display:none; }
           .loc-id-num { font-size:22px !important; }
+          .loc-content {
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+          }
         }
         @media (max-width: 480px) {
           .loc-detail-left { flex-direction:column; align-items:flex-start; gap:10px; }
           .loc-id-num { font-size:20px !important; min-width:unset !important; }
           .loc-desc { font-size:13px !important; }
           .loc-tag-pill { font-size:8px; padding:4px 8px; }
+          .loc-content {
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+          }
         }
       `}</style>
       {/* ── Background image ── */}
@@ -193,7 +205,7 @@ export default function LocationsSection() {
           marginTop: "clamp(-10px, -5vw, -2vw)",
             marginBottom: 'clamp(28px, 6vw, 100px)',
             textAlign: "center",
-            maxWidth: "900px",
+            maxWidth: "1100px",
             marginInline: "auto",
             paddingInline: "clamp(16px,4vw,40px)",
             display:"flex",justifyContent:"center",
