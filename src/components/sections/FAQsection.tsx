@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import * as THREE from 'three'
+import HeroImage from "@/assets/FACTS.webp"
 
 // ── Three.js animated background ─────────────────────────
 function ThreeBackground() {
@@ -15,7 +16,7 @@ function ThreeBackground() {
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
     renderer.setSize(mount.clientWidth, mount.clientHeight)
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-    renderer.setClearColor(0x000000, 0)
+    renderer.setClearColor("#AF0A00", 0)
     mount.appendChild(renderer.domElement)
 
     const scene = new THREE.Scene()
@@ -54,13 +55,13 @@ function ThreeBackground() {
       lineVerts.push(x1, y1, z1, x2, y2, z1)
     }
     lineGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(lineVerts), 3))
-    const lineMat = new THREE.LineBasicMaterial({ color: 0x0066aa, opacity: 0.2, transparent: true })
+    const lineMat = new THREE.LineBasicMaterial({ color: "#AF0A00", opacity: 0.3, transparent: true })
     const lines = new THREE.LineSegments(lineGeo, lineMat)
     scene.add(lines)
 
     // Globe wireframe (right side decoration)
     const globeGeo = new THREE.SphereGeometry(2.2, 18, 14)
-    const globeMat = new THREE.MeshBasicMaterial({ color: 0x003366, wireframe: true, opacity: 0.12, transparent: true })
+    const globeMat = new THREE.MeshBasicMaterial({ color: "#AF0A00", wireframe: true, opacity: 0.12, transparent: true })
     const globe = new THREE.Mesh(globeGeo, globeMat)
     globe.position.set(4.5, 0.5, -3)
     scene.add(globe)
@@ -163,10 +164,14 @@ export default function FaqSection() {
         .faq-section {
           position: relative;
           min-height: 100vh;
-          background: radial-gradient(ellipse 140% 100% at 70% 40%, #051228 0%, #030c1c 45%, #020810 100%);
+          background: #120302;
           padding: clamp(56px,7vw,100px) clamp(20px,5vw,64px);
           overflow: hidden;
           font-family: 'Rajdhani', sans-serif;
+          backgroundImage: url(${HeroImage.src});
+          backgroundSize: "100% 100%",
+          backgroundPosition: "contain",
+          backgroundRepeat: "no-repeat",
           z-index:10;
         }
 
@@ -206,10 +211,10 @@ export default function FaqSection() {
           margin-bottom: 10px;
           
         }
-        .faq-tag-dash { width: 40px; height: 2px; background: rgba(0,180,255,0.5);  text-align:center }
+        .faq-tag-dash { width: 40px; height: 2px; background: #AF0A00;  text-align:center }
         .faq-tag-label {
           font-family: 'Rajdhani', sans-serif;
-          font-size: 21px; letter-spacing: 0.3em; color: #00aaff;
+          font-size: 21px; letter-spacing: 0.3em; color: #AF0A00;
           text-transform: uppercase; font-weight: 600;
         //   text-align:center
         }
@@ -220,8 +225,8 @@ export default function FaqSection() {
           text-transform: uppercase;
         }
         .faq-main-title em {
-          font-style: normal; color: #00ccff;
-          text-shadow: 0 0 24px rgba(0,200,255,0.65), 0 0 50px rgba(0,150,255,0.35);
+          font-style: normal; color: #AF0A00;
+          text-shadow: 0 0 24px #AF0A00, 0 0 50px #AF0A00;
         }
 
         /* ── Two-column layout ── */
@@ -241,28 +246,28 @@ export default function FaqSection() {
 
         .faq-item {
           position: relative;
-          border: 1px solid rgba(0,140,255,0.2);
-          background: rgba(3,14,32,0.7);
+          border: 1px solid #AF0A00;
+          background: #140908;
           backdrop-filter: blur(6px);
           clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
           transition: border-color 0.25s, background 0.25s;
           overflow: hidden;
         }
         .faq-item.open {
-          border-color: rgba(0,180,255,0.55);
-          background: rgba(3,20,50,0.85);
+          border-color: #AF0A00;
+          background: rgba(0, 0, 0, 0.85);
           box-shadow: 0 0 20px rgba(0,160,255,0.12), inset 0 0 20px rgba(0,80,180,0.06);
         }
         .faq-item:hover:not(.open) {
-          border-color: rgba(0,160,255,0.35);
-          background: rgba(3,16,38,0.78);
+          border-color: #AF0A00;
+          background: rgba(3, 5, 7, 0.78);
         }
 
         /* Left accent bar */
         .faq-item::before {
           content: '';
           position: absolute; left:0; top:0; bottom:0; width:3px;
-          background: linear-gradient(180deg, transparent, rgba(0,180,255,0.8), transparent);
+          background: linear-gradient(180deg, transparent, #AF0A00, transparent);
           opacity: 0; transition: opacity 0.25s;
         }
         .faq-item.open::before,
@@ -277,8 +282,8 @@ export default function FaqSection() {
         .faq-num {
           font-family: 'Orbitron', monospace;
           font-size: 12px; font-weight: 700;
-          color: #00aaff; min-width: 28px; flex-shrink: 0;
-          text-shadow: 0 0 8px rgba(0,170,255,0.6);
+          color: #AF0A00; min-width: 28px; flex-shrink: 0;
+          text-shadow: 0 0 8px #AF0A00;
         }
 
         .faq-question {
@@ -292,16 +297,16 @@ export default function FaqSection() {
 
         .faq-icon {
           width: 28px; height: 28px;
-          border: 1px solid rgba(0,160,255,0.45);
+          border: 1px solid #AF0A00;
           display: flex; align-items: center; justify-content: center;
-          font-size: 18px; font-weight: 400; color: #00ccff; flex-shrink: 0;
+          font-size: 18px; font-weight: 400; color: #AF0A00; flex-shrink: 0;
           clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
           transition: background 0.2s, border-color 0.2s;
         }
         .faq-item.open .faq-icon {
           background: rgba(0,140,255,0.18);
-          border-color: rgba(0,210,255,0.7);
-          box-shadow: 0 0 10px rgba(0,200,255,0.4);
+          border-color: #AF0A00;
+          box-shadow: 0 0 10px #AF0A00;
         }
 
         .faq-answer { overflow: hidden; }
@@ -309,7 +314,7 @@ export default function FaqSection() {
           padding: 0 clamp(16px,2.5vw,22px) clamp(16px,2vw,20px) clamp(16px,2.5vw,58px);
           font-family: 'Rajdhani', sans-serif;
           font-size: clamp(13px,1.4vw,15px); font-weight: 400;
-          color: #6a9cb8; line-height: 1.7;
+          color: #FFFFFF; line-height: 1.7;
           border-top: 1px solid rgba(0,140,255,0.1);
           padding-top: 14px;
         }
@@ -317,12 +322,12 @@ export default function FaqSection() {
         /* ── Right column: contact form ── */
         .form-panel {
           position: relative;
-          background: rgba(3,14,32,0.82);
-          border: 1px solid rgba(0,140,255,0.25);
+          background: #090404;
+          border: 1px solid #AF0A00;
           backdrop-filter: blur(8px);
           clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
           padding: clamp(22px,3vw,32px);
-          box-shadow: 0 0 30px rgba(0,120,220,0.1), inset 0 0 30px rgba(0,60,160,0.05);
+          box-shadow: 0 0 30px #AF0A00, inset 0 0 30px #AF0A00;
         }
 
         /* Form panel border glow */
@@ -330,16 +335,16 @@ export default function FaqSection() {
           content: '';
           position: absolute; inset: 0;
           clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
-          border: 1px solid rgba(0,180,255,0.15);
+          border: 1px solid #AF0A00;
           pointer-events: none;
         }
 
         /* Corner brackets on form */
         .form-panel .fc { position:absolute; width:14px; height:14px; z-index:5; }
-        .form-panel .fc.tl { top:4px; left:4px; border-top:1.5px solid #00aaff; border-left:1.5px solid #00aaff; box-shadow:0 0 6px rgba(0,170,255,0.5); }
-        .form-panel .fc.tr { top:4px; right:4px; border-top:1.5px solid #00aaff; border-right:1.5px solid #00aaff; box-shadow:0 0 6px rgba(0,170,255,0.5); }
-        .form-panel .fc.bl { bottom:4px; left:4px; border-bottom:1.5px solid #00aaff; border-left:1.5px solid #00aaff; box-shadow:0 0 6px rgba(0,170,255,0.5); }
-        .form-panel .fc.br { bottom:4px; right:4px; border-bottom:1.5px solid #00aaff; border-right:1.5px solid #00aaff; box-shadow:0 0 6px rgba(0,170,255,0.5); }
+        .form-panel .fc.tl { top:4px; left:4px; border-top:1.5px solid #AF0A00; border-left:1.5px solid #AF0A00; box-shadow:0 0 6px #AF0A00; }
+        .form-panel .fc.tr { top:4px; right:4px; border-top:1.5px solid #AF0A00; border-right:1.5px solid #AF0A00; box-shadow:0 0 6px rgba#AF0A00; }
+        .form-panel .fc.bl { bottom:4px; left:4px; border-bottom:1.5px solid #AF0A00; border-left:1.5px solid #AF0A00; box-shadow:0 0 6px #AF0A00; }
+        .form-panel .fc.br { bottom:4px; right:4px; border-bottom:1.5px solid #AF0A00; border-right:1.5px solid #AF0A00; box-shadow:0 0 6px #AF0A00; }
 
         .form-title {
           font-family:'Orbitron',monospace;
@@ -348,8 +353,8 @@ export default function FaqSection() {
           letter-spacing: 0.12em; margin-bottom: 22px;
         }
         .form-title em {
-          font-style: normal; color: #00ccff;
-          text-shadow: 0 0 16px rgba(0,200,255,0.6);
+          font-style: normal; color: #AF0A00;
+          text-shadow: 0 0 16px #AF0A00;
         }
 
         /* Input wrapper */
@@ -359,14 +364,14 @@ export default function FaqSection() {
 
         .input-icon {
           position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
-          color: rgba(0,160,255,0.6); display: flex; align-items: center;
+          color: #FFFFFF; display: flex; align-items: center;
           pointer-events: none;
         }
 
         .cyber-input, .cyber-textarea {
           width: 100%;
-          background: rgba(1, 38, 94, 0.6);
-          border: 1px solid rgba(74, 164, 237, 0.3);
+          background: rgba(9, 13, 19, 0.6);
+          border: 1px solid #AF0A00;
           color: #bcdef1;
           padding: 12px 14px 12px 42px;
           font-family: 'Rajdhani', sans-serif;
@@ -376,11 +381,11 @@ export default function FaqSection() {
           clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
           box-sizing: border-box;
         }
-        .cyber-input::placeholder, .cyber-textarea::placeholder { color: rgba(114, 188, 237, 0.9); }
+        .cyber-input::placeholder, .cyber-textarea::placeholder { color: #FFFFFF }
         .cyber-input:focus, .cyber-textarea:focus {
-          border-color: rgba(0,180,255,0.7);
+          border-color: #AF0A00;
           box-shadow: 0 0 14px rgba(0,160,255,0.18), inset 0 0 10px rgba(0,80,180,0.1);
-          background: rgba(0,25,60,0.75);
+          background: rgba(6, 8, 11, 0.75);
         }
 
         .cyber-textarea {
@@ -391,9 +396,9 @@ export default function FaqSection() {
         /* Submit button */
         .submit-btn {
           width: 100%; padding: 14px 20px;
-          background: linear-gradient(90deg, #0055cc, #0077ff, #0055cc);
+          background: #AF0A00;
           background-size: 200% 100%;
-          border: 1px solid rgba(0,140,255,0.7);
+          border: 1px solid white;
           color: white;
           font-family: 'Orbitron', monospace;
           font-size: 13px; font-weight: 700;
@@ -402,13 +407,14 @@ export default function FaqSection() {
           clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
           display: flex; align-items: center; justify-content: center; gap: 10px;
           transition: background-position 0.4s, box-shadow 0.3s, transform 0.15s;
-          box-shadow: 0 0 18px rgba(0,120,255,0.4), 0 0 40px rgba(0,80,220,0.2);
+          box-shadow: 0 0 18px #AF0A00, 0 0 40px #AF0A00;
           margin-top: 16px;
         }
         .submit-btn:hover {
           background-position: 100% 0;
-          box-shadow: 0 0 28px rgba(0,160,255,0.65), 0 0 60px rgba(0,100,255,0.35);
+          box-shadow: 0 0 28px #AF0A00, 0 0 60px #AF0A00;
           transform: translateY(-1px);
+          background: #AF0A00;
         }
         .submit-btn:active { transform: scale(0.98); }
         .submit-btn svg { flex-shrink: 0; }
@@ -419,22 +425,22 @@ export default function FaqSection() {
         }
         .trust-badge {
           flex: 1;
-          border: 1px solid rgba(0,120,220,0.3);
-          background: rgba(0,20,50,0.5);
+          border: 1px solid #AF0A00;
+          background: #0c0606;
           padding: 10px 8px;
           display: flex; flex-direction: column; align-items: center; gap: 5px;
           clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
           transition: border-color 0.2s, background 0.2s;
         }
         .trust-badge:hover {
-          border-color: rgba(0,180,255,0.5);
-          background: rgba(0,30,70,0.7);
+          border-color: #AF0A00;
+          // background: #AF0A00;
         }
-        .trust-badge-icon { color: #00aaff; }
+        .trust-badge-icon { color: #AF0A00; }
         .trust-badge-label {
           font-family: 'Rajdhani', sans-serif;
           font-size: 9px; font-weight: 700;
-          letter-spacing: 0.12em; color: #5a8aaa;
+          letter-spacing: 0.12em; color: #FFFFFF;
           text-transform: uppercase; text-align: center;
         }
 
@@ -444,12 +450,12 @@ export default function FaqSection() {
         }
         .success-msg h3 {
           font-family: 'Orbitron', monospace;
-          font-size: 16px; color: #00ccff;
+          font-size: 16px; color: #AF0A00;
           letter-spacing: 0.1em; margin-bottom: 8px;
         }
         .success-msg p {
           font-family: 'Rajdhani', sans-serif;
-          font-size: 14px; color: #4a8aa8;
+          font-size: 14px; color: #AF0A00;
         }
       `}</style>
 

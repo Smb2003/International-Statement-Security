@@ -46,7 +46,7 @@ function ParticleCanvas() {
             ctx.beginPath()
             ctx.moveTo(pts[i].x, pts[i].y)
             ctx.lineTo(pts[j].x, pts[j].y)
-            ctx.strokeStyle = `rgba(0,160,255,${0.12 * (1 - d / 130)})`
+            ctx.strokeStyle = `rgba(255, 13, 0,${0.12 * (1 - d / 130)})`
             ctx.lineWidth = 0.6
             ctx.stroke()
           }
@@ -57,7 +57,7 @@ function ParticleCanvas() {
       pts.forEach(p => {
         ctx.beginPath()
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(0,200,255,${p.o})`
+        ctx.fillStyle = `rgba(255, 13, 0,${p.o})`
         ctx.fill()
       })
 
@@ -67,7 +67,7 @@ function ParticleCanvas() {
         for (let gy = 0; gy < h; gy += gap) {
           ctx.beginPath()
           ctx.arc(gx, gy, 0.9, 0, Math.PI * 2)
-          ctx.fillStyle = 'rgba(0,140,255,0.1)'
+          ctx.fillStyle = 'rgba(33, 8, 7, 0.59)'
           ctx.fill()
         }
       }
@@ -107,7 +107,7 @@ export default function AboutContact() {
         .ac-section {
           position: relative;
           min-height: 100vh;
-          background: radial-gradient(ellipse 140% 100% at 60% 40%, #051228 0%, #030c1c 45%, #020810 100%);
+          background: #000;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -156,11 +156,11 @@ export default function AboutContact() {
         }
         .ac-tag-dash {
           width: 32px; height: 1.5px;
-          background: linear-gradient(90deg, #00aaff, transparent);
+          background: linear-gradient(90deg, #ff0d00, transparent);
         }
         .ac-tag-label {
           font-size:20px; font-weight: 700; letter-spacing: 0.3em;
-          color: #0088cc; text-transform: uppercase;
+          color: #ff0d00; text-transform: uppercase;
         }
 
         .ac-heading {
@@ -174,9 +174,9 @@ export default function AboutContact() {
         }
         .ac-heading-white { color: #e0f0fa; display: block; }
         .ac-heading-blue {
-          color: #00bbff;
+          color: #ff0d00;
           display: block;
-          text-shadow: 0 0 20px rgba(0,180,255,0.7), 0 0 45px rgba(0,130,255,0.4);
+          text-shadow: 0 0 20px ff0d00, 0 0 45px ff0d00;
         }
 
         /* Image wrapper — responsive */
@@ -192,7 +192,7 @@ export default function AboutContact() {
           height:'clamp(200px,5vw600px)';
           display: block;
           object-fit: contain;
-          filter: drop-shadow(0 0 30px rgba(0,120,255,0.35)) drop-shadow(0 0 60px rgba(0,60,180,0.2));
+          filter: drop-shadow(0 0 30px #ff0d0023) drop-shadow(0 0 60px #ff0d0048);
         }
 
         /* Ground glow under image */
@@ -200,7 +200,7 @@ export default function AboutContact() {
           position: absolute;
           bottom: -10px; left: 50%; transform: translateX(-50%);
           width: 80%; height: 40px;
-          background: radial-gradient(ellipse, rgba(0,100,220,0.4) 0%, transparent 70%);
+          background: radial-gradient(ellipse, #ff0d00 0%, transparent 70%);
           filter: blur(12px);
           pointer-events: none;
         }
@@ -210,31 +210,31 @@ export default function AboutContact() {
           position: relative;
           border-radius: 12px;
           padding: 2px;
-          background: linear-gradient(145deg, rgba(0,140,255,0.5), rgba(0,60,160,0.2), rgba(0,200,255,0.4));
+          background: linear-gradient(145deg, #ff0d00, #ff0d00, #ff0d00);
         }
 
         /* Animated glowing border */
         @keyframes borderGlow {
           0%,100% {
             box-shadow:
-              0 0 18px rgba(0,140,255,0.6),
-              0 0 40px rgba(0,90,220,0.35),
-              0 0 80px rgba(0,50,180,0.2),
-              inset 0 0 18px rgba(0,80,200,0.08);
+              0 0 18px #ff0d00a7,
+              0 0 40px #ff0d00,
+              0 0 80px #ff0d00,
+              inset 0 0 18px #ff0d00;
           }
           50% {
             box-shadow:
-              0 0 32px rgba(0,200,255,0.9),
-              0 0 65px rgba(0,140,255,0.55),
-              0 0 120px rgba(0,90,220,0.35),
-              inset 0 0 28px rgba(0,120,240,0.12);
+              0 0 32px #ff0d0039,
+              0 0 65px #ff0d00c1,
+              0 0 120px #ff0d00c1,
+              inset 0 0 28px #ff0d00d5;
           }
         }
 
         /* Blinking border segments */
         @keyframes borderBlink {
-          0%,48%  { border-color: rgba(0,190,255,0.65); }
-          50%,98% { border-color: rgba(0,100,200,0.12); }
+          0%,48%  { border-color: #ff0d00; }
+          50%,98% { border-color: #ff0d00; }
         }
 
         @keyframes scanLine {
@@ -243,8 +243,8 @@ export default function AboutContact() {
         }
 
         @keyframes cornerPulse {
-          0%,100% { opacity: 1; filter: drop-shadow(0 0 5px rgba(0,200,255,0.9)); }
-          50%      { opacity: 0.55; filter: drop-shadow(0 0 2px rgba(0,160,255,0.4)); }
+          0%,100% { opacity: 1; filter: drop-shadow(0 0 5px #ff0d00); }
+          50%      { opacity: 0.55; filter: drop-shadow(0 0 2px #ff0d00 ); }
         }
 
         @keyframes inputSlideIn {
@@ -256,9 +256,9 @@ export default function AboutContact() {
           position: relative;
           border-radius: 10px;
           overflow: hidden;
-          background: linear-gradient(160deg, #030e1f 0%, #041628 55%, #051830 100%);
-          border: 1px solid rgba(0,140,255,0.3);
-          animation: borderGlow 3s ease-in-out infinite;
+          background: #000;
+          border: 1px solid #ff0d00;
+          // animation: borderGlow 3s ease-in-out infinite;
           padding: clamp(24px,3.5vw,38px);
         }
 
@@ -267,27 +267,27 @@ export default function AboutContact() {
           content: '';
           position: absolute; top:0; left:0; right:0;
           height: 2px;
-          background: linear-gradient(90deg, transparent, rgba(0,200,255,0.9), rgba(0,220,255,1), rgba(0,200,255,0.9), transparent);
+          background: linear-gradient(90deg, transparent, #ff0d00, #ff0d00, #ff0d00, transparent);
           animation: borderBlink 1.2s step-end infinite;
-          box-shadow: 0 0 8px rgba(0,210,255,0.8);
+          box-shadow: 0 0 8px #ff0d00;
         }
         /* Blinking bottom border */
         .ac-form-box::after {
           content: '';
           position: absolute; bottom:0; left:0; right:0;
           height: 2px;
-          background: linear-gradient(90deg, transparent, rgba(0,180,255,0.7), rgba(0,210,255,0.9), rgba(0,180,255,0.7), transparent);
+          background: linear-gradient(90deg, transparent, #ff0d00, #ff0d00, #ff0d00, transparent);
           animation: borderBlink 1.2s step-end infinite 0.6s;
-          box-shadow: 0 0 8px rgba(0,200,255,0.6);
+          box-shadow: 0 0 8px #ff0d00;
         }
 
         /* Scan ray */
         .form-scan {
           position: absolute; left:0; right:0; height:3px;
-          background: linear-gradient(90deg, transparent, rgba(0,200,255,0.5), rgba(180,235,255,0.7), rgba(0,200,255,0.5), transparent);
+          background: linear-gradient(90deg, transparent, #ff0d00, #ff0d00, #ff0d00, transparent);
           pointer-events: none; z-index: 1;
           animation: scanLine 4s linear infinite;
-          box-shadow: 0 0 8px rgba(0,200,255,0.5);
+          box-shadow: 0 0 8px #ff0d00;
         }
 
         /* Corner brackets */
@@ -297,15 +297,15 @@ export default function AboutContact() {
           z-index: 5; pointer-events: none;
           animation: cornerPulse 2.2s ease-in-out infinite;
         }
-        .ac-corner.tl { top:6px; left:6px; border-top:2px solid #00ccff; border-left:2px solid #00ccff; }
-        .ac-corner.tr { top:6px; right:6px; border-top:2px solid #00ccff; border-right:2px solid #00ccff; }
-        .ac-corner.bl { bottom:6px; left:6px; border-bottom:2px solid #00ccff; border-left:2px solid #00ccff; }
-        .ac-corner.br { bottom:6px; right:6px; border-bottom:2px solid #00ccff; border-right:2px solid #00ccff; }
+        .ac-corner.tl { top:6px; left:6px; border-top:2px solid #ff0d00; border-left:2px solid #ff0d00; }
+        .ac-corner.tr { top:6px; right:6px; border-top:2px solid #ff0d00; border-right:2px solid #ff0d00; }
+        .ac-corner.bl { bottom:6px; left:6px; border-bottom:2px solid #ff0d00; border-left:2px solid #ff0d00; }
+        .ac-corner.br { bottom:6px; right:6px; border-bottom:2px solid #ff0d00; border-right:2px solid #ff0d00; }
 
         /* Left + right side blink bars */
         .side-blink {
           position: absolute; top:0; bottom:0; width:2px;
-          background: linear-gradient(180deg, transparent 0%, rgba(0,200,255,0.8) 35%, rgba(0,230,255,1) 50%, rgba(0,200,255,0.8) 65%, transparent 100%);
+          background: linear-gradient(180deg, transparent 0%, #ff0d00 35%, #ff0d00 50%, #ff0d00 65%, transparent 100%);
           animation: borderBlink 1.2s step-end infinite;
         }
         .side-blink.left  { left:0; animation-delay:0.3s; }
@@ -321,8 +321,8 @@ export default function AboutContact() {
         }
         .fh-white { color: #e0f0fa; display: block; }
         .fh-blue  {
-          color: #00bbff; display: block;
-          text-shadow: 0 0 16px rgba(0,190,255,0.8), 0 0 35px rgba(0,140,255,0.45);
+          color: #ff0d00; display: block;
+          text-shadow: 0 0 16px #ff0d00, 0 0 35px #610c08;
         }
 
         /* Field group */
@@ -338,15 +338,15 @@ export default function AboutContact() {
         .field-label {
           display: block;
           font-size: 13px; font-weight: 700;
-          letter-spacing: 0.18em; color: #7ec2f0;
+          letter-spacing: 0.18em; color: #ff0d00 ;
           text-transform: uppercase; margin-bottom: 6px;
         }
 
         /* Cyber input */
         .cyber-field {
           width: 100%;
-          background: rgba(0,18,45,0.65);
-          border: 1px solid rgba(133, 191, 238, 0.28);
+          background: rgba(5, 7, 11, 0.65);
+          border: 1px solid #ff0d00;
           color: #a8d4ec;
           padding: 11px 16px;
           font-family: 'Rajdhani', sans-serif;
@@ -356,11 +356,11 @@ export default function AboutContact() {
           transition: border-color 0.25s, box-shadow 0.25s, background 0.25s;
           box-sizing: border-box;
         }
-        .cyber-field::placeholder { color: rgba(123, 193, 239, 0.78); }
+        .cyber-field::placeholder { color: #FFFFFF; }
         .cyber-field:focus {
-          border-color: rgba(0,190,255,0.75);
+          border-color: #ff0d00;
           box-shadow: 0 0 16px rgba(0,170,255,0.22), inset 0 0 12px rgba(0,90,200,0.1);
-          background: rgba(0,22,55,0.8);
+          background: rgba(6, 9, 13, 0.8);
         }
         .cyber-field.error {
           border-color: rgba(255,60,80,0.6);
@@ -372,9 +372,9 @@ export default function AboutContact() {
         .submit-btn {
           width: 100%;
           padding: 13px 20px;
-          background: linear-gradient(90deg, #0044cc, #0077ff, #0044cc);
+          background: linear-gradient(90deg, #ff0d00, #ff0d00, #ff0d00);
           background-size: 200% 100%;
-          border: 1px solid rgba(0,150,255,0.7);
+          border: 1px solid #ff0d00;
           border-radius: 7px;
           color: white;
           font-family: 'Orbitron', monospace;
@@ -389,7 +389,7 @@ export default function AboutContact() {
         }
         .submit-btn:hover {
           background-position: 100% 0;
-          box-shadow: 0 0 30px rgba(0,180,255,0.7), 0 0 65px rgba(0,110,255,0.4);
+          box-shadow: 0 0 30px #890902, 0 0 65px #6f0a05;
           transform: translateY(-2px);
         }
         .submit-btn:active { transform: scale(0.98); }

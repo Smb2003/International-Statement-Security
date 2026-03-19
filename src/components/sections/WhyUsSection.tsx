@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import Bg from "@/assets/Executive-Security-Technology-Theme.webp"
+import Bg from "@/assets/missionready.webp"
 // ── Mock data (replace with your WHY_US import from @/data/siteData) ──
 interface WhyUsItem {
   num: string
@@ -61,11 +61,11 @@ export default function WhyUsSection() {
         padding: 'clamp(60px, 8vw, 100px) clamp(16px, 5vw, 52px)',
         position: 'relative',
         zIndex: 2,
-        background: 'var(--bg, #07111a)',
-        backgroundImage:`url(${Bg.src})`,
+        background: '#020507',
+        // backgroundImage:`url(${Bg.src})`,
         backgroundSize:"100% ",
         backgroundPosition:"cover",
-        opacity:0.9,
+        // opacity:0.9,
         backgroundRepeat:"no-repeat",
         fontFamily:"monospace",
       }}
@@ -96,8 +96,8 @@ export default function WhyUsSection() {
         }
 
         .cyber-card {
-          border: 1px solid rgba(0, 213, 255, 0.83);
-          background: rgba(89, 205, 228, 0.87);
+          border: 1px solid #AF0A00;
+          background: #AF0A00;
           position: relative;
           overflow: hidden;
           transition: border-color 0.3s, background 0.3s, transform 0.3s;
@@ -108,7 +108,7 @@ export default function WhyUsSection() {
           position: absolute;
           top: 0; left: 0; right: 0;
           height: 1px;
-          background: linear-gradient(to right, rgba(0, 213, 255, 0.54), rgba(0, 213, 255, 0.74));
+          background: linear-gradient(to right, #AF0A00, #AF0A00);
           transform: scaleX(0);
           transform-origin: left;
           transition: transform 0.4s ease;
@@ -119,8 +119,8 @@ export default function WhyUsSection() {
         }
 
         .cyber-card:hover {
-          border-color: rgba(0, 212, 255, 0.3);
-          background: rgba(0, 213, 255, 0.29);
+          border-color: #AF0A00;
+          background: #AF0A00;
           transform: translateY(-4px);
         }
 
@@ -135,15 +135,15 @@ export default function WhyUsSection() {
           display: inline-block;
           width: 28px;
           height: 1px;
-          background: var(--c, #00d4ff);
+          background: #AF0A00;
           flex-shrink: 0;
         }
 
         .why-tag-label {
           font-family: 'Rajdhani', sans-serif;
-          font-size: 16px;
+          font-size: 22px;
           letter-spacing: 0.25em;
-          color: var(--c, #00d4ff);
+          color: #AF0A00;
           text-transform: uppercase;
         }
       `}</style>
@@ -174,7 +174,7 @@ export default function WhyUsSection() {
             }}
           >
             Why{' '}
-            <em style={{ color: 'var(--c, #00d4ff)', fontStyle: 'normal' }}>
+            <em style={{ color: '#AF0A00', fontStyle: 'normal' }}>
               Statement
             </em>{' '}
             Security
@@ -199,7 +199,7 @@ export default function WhyUsSection() {
                 style={{
                   fontFamily: 'Orbitron, monospace',
                   fontSize: 11,
-                  color: 'var(--c, #00d4ff)',
+                  color: '#AF0A00',
                   letterSpacing: '1px',
                   marginBottom: 14,
                   display: 'flex',
@@ -211,7 +211,7 @@ export default function WhyUsSection() {
                   style={{
                     width: 16,
                     height: 1,
-                    background: 'var(--c, #00d4ff)',
+                    background: '#FFFFFF',
                     display: 'block',
                     flexShrink: 0,
                   }}

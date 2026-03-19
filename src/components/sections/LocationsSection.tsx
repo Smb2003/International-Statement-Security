@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
-import bgImage from "@/assets/12121221.webp"
+import bgImage from "@/assets/map.webp"
 import Particles from './../../utils/Particles'
 
 interface Location {
@@ -138,7 +138,7 @@ export default function LocationsSection() {
           padding:6px 14px; cursor:pointer; white-space:nowrap;
           transition:all 0.2s; flex-shrink:0; color:#1e5060;
         }
-        .loc-tab-btn.active { color:#00d4ff; border-color:rgba(0,212,255,0.45); background:rgba(0,212,255,0.08); }
+        .loc-tab-btn.active { color:#00d4ff; border-color: #9a3934; background:rgba(0,212,255,0.08); }
 
         @media (max-width: 768px) {
           .loc-detail-panel { flex-direction:column; align-items:flex-start; }
@@ -165,7 +165,7 @@ export default function LocationsSection() {
         />
       </div>
        <Particles
-        particleColors={["#1a6aff","#1a90ff","#2ab8ff"]}
+        particleColors={["#B10608","#B10608","#B10608"]}
         particleCount={5500}
         particleSpread={10}
         speed={0.11}
@@ -210,7 +210,7 @@ export default function LocationsSection() {
             }}
           >
             Deployed{" "}
-            <em style={{ color: 'var(--c, #00d4ff)', fontStyle: 'normal' }}>
+            <em style={{ color: '#FF0D00', fontStyle: 'normal' }}>
               Worldwide
             </em>
           </h2>

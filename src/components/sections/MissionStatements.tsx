@@ -1,5 +1,6 @@
 'use client'
 import Bg from "@/assets/Landing-Page-Hero.webp"
+import MissionStatementImg from "@/assets/missionstament (1).webp"
 const checkItems = [
   'Bodyguard Hire',
   'Private Security and Personal Protection',
@@ -19,7 +20,7 @@ export default function MissionStatement() {
         .mission-section {
           position: relative;
           min-height: 100vh;
-          // background: radial-gradient(ellipse 140% 100% at 55% 45%, #051228 0%, #030d1e 50%, #020810 100%);
+          background: black;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -61,7 +62,7 @@ export default function MissionStatement() {
           position: relative; z-index: 2;
           width: 100%; max-width: 1200px;
           display: grid;
-          grid-template-columns: 1fr 1.15fr;
+          grid-template-columns: 1.05fr 1fr;
           gap: clamp(32px, 5vw, 72px);
           align-items: center;
         }
@@ -79,12 +80,12 @@ export default function MissionStatement() {
 
         /* Animations */
         @keyframes borderPulse {
-          0%,100% { filter: drop-shadow(0 0 6px rgba(0,185,255,0.7)) drop-shadow(0 0 16px rgba(0,130,230,0.4)); }
+          0%,100% { filter: drop-shadow(0 0 6px #AF0A00) drop-shadow(0 0 16px #AF0A00); }
           50%      { filter: drop-shadow(0 0 2px rgba(0,150,255,0.3)); }
         }
         @keyframes cornerBreath {
-          0%,100% { box-shadow: 0 0 9px rgba(0,210,255,0.85), 0 0 20px rgba(0,150,255,0.4); }
-          50%      { box-shadow: 0 0 4px rgba(0,170,255,0.4); }
+          0%,100% { box-shadow: 0 0 9px #AF0A00, 0 0 20px #AF0A00; }
+          50%      { box-shadow: 0 0 4px #AF0A00; }
         }
         @keyframes lightFlash {
           0%,78%,100% { opacity:0; }
@@ -116,7 +117,7 @@ export default function MissionStatement() {
         /* Outer ambient ring */
         .img-outer-ring {
           position: absolute; inset: -12px;
-          border: 1px solid rgba(0,160,255,0.15);
+          border: 1px solid #AF0A00;
           pointer-events: none; z-index: 0;
           animation: outerGlow 3s ease-in-out infinite;
           clip-path: polygon(0% 4%, 3.5% 0%, 96.5% 0%, 100% 4%, 100% 96%, 96.5% 100%, 3.5% 100%, 0% 96%);
@@ -125,7 +126,7 @@ export default function MissionStatement() {
         /* Second outer ring */
         .img-outer-ring2 {
           position: absolute; inset: -22px;
-          border: 0.5px solid rgba(0,140,220,0.08);
+          border: 0.5px solid #AF0A00;
           pointer-events: none; z-index: 0;
           animation: outerGlow 4s ease-in-out infinite 1s;
           clip-path: polygon(0% 3%, 2.5% 0%, 97.5% 0%, 100% 3%, 100% 97%, 97.5% 100%, 2.5% 100%, 0% 97%);
@@ -166,17 +167,17 @@ export default function MissionStatement() {
         .img-overlay {
           position: absolute; inset:0; pointer-events:none;
           background:
-            linear-gradient(180deg, rgba(3,12,30,0.08) 0%, rgba(3,12,30,0.05) 40%, rgba(3,12,30,0.55) 80%, rgba(3,12,30,0.85) 100%),
-            linear-gradient(90deg, rgba(0,60,160,0.12) 0%, transparent 35%, transparent 65%, rgba(0,60,160,0.12) 100%);
+            // linear-gradient(180deg, #AF0A00 0%, #AF0A00 40%, #AF0A00 80%, #AF0A00 100%),
+            // linear-gradient(90deg, #AF0A00 0%, transparent 35%, transparent 65%, #AF0A00 100%);
         }
 
         /* TV/news ticker bar at bottom */
         .img-ticker {
           position: absolute; bottom:0; left:0; right:0; z-index:5;
           padding: 8px 14px 10px;
-          background: rgba(2,8,22,0.82);
+          // background: #AF0A00;
           backdrop-filter: blur(4px);
-          border-top: 1px solid rgba(0,160,255,0.2);
+          border-top: 1px solid #AF0A00;
           display: flex; align-items: center; gap: 10px;
           pointer-events:none;
         }
@@ -192,12 +193,12 @@ export default function MissionStatement() {
         .ticker-channel {
           font-family: 'Orbitron', monospace;
           font-size: 9px; letter-spacing: 0.15em;
-          color: #155f71;
+          color: #AF0A00;
           font-weight: 600;
         }
         .ticker-text {
           font-family: 'Rajdhani', sans-serif;
-          font-size: 10px; color: #7ab8d0;
+          font-size: 10px; color: #AF0A00;
           letter-spacing: 0.08em;
           flex:1; text-align:right;
         }
@@ -205,7 +206,7 @@ export default function MissionStatement() {
         /* Side lightning */
         .img-lightning-l, .img-lightning-r {
           position: absolute; top:0; bottom:0; width:2.5px;
-          background: linear-gradient(180deg, transparent 0%, rgba(0,185,255,0.9) 25%, rgb(12, 98, 105) 50%, rgba(0,185,255,0.9) 75%, transparent 100%);
+          background: linear-gradient(180deg, transparent 0%, #AF0A00 25%, #AF0A00 50%, #AF0A00 75%, transparent 100%);
           z-index: 6; pointer-events:none;
           animation: lightFlash 5s infinite;
         }
@@ -214,15 +215,15 @@ export default function MissionStatement() {
         .img-card-wrap:hover .img-lightning-l,
         .img-card-wrap:hover .img-lightning-r {
           animation:none; opacity:1;
-          box-shadow: 0 0 14px rgba(0,215,255,1), 0 0 28px rgba(0,160,255,0.65);
+          box-shadow: 0 0 14px #AF0A00, 0 0 28px #AF0A00;
         }
 
         /* Scan line */
         .img-scan {
           position: absolute; left:0; right:0; height:3px;
           pointer-events:none; opacity:0; z-index:7;
-          background: linear-gradient(90deg, transparent, rgba(0,215,255,0.65), rgba(160,235,255,0.9), rgba(0,215,255,0.65), transparent);
-          box-shadow: 0 0 8px rgba(0,205,255,0.6);
+          background: linear-gradient(90deg, transparent, #AF0A00, #AF0A00, #AF0A00, transparent);
+          box-shadow: 0 0 8px #AF0A00;
         }
         .img-card-wrap:hover .img-scan { animation: scanMove 2.2s linear infinite; }
 
@@ -232,25 +233,25 @@ export default function MissionStatement() {
           pointer-events:none; z-index:8; overflow:visible;
         }
         .img-frame-main {
-          fill:none; stroke:rgba(0, 234, 255, 0.55); stroke-width:1.4;
+          fill:none; stroke: #AF0A00; stroke-width:1.4;
           animation: borderPulse 3s ease-in-out infinite;
           transition: stroke 0.3s, filter 0.3s;
         }
         .img-card-wrap:hover .img-frame-main {
-          stroke:rgba(0,225,255,0.95);
-          filter: drop-shadow(0 0 8px rgba(0,225,255,1)) drop-shadow(0 0 22px rgba(0,180,255,0.65));
+          stroke:#AF0A00;
+          filter: drop-shadow(0 0 8px #AF0A00) drop-shadow(0 0 22px #AF0A00);
           animation:none;
         }
         .img-frame-accent {
-          fill:none; stroke:rgba(9, 213, 240, 0.95); stroke-width:3;
-          filter: drop-shadow(0 0 5px rgba(0,225,255,1));
+          fill:none; stroke:#AF0A00; stroke-width:3;
+          filter: drop-shadow(0 0 5px #AF0A00);
         }
         .img-card-wrap:hover .img-frame-accent {
-          filter: drop-shadow(0 0 12px rgba(0,245,255,1)) drop-shadow(0 0 26px rgba(0,200,255,0.7));
+          filter: drop-shadow(0 0 12px #AF0A00) drop-shadow(0 0 26px #AF0A00);
         }
         .img-frame-tick {
-          fill:none; stroke:rgba(0,205,255,0.85); stroke-width:3.5;
-          filter: drop-shadow(0 0 4px rgba(0,210,255,0.7));
+          fill:none; stroke:#AF0A00; stroke-width:3.5;
+          filter: drop-shadow(0 0 4px #AF0A00);
         }
 
         /* Corner brackets */
@@ -259,13 +260,13 @@ export default function MissionStatement() {
           z-index:9; pointer-events:none;
           animation: cornerBreath 2.5s ease-in-out infinite;
         }
-        .img-corner.tl { top:5px; left:5px; border-top:2px solid #00ccff; border-left:2px solid #00ccff; }
-        .img-corner.tr { top:5px; right:5px; border-top:2px solid #00ccff; border-right:2px solid #00ccff; }
-        .img-corner.bl { bottom:5px; left:5px; border-bottom:2px solid #00ccff; border-left:2px solid #00ccff; }
-        .img-corner.br { bottom:5px; right:5px; border-bottom:2px solid #00ccff; border-right:2px solid #00ccff; }
+        .img-corner.tl { top:5px; left:5px; border-top:2px solid #AF0A00; border-left:2px solid #AF0A00; }
+        .img-corner.tr { top:5px; right:5px; border-top:2px solid #AF0A00; border-right:2px solid #AF0A00; }
+        .img-corner.bl { bottom:5px; left:5px; border-bottom:2px solid #AF0A00; border-left:2px solid #AF0A00; }
+        .img-corner.br { bottom:5px; right:5px; border-bottom:2px solid #AF0A00; border-right:2px solid #AF0A00; }
         .img-card-wrap:hover .img-corner {
-          border-color:#00eeff;
-          box-shadow:0 0 12px rgba(0,240,255,0.9), 0 0 28px rgba(0,180,255,0.55);
+          border-color: #AF0A00;
+          box-shadow:0 0 12px #AF0A00, 0 0 28px #AF0A00;
           animation:none;
         }
 
@@ -273,16 +274,16 @@ export default function MissionStatement() {
         .img-tick-l, .img-tick-r {
           position:absolute; top:50%; transform:translateY(-50%);
           width:4px; height:30px; z-index:9;
-          background: rgba(0,185,255,0.65);
-          box-shadow: 0 0 7px rgba(0,185,255,0.55);
+          background: #AF0A00;
+          box-shadow: 0 0 7px #AF0A00;
           transition: background 0.3s, box-shadow 0.3s;
         }
         .img-tick-l { left:0; }
         .img-tick-r { right:0; }
         .img-card-wrap:hover .img-tick-l,
         .img-card-wrap:hover .img-tick-r {
-          background: rgba(0,235,255,1);
-          box-shadow: 0 0 16px rgba(0,225,255,1), 0 0 30px rgba(0,175,255,0.65);
+          background: #AF0A00;
+          box-shadow: 0 0 16px #AF0A00, 0 0 30px #AF0A00;
         }
 
         /* ════════════════════════════
@@ -297,9 +298,9 @@ export default function MissionStatement() {
           font-weight: 900;
           font-size: clamp(22px, 3.5vw, 42px);
           letter-spacing: 0.12em;
-          color: #00ccff;
+          color: #AF0A00;
           margin: 0 0 clamp(16px,2.5vw,28px) 0;
-          text-shadow: 0 0 26px rgba(0,200,255,0.7), 0 0 55px rgba(0,150,255,0.35);
+          text-shadow: 0 0 26px #AF0A00, 0 0 55px #AF0A00;
           line-height: 1.15;
         }
 
@@ -314,7 +315,7 @@ export default function MissionStatement() {
         }
 
         .mission-p strong {
-          color: #d6eef8;
+          color: #FFFFFF;
           font-weight: 700;
         }
 
@@ -322,7 +323,7 @@ export default function MissionStatement() {
           font-family: 'Rajdhani', sans-serif;
           font-size: clamp(14px,1.5vw,17px);
           font-weight: 700;
-          color: #d0eaf8;
+          color: #FFFFFF;
           margin: clamp(18px,2.5vw,28px) 0 clamp(12px,1.5vw,18px) 0;
         }
 
@@ -343,7 +344,7 @@ export default function MissionStatement() {
           font-family: 'Rajdhani', sans-serif;
           font-size: clamp(13px,1.4vw,16px);
           font-weight: 500;
-          color: #90bcd4;
+          color: #FFFFFF;
           line-height: 1.4;
           transition: color 0.2s;
         }
@@ -361,8 +362,8 @@ export default function MissionStatement() {
         .mission-divider {
           width: clamp(60px,8vw,100px);
           height: 2px;
-          background: linear-gradient(to right, #144855, rgba(0,200,255,0.1));
-          box-shadow: 0 0 8px rgba(0,200,255,0.5);
+          background: linear-gradient(to right, #AF0A00, #AF0A00);
+          box-shadow: 0 0 8px #AF0A00;
           margin-bottom: clamp(14px,2vw,24px);
         }
 
@@ -381,7 +382,7 @@ export default function MissionStatement() {
 
           <div className="img-clip">
             <img
-              src="https://images.unsplash.com/photo-1529655683826-aba9b3e77383?w=800&h=600&fit=crop&q=85"
+              src={MissionStatementImg.src}
               alt="Security team"
             />
             <div className="img-overlay" />
@@ -442,7 +443,7 @@ export default function MissionStatement() {
             {checkItems.map((item, i) => (
               <li key={i} className="check-item">
                 <svg className="check-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M3 8.5L6.5 12L13 5" stroke="#00ccff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M3 8.5L6.5 12L13 5" stroke="#AF0A00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
                 {item}
               </li>

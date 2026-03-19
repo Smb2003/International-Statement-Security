@@ -965,21 +965,21 @@ export default function CinematicCanvas() {
       drawGlobe()
 
       // Lightning — har 2nd frame
-      if (frameCount % 2 === 0) drawLightningArcs()
+      // if (frameCount % 2 === 0) drawLightningArcs()
 
-      planes.forEach((plane, i) => {
-        plane.t += plane.speed
-        const pos = planePos(plane.t, i)
-        const ang = planeAngle(plane.t)
-        plane.trailPoints.push({ ...pos, age: 0 })
-        if (plane.trailPoints.length > plane.maxTrail) plane.trailPoints.shift()
-        plane.trailPoints.forEach(p => p.age++)
-        drawPlaneTrail(plane)
-        drawPlaneBody(pos, ang)
-        drawExhaust(pos, ang)
-      })
+      // planes.forEach((plane, i) => {
+      //   plane.t += plane.speed
+      //   const pos = planePos(plane.t, i)
+      //   const ang = planeAngle(plane.t)
+      //   plane.trailPoints.push({ ...pos, age: 0 })
+      //   if (plane.trailPoints.length > plane.maxTrail) plane.trailPoints.shift()
+      //   plane.trailPoints.forEach(p => p.age++)
+      //   drawPlaneTrail(plane)
+      //   drawPlaneBody(pos, ang)
+      //   drawExhaust(pos, ang)
+      // })
 
-      drawAllHUDPanels()
+      // drawAllHUDPanels()
       animFrame = requestAnimationFrame(render)
     }
 

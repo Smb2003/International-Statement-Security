@@ -110,7 +110,7 @@ export default function ServicesSection() {
       ref={ref}
       style={{
         padding: 'clamp(60px, 8vw, 100px) clamp(16px, 5vw, 52px)',
-        background: 'var(--bg2, #07111a)',
+        background: '#000000',
         position: 'relative',
         zIndex: 2,
         fontFamily:'monospace',
@@ -123,8 +123,8 @@ export default function ServicesSection() {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 1px;
-          background: rgba(0,212,255,0.07);
-          border: 1px solid rgba(0,212,255,0.09);
+          background: #AF0A00;
+          border: 1px solid #AF0A00;
         }
 
         /* Tablet: 2 columns */
@@ -142,16 +142,19 @@ export default function ServicesSection() {
         }
 
         .srv-card {
-          background: var(--bg2, #07111a);
+          background: #AF0A00;
           padding: clamp(22px, 4vw, 36px) clamp(18px, 3vw, 30px);
           cursor: pointer;
           position: relative;
           overflow: hidden;
           transition: background 0.3s;
+          background: #090505 !important;
+
         }
 
         .srv-card:hover {
-          background: #080f1c !important;
+          background: #0f0909 !important;
+          color: '#FFFFFF';
         }
 
         .srv-card:hover .top-bar {
@@ -164,15 +167,15 @@ export default function ServicesSection() {
         }
 
         .srv-card:hover .icon-box {
-          border-color: rgba(0,212,255,0.5) !important;
-          background: rgba(0,212,255,0.06) !important;
+          border-color: #FFFFFF !important;
+          // background: #1b0a09 !important;
         }
 
         .top-bar {
           position: absolute;
           top: 0; left: 0; right: 0;
           height: 2px;
-          background: var(--c, #00d4ff);
+          background: #AF0A00;
           transform-origin: left;
           transition: transform 0.35s ease;
         }
@@ -180,15 +183,16 @@ export default function ServicesSection() {
         .tag-pill {
           display: inline-block;
           font-family: 'Rajdhani', sans-serif;
-          font-size: 11px;
+          font-size: 17px;
           font-weight: 600;
           letter-spacing: 0.08em;
-          color: rgba(0,212,255,0.55);
-          border: 1px solid rgba(0,212,255,0.15);
+          color: #FFFFFF;
+          border: 1px solid #AF0A00;
           padding: 3px 8px;
           border-radius: 2px;
-          background: rgba(0,212,255,0.04);
+          background: #AF0A00;
           white-space: nowrap;
+          text-align:center;
         }
 
         .section-tag-dash {
@@ -196,24 +200,25 @@ export default function ServicesSection() {
           display: inline-block;
           width: 28px;
           height: 1px;
-          background: var(--c, #00d4ff);
+          background: #AF0A00;
           margin-right: 10px;
           vertical-align: middle;
         }
 
         .section-tag-label {
           font-family:'Orbitron',monospace; 
-          font-size: 16px;
+          font-size: 18px;
           letter-spacing: 0.25em;
-          color: var(--c, #00d4ff);
+          color: #AF0A00;
           text-transform: uppercase;
           vertical-align: middle;
+          text-align:center
         }
 
         .icon-box {
           width: 46px;
           height: 46px;
-          border: 1px solid rgba(0,212,255,0.2);
+          border: 1px solid #AF0A00;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -227,7 +232,7 @@ export default function ServicesSection() {
           position: absolute;
           bottom: 22px;
           right: 22px;
-          color: var(--c, #00d4ff);
+          color: #AF0A00;
           font-size: 16px;
           opacity: 0;
           transform: translateX(0);
@@ -239,7 +244,7 @@ export default function ServicesSection() {
           font-family: 'Share Tech Mono', 'Courier New', monospace;
           font-size: 13px;
           letter-spacing: 2px;
-          color: rgba(0,212,255,0.3);
+          color: #AF0A00;
           margin-bottom: 18px;
         }
 
@@ -255,10 +260,11 @@ export default function ServicesSection() {
         }
 
         .srv-desc {
-          font-size: clamp(12px, 1.3vw, 17px);
+          font-size: clamp(12px, 1.3vw, 14px);
           line-height: 1.65;
+          
           margin-bottom: 16px;
-          color: var(--muted, #3a6878);
+          color: #FFFFFF;
         }
 
         .tags-row {
@@ -301,14 +307,15 @@ export default function ServicesSection() {
             }}
           >
             Mission-Ready{' '}
-            <em style={{ color: 'var(--c, #00d4ff)', fontStyle: 'normal' }}>Services</em>
+            <em style={{ color: '#AF0A00', fontStyle: 'normal' }}>Services</em>
           </h2>
 
           <p
             style={{
               fontFamily: 'Rajdhani, sans-serif',
               fontSize: 'clamp(14px, 1.6vw, 16px)',
-              color: '#3a6878',
+              color: '#FFFFFF',
+              textAlign:"center",
               lineHeight: 1.7,
               maxWidth: 580,
               margin: 0,
@@ -351,7 +358,7 @@ export default function ServicesSection() {
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
-                  stroke="var(--c, #00d4ff)"
+                  stroke="#FFFFFF"
                   strokeWidth="1.5"
                   strokeLinecap="round"
                   style={{ width: 20, height: 20, opacity: 0.8 }}
@@ -363,7 +370,7 @@ export default function ServicesSection() {
               {/* Title */}
               <div
                 className="srv-title"
-                style={{ color: service.featured ? 'var(--c, #00d4ff)' : 'var(--text, #cce8f4)' }}
+                style={{ color: service.featured ? '#AF0A00' : 'var(--text, #cce8f4)' }}
               >
                 {service.title}
               </div>

@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { SITE_CONFIG, STATS, LOCATIONS } from '@/data/siteData'
-import HeroImage from "@/assets/Landing-Page-Hero.webp"
+import HeroImage from "@/assets/HEROO.webp"
 // Framer Motion variants for staggered entrance
 const containerVariants = {
   hidden: {},
@@ -103,7 +103,7 @@ export default function HeroSection() {
             <span style={{
               fontFamily: '"Share Tech Mono", monospace',
               fontSize: 16, letterSpacing: '2px',
-              color: 'rgba(0,212,255,0.55)', textTransform: 'uppercase', fontWeight:"bold"
+              color: '#AF0A00', textTransform: 'uppercase', fontWeight:"bold"
             }}>
               {s.label}
             </span>
@@ -124,12 +124,12 @@ export default function HeroSection() {
           style={{
             fontFamily: '"Share Tech Mono", monospace',
             fontSize: 16, letterSpacing: '4px',
-            color: 'var(--c)', textTransform: 'uppercase',
+            color: '#ff0d00', textTransform: 'uppercase',
             marginBottom: 22,
             display: 'flex', alignItems: 'center', gap: 12,
           }}
         >
-          <span style={{ width: 36, height: 1, background: 'var(--c)', display: 'block', flexShrink: 0 }} />
+          <span style={{ width: 36, height: 1, background: '#ff0d00', display: 'block', flexShrink: 0 }} />
           Executive Protection · Global Operations · Est. {SITE_CONFIG.founded}
         </motion.div>
 
@@ -138,7 +138,7 @@ export default function HeroSection() {
           variants={itemVariants}
           style={{
             fontFamily: 'Orbitron, monospace',
-            fontSize: 'clamp(66px, 5vw, 64px)',
+            fontSize: 'clamp(66px, 5vw, 54px)',
             fontWeight: 900,
             lineHeight: 1.02,
             letterSpacing: '-1px',
@@ -146,9 +146,9 @@ export default function HeroSection() {
           }}
         >
           <span style={{ color: 'var(--text)', display: 'block' }}>Elite</span>
-          <span style={{ color: 'var(--c)', display: 'block' }}>Protection.</span>
+          <span style={{ color: '#ff0d00', display: 'block' }}>SECURITY SERVICES.</span>
           <span style={{ color: 'var(--text)', fontSize: 'clamp(26px, 3.8vw, 46px)', display: 'block' }}>
-            Global Reach.
+            WORLDWIDE
           </span>
         </motion.h1>
 
@@ -176,20 +176,20 @@ export default function HeroSection() {
               style={{
                 fontFamily: '"Share Tech Mono", monospace',
                 fontSize: 16, letterSpacing: '2px',
-                color: 'rgba(0,212,255,0.65)',
-                border: '1px solid rgba(0,212,255,0.18)',
-                background:'rgba(7, 62, 73, 0.87)',
+                color: '#ffffff',
+                border: '1px solid #ff0d00',
+                // border:'#5b0103b3',
                 padding: '5px 13px', textTransform: 'uppercase',
                 transition: 'all 0.2s', cursor: 'none',
               }}
               onMouseEnter={e => {
-                e.currentTarget.style.borderColor = 'var(--c)'
-                e.currentTarget.style.color = 'var(--c)'
+                e.currentTarget.style.borderColor = '#ff0d00'
+                e.currentTarget.style.color = '#ffffff'
                 e.currentTarget.style.background = 'rgba(0,212,255,0.05)'
               }}
               onMouseLeave={e => {
-                e.currentTarget.style.borderColor = 'rgba(0,212,255,0.18)'
-                e.currentTarget.style.color = 'rgba(0,212,255,0.65)'
+                e.currentTarget.style.borderColor = '#ff0d00'
+                e.currentTarget.style.color = '#ff0d00'
                 e.currentTarget.style.background = 'transparent'
               }}
             >
@@ -204,8 +204,8 @@ export default function HeroSection() {
             gap: 16,
             flexWrap: 'wrap'
           }}>
-          <a href="#contact" className="btn-primary hero-btn">▶ Request Consultation</a>
-          <a href="#services" className="btn-secondary">View Services</a>
+          <a href="#contact" className="btn-primary hero-btn" style={{background:"#FF0D00"}}>▶ Request Consultation</a>
+          <a href="#services" className="btn-secondary" style={{border:"1px solid #5B0102",color:"#FF0D00"}}>View Services</a>
         </motion.div>
       </motion.div>
 

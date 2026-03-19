@@ -85,7 +85,7 @@ export default function Navbar() {
       <a
         href="#contact"
         className="btn-primary nav-desktop"
-        style={{ fontSize: 14, padding: '8px 18px' }}
+        style={{ fontSize: 14, padding: '8px 18px', background:"#ff0d00" }}
       >
         ▶ Request Brief
       </a>

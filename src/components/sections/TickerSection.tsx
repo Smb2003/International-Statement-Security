@@ -8,7 +8,7 @@ export default function TickerSection() {
     <div
       style={{
         padding: '50px 0',
-        background: 'var(--bg3)',
+        background: 'black',
         borderTop: '1px solid rgba(0,212,255,0.07)',
         borderBottom: '1px solid rgba(0,212,255,0.07)',
         overflow: 'hidden',
@@ -20,7 +20,7 @@ export default function TickerSection() {
         textAlign: 'center',
         fontFamily: '"Share Tech Mono", monospace',
         fontSize: 19, letterSpacing: '3px',
-        color: 'var(--muted)', textTransform: 'uppercase',
+        color: '#ffffff', textTransform: 'uppercase',
         marginBottom: 24,
       }}>
         Trusted by
@@ -34,14 +34,14 @@ export default function TickerSection() {
               style={{
                 fontFamily: 'Orbitron, monospace',
                 fontSize: 19, letterSpacing: '4px',
-                color: 'rgb(0, 213, 255)',
+                color: '#ff0d00',
                 textTransform: 'uppercase',
                 whiteSpace: 'nowrap',
                 display: 'flex', alignItems: 'center', gap: 56,
               }}
             >
               {item}
-              <span style={{ color: 'var(--c)', fontSize: 22 }}>·</span>
+              <span style={{ color: '#AF0A00', fontSize: 22 }}>·</span>
             </div>
           ))}
         </div>

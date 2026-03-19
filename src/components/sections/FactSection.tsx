@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Particles from './../../utils/Particles'
+import bgImage from '@/assets/FACTS.webp'
 const stats = [
   {
     id: 1,
@@ -142,7 +143,7 @@ export default function FactsSection() {
         .facts-section {
           position: relative;
           min-height: 100vh;
-          background: radial-gradient(ellipse 130% 100% at 60% 40%, #061530 0%, #030d1e 45%, #020810 100%);
+          background: black;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -150,6 +151,10 @@ export default function FactsSection() {
           padding: clamp(56px,8vw,110px) clamp(20px,5vw,64px);
           overflow: hidden;
           font-family: 'Rajdhani', sans-serif;
+          backgroundImage: url(${bgImage.src}), // your image
+          backgroundSize: "100% 100%",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
           z-index:10;
         }
 
@@ -195,13 +200,13 @@ export default function FactsSection() {
         }
         .facts-tag-dash {
           width: 28px; height: 1.5px;
-          background: #00ccff;
-          box-shadow: 0 0 6px rgba(0,200,255,0.7);
+          background: #FF0D00;
+          box-shadow: 0 0 6px #FF0D00;
         }
         .facts-tag-label {
           font-family: 'Rajdhani', sans-serif;
           font-size: 14px; font-weight: 600;
-          letter-spacing: 0.28em; color: #00ccff;
+          letter-spacing: 0.28em; color: #FF0D00;
           text-transform: uppercase;
         }
 
@@ -216,7 +221,7 @@ export default function FactsSection() {
         .facts-title em {
           font-style: normal;
           font-weight: 700;
-          color: #00ccff;
+          color: #FF0D00;
           display: block;
           font-size: clamp(30px, 4.8vw, 58px);
           text-shadow: 0 0 28px rgba(0, 200, 255, 0.09), 0 0 60px rgba(0,150,255,0.3);
@@ -243,12 +248,12 @@ export default function FactsSection() {
           to   { opacity:1; transform:translateY(0) scale(1); }
         }
         @keyframes iconPulse {
-          0%,100% { box-shadow:0 0 14px rgba(0,180,255,0.7),0 0 28px rgba(0,100,220,0.4),inset 0 0 14px rgba(0,80,200,0.45); }
-          50%     { box-shadow:0 0 6px rgba(0,140,255,0.35),0 0 12px rgba(0,80,180,0.2),inset 0 0 6px rgba(0,60,160,0.2); }
+          0%,100% { box-shadow:0 0 14px #FF0D00,0 0 28px #FF0D00,inset 0 0 14px #FF0D00; }
+          50%     { box-shadow:0 0 6px #FF0D00,0 0 12px #FF0D00,inset 0 0 6px #FF0D00; }
         }
         @keyframes borderPulse {
-          0%,100% { filter:drop-shadow(0 0 5px rgba(0,180,255,0.7)) drop-shadow(0 0 14px rgba(0,120,220,0.4)); }
-          50%     { filter:drop-shadow(0 0 2px rgba(0,140,255,0.35)); }
+          0%,100% { filter:drop-shadow(0 0 5px #FF0D00) drop-shadow(0 0 14px #FF0D00); }
+          50%     { filter:drop-shadow(0 0 2px #FF0D00); }
         }
         @keyframes lightFlash {
           0%,80%,100% { opacity:0; }
@@ -264,8 +269,8 @@ export default function FactsSection() {
           50%     { transform:scale(1.05); opacity:0.5; }
         }
         @keyframes cornerBreath {
-          0%,100% { opacity:1; box-shadow:0 0 8px rgba(0,200,255,0.8),0 0 18px rgba(0,140,255,0.4); }
-          50%     { opacity:0.55; box-shadow:0 0 4px rgba(0,160,255,0.35); }
+          0%,100% { opacity:1; box-shadow:0 0 8px #FF0D00,0 0 18px #FF0D00; }
+          50%     { opacity:0.55; box-shadow:0 0 4px #FF0D00; }
         }
 
         /* ── Card ── */
@@ -281,7 +286,7 @@ export default function FactsSection() {
         .card-outer-ring {
           position: absolute; inset: -8px;
           border-radius: 5px;
-          border: 1px solid rgba(0,160,255,0.18);
+          border: 1px solid #FF0D00;
           pointer-events: none;
           animation: outerRing 3s ease-in-out infinite;
         }
@@ -294,8 +299,8 @@ export default function FactsSection() {
           transform: translateX(-50%);
           width: 64px; height: 64px;
           border-radius: 50%;
-          background: radial-gradient(circle, rgba(0,90,200,0.78) 0%, rgba(0,40,130,0.92) 100%);
-          border: 1.8px solid rgba(0,180,255,0.7);
+          background: radial-gradient(circle, #FF0D00 0%, #FF0D00 100%);
+          border: 1.8px solid #FF0D00;
           display: flex; align-items: center; justify-content: center;
           z-index: 10;
           animation: iconPulse 2.8s ease-in-out infinite;
@@ -304,8 +309,8 @@ export default function FactsSection() {
         .stat-card:hover .icon-circle {
           transform: translateX(-50%) scale(1.18) translateY(-5px);
           animation: none;
-          box-shadow: 0 0 22px rgba(0,220,255,1), 0 0 44px rgba(0,160,255,0.65), inset 0 0 20px rgba(0,100,220,0.5);
-          border-color: rgba(0,235,255,1);
+          box-shadow: 0 0 22px #FF0D00, 0 0 44px #FF0D00, inset 0 0 20px #FF0D00;
+          border-color: #FF0D00 ;
         }
 
         /* Card body — extra padding-top so icon has room */
@@ -323,26 +328,26 @@ export default function FactsSection() {
         }
         .frame-main {
           fill: none;
-          stroke: rgba(0,160,255,0.55);
+          stroke: #FF0D00;
           stroke-width: 1.4;
           animation: borderPulse 3s ease-in-out infinite;
           transition: stroke 0.3s, filter 0.3s;
         }
         .stat-card:hover .frame-main {
-          stroke: rgba(0,225,255,0.95);
-          filter: drop-shadow(0 0 8px rgba(0,225,255,1)) drop-shadow(0 0 22px rgba(0,180,255,0.65));
+          stroke: #FF0D00;
+          filter: drop-shadow(0 0 8px #FF0D00) drop-shadow(0 0 22px #FF0D00);
           animation: none;
         }
         .frame-accent {
-          fill: none; stroke: rgba(0,210,255,0.95); stroke-width: 3;
-          filter: drop-shadow(0 0 5px rgba(0,225,255,1));
+          fill: none; stroke: #FF0D00; stroke-width: 3;
+          filter: drop-shadow(0 0 5px #FF0D00);
         }
         .stat-card:hover .frame-accent {
-          filter: drop-shadow(0 0 10px rgba(0,245,255,1)) drop-shadow(0 0 24px rgba(0,200,255,0.7));
+          filter: drop-shadow(0 0 10px #FF0D00) drop-shadow(0 0 24px #FF0D00);
         }
         .frame-tick {
-          fill: none; stroke: rgba(0,200,255,0.85); stroke-width: 3.5;
-          filter: drop-shadow(0 0 4px rgba(0,210,255,0.7));
+          fill: none; stroke: #FF0D00; stroke-width: 3.5;
+          filter: drop-shadow(0 0 4px #FF0D00);
         }
         .frame-inner {
           fill: none; stroke: rgba(0,120,220,0.1); stroke-width: 0.8;
@@ -354,20 +359,20 @@ export default function FactsSection() {
           z-index: 8; pointer-events: none;
           animation: cornerBreath 2.5s ease-in-out infinite;
         }
-        .corner.tl { top:5px; left:5px; border-top:2px solid #00ccff; border-left:2px solid #00ccff; }
-        .corner.tr { top:5px; right:5px; border-top:2px solid #00ccff; border-right:2px solid #00ccff; }
-        .corner.bl { bottom:5px; left:5px; border-bottom:2px solid #00ccff; border-left:2px solid #00ccff; }
-        .corner.br { bottom:5px; right:5px; border-bottom:2px solid #00ccff; border-right:2px solid #00ccff; }
+        .corner.tl { top:5px; left:5px; border-top:2px solid #FF0D00; border-left:2px solid #FF0D00; }
+        .corner.tr { top:5px; right:5px; border-top:2px solid #FF0D00; border-right:2px solid #FF0D00; }
+        .corner.bl { bottom:5px; left:5px; border-bottom:2px solid #FF0D00; border-left:2px solid #FF0D00; }
+        .corner.br { bottom:5px; right:5px; border-bottom:2px solid #FF0D00; border-right:2px solid #FF0D00; }
         .stat-card:hover .corner {
-          border-color: #00eeff;
-          box-shadow: 0 0 12px rgba(0,240,255,0.9), 0 0 26px rgba(0,180,255,0.55);
+          border-color: #FF0D00;
+          box-shadow: 0 0 12px #FF0D00, 0 0 26px #FF0D00;
           animation: none;
         }
 
         /* Side lightning */
         .side-lightning {
           position: absolute; top:0; bottom:0; width:2px;
-          background: linear-gradient(180deg, transparent 0%, rgba(0,185,255,0.9) 28%, rgba(0,235,255,1) 50%, rgba(0,185,255,0.9) 72%, transparent 100%);
+          background: linear-gradient(180deg, transparent 0%, #FF0D00 28%, #FF0D00 50%, #FF0D00 72%, transparent 100%);
           z-index: 5; pointer-events: none;
           animation: lightFlash 5s infinite;
         }
@@ -375,15 +380,15 @@ export default function FactsSection() {
         .side-lightning.right { right:0; animation-delay:2.5s; }
         .stat-card:hover .side-lightning {
           animation: none; opacity:1;
-          box-shadow: 0 0 14px rgba(0,215,255,1), 0 0 28px rgba(0,160,255,0.65);
+          box-shadow: 0 0 14px #FF0D00, 0 0 28px #FF0D00;
         }
 
         /* Scan line */
         .card-scan {
           position: absolute; left:0; right:0; height:3px;
           pointer-events: none; opacity:0; z-index:6;
-          background: linear-gradient(90deg, transparent, rgba(0,215,255,0.7), rgba(160,230,255,0.95), rgba(0,215,255,0.7), transparent);
-          box-shadow: 0 0 8px rgba(0,205,255,0.65);
+          background: linear-gradient(90deg, transparent, #FF0D00, #FF0D00, #FF0D00, transparent);
+          box-shadow: 0 0 8px #FF0D00;
         }
         .stat-card:hover .card-scan { animation: scan 2s linear infinite; }
 
@@ -405,7 +410,7 @@ export default function FactsSection() {
           font-family:sans-serif;
           font-weight: 900;
           font-size: clamp(36px, 5vw, 62px);
-          color: #00ccff;
+          color: #FFFFFF;
           line-height: 1;
           margin-bottom: 14px;
           letter-spacing: -0.01em;
@@ -417,7 +422,7 @@ export default function FactsSection() {
           font-family: 'Rajdhani', sans-serif;
           font-size: clamp(13px, 1.5vw, 18px);
           font-weight: 500;
-          color: #7ab8d0;
+          color: #FFFFFF;
           letter-spacing: 0.07em;
           line-height: 1.35;
         }
@@ -431,7 +436,7 @@ export default function FactsSection() {
           height: clamp(140px,20vw,260px);
           opacity: 0.16;
           pointer-events: none; z-index: 1;
-          filter: drop-shadow(0 0 28px rgba(0,180,255,0.5));
+          filter: drop-shadow(0 0 28px #FF0D00);
         }
 
         @media (max-width: 480px) {

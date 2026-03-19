@@ -2,11 +2,14 @@
 
 import { useState, useRef, useEffect } from 'react'
 import Particles from './../../utils/Particles'
-import SecurityGuard from "@/assets/security guard.webp"
+import SecurityGuard from "@/assets/owner.webp"
 import FAQS from "@/assets/FAQs.webp"
 import FuturisticGlobe from "@/assets/Futuristic-global.webp"
-import Bg from "@/assets/Executive-Security-Technology-Theme.webp"
+import Bg from "@/assets/SERVICES-SECTION-BACKGROUND.webp"
 import CloseProtection from "@/assets/CloseProtection.jpeg"
+import CelebrityProtection from "@/assets/CelebrityProtection.webp"
+import EventProtection from "@/assets/EventProtection.webp"
+import CorporateSecurity from "@/assets/fdf.webp"
 const services = [
   {
     id: 1,
@@ -38,7 +41,49 @@ const services = [
     id: 3,
     title: 'Special Events',
     subtitle: 'Event & Asset Protection',
+    image: EventProtection,
+    icon: `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="17" cy="17" r="12" stroke="white" stroke-width="1.8"/>
+      <circle cx="17" cy="17" r="4" stroke="white" stroke-width="1.8"/>
+      <line x1="17" y1="5" x2="17" y2="11" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="17" y1="23" x2="17" y2="29" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="5" y1="17" x2="11" y2="17" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="23" y1="17" x2="29" y2="17" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>`,
+  },
+  {
+    id: 4,
+    title: 'Residential Security',
+    subtitle: 'Event & Asset Protection',
     image: FuturisticGlobe,
+    icon: `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="17" cy="17" r="12" stroke="white" stroke-width="1.8"/>
+      <circle cx="17" cy="17" r="4" stroke="white" stroke-width="1.8"/>
+      <line x1="17" y1="5" x2="17" y2="11" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="17" y1="23" x2="17" y2="29" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="5" y1="17" x2="11" y2="17" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="23" y1="17" x2="29" y2="17" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>`,
+  },
+  {
+    id: 5,
+    title: 'Celebrity Security',
+    subtitle: 'Event & Asset Protection',
+    image: CelebrityProtection,
+    icon: `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="17" cy="17" r="12" stroke="white" stroke-width="1.8"/>
+      <circle cx="17" cy="17" r="4" stroke="white" stroke-width="1.8"/>
+      <line x1="17" y1="5" x2="17" y2="11" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="17" y1="23" x2="17" y2="29" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="5" y1="17" x2="11" y2="17" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+      <line x1="23" y1="17" x2="29" y2="17" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>`,
+  },
+  {
+    id: 6,
+    title: 'Corporate Security',
+    subtitle: 'Event & Asset Protection',
+    image: CorporateSecurity,
     icon: `<svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="17" cy="17" r="12" stroke="white" stroke-width="1.8"/>
       <circle cx="17" cy="17" r="4" stroke="white" stroke-width="1.8"/>
@@ -146,11 +191,11 @@ export default function SecurityServicesCards() {
       padding: 'clamp(48px,7vw,60px) clamp(20px,5vw,30px)',
       overflow: 'hidden',
       backgroundImage:`url(${Bg.src})`,
-      backgroundSize:"100% ",
+      backgroundSize:"100% 100%",
       backgroundPosition:"cover",
-      opacity:0.9,
+      // opacity:0.9,
       backgroundRepeat:"no-repeat",
-      zIndex:10
+      zIndex:0
     }}>
 
       <style>{`
@@ -176,20 +221,20 @@ export default function SecurityServicesCards() {
 
         /* ── Electric pulse on border ── */
         @keyframes borderPulse {
-          0%,100% { opacity:1; filter:drop-shadow(0 0 6px #0d4c6b) drop-shadow(0 0 12px #122538); }
-          50%      { opacity:0.6; filter:drop-shadow(0 0 2px #182e39); }
+          0%,100% { opacity:1; filter:drop-shadow(0 0 6px #ff0d00) drop-shadow(0 0 12px #ff0d00); }
+          50%      { opacity:0.6; filter:drop-shadow(0 0 2px #ff0d00); }
         }
 
         /* ── Corner glow breathing ── */
         @keyframes cornerBreath {
-          0%,100% { box-shadow:0 0 8px rgba(15, 82, 110, 0.8), 0 0 20px rgba(0,120,255,0.4); }
-          50%      { box-shadow:0 0 4px rgba(0,140,255,0.5), 0 0 10px rgba(0,80,200,0.2); }
+          0%,100% { box-shadow:0 0 8px #ff0d00, 0 0 20px #ff0d00; }
+          50%      { box-shadow:0 0 4px #ff0d00, 0 0 10px #ff0d00; }
         }
 
         /* ── Icon circle pulse ── */
         @keyframes iconPulse {
-          0%,100% { box-shadow:0 0 14px rgba(9, 111, 155, 0.6), 0 0 28px rgba(0,100,220,0.35), inset 0 0 14px rgba(0,80,200,0.4); }
-          50%      { box-shadow:0 0 6px rgba(0,140,255,0.3), 0 0 14px rgba(0,80,180,0.15), inset 0 0 6px rgba(0,60,160,0.2); }
+          0%,100% { box-shadow:0 0 14px #ff0d00, 0 0 28px #ff0d00, inset 0 0 14px #ff0d00; }
+          50%      { box-shadow:0 0 6px #ff0d00, 0 0 14px #ff0d00), inset 0 0 6px #ff0d00; }
         }
 
         /* ── Lightning side flash ── */
@@ -245,19 +290,19 @@ export default function SecurityServicesCards() {
           position: absolute; inset:0; pointer-events:none;
           background:
             linear-gradient(180deg,
-              rgba(2,10,24,0.1) 0%,
-              rgba(2,10,24,0.05) 30%,
-              rgba(2,10,24,0.6) 55%,
-              rgba(2,10,24,0.96) 78%,
-              rgba(2,10,24,1) 100%
+              #9a3934  0%,
+              #9a3934 30%,
+              #9a3934 55%,
+              #9a3934 78%,
+              #9a3934 100%
             ),
-            linear-gradient(90deg, rgba(0,80,180,0.12) 0%, transparent 40%, transparent 60%, rgba(0,80,180,0.12) 100%);
+            // linear-gradient(90deg, #f5b0ac 0%, transparent 40%, transparent 60%, #ffffff 100%);
         }
 
         /* Side lightning bars */
         .card-lightning-l, .card-lightning-r {
           position: absolute; top:0; bottom:0; width:2px; pointer-events:none;
-          background: linear-gradient(180deg, transparent 0%, rgba(25, 63, 80, 0.9) 30%, rgb(17, 96, 108) 50%, rgba(21, 71, 93, 0.9) 70%, transparent 100%);
+          background: linear-gradient(180deg, transparent 0%, #ff0d00 30%, #ff0d00 50%, #ff0d00 70%, transparent 100%);
           animation: lightFlash 5s infinite;
           z-index: 3;
         }
@@ -267,14 +312,14 @@ export default function SecurityServicesCards() {
         .svc-card:hover .card-lightning-l,
         .svc-card:hover .card-lightning-r {
           animation: none; opacity:1;
-          box-shadow: 0 0 10px rgba(14, 84, 104, 0.9), 0 0 20px rgba(12, 36, 54, 0.5);
+          box-shadow: 0 0 10px #ff0d00 , 0 0 20px #ff0d00;
         }
 
         /* Scan line */
         .card-scan {
           position: absolute; left:0; right:0; height:3px; pointer-events:none; opacity:0; z-index:4;
-          background: linear-gradient(90deg, transparent, rgba(18, 86, 101, 0.98), rgba(26, 51, 61, 0.9), rgba(21, 57, 66, 0.7), transparent);
-          box-shadow: 0 0 8px rgba(0,200,255,0.6);
+          background: linear-gradient(90deg, transparent, #ff0d00, #ff0d00, #ff0d00, transparent);
+          box-shadow: 0 0 8px #ff0d00;
         }
         .svc-card:hover .card-scan { animation: scan 2.2s linear infinite; }
 
@@ -285,7 +330,7 @@ export default function SecurityServicesCards() {
         }
         .card-shimmer::after {
           content:''; position:absolute; top:0; bottom:0; width:60%; opacity:0;
-          background: linear-gradient(90deg, transparent, rgba(120,210,255,0.12), rgba(180,230,255,0.18), rgba(120,210,255,0.12), transparent);
+          background: linear-gradient(90deg, transparent, #ff0d00, #ff0d00, #ff0d00, transparent);
           transform: skewX(-15deg);
         }
         .svc-card:hover .card-shimmer { opacity:1; }
@@ -297,23 +342,23 @@ export default function SecurityServicesCards() {
         }
 
         .frame-path {
-          fill:none; stroke:rgba(0,160,255,0.55); stroke-width:1.4;
-          filter:drop-shadow(0 0 5px rgba(0,180,255,0.65)) drop-shadow(0 0 14px rgba(0,120,220,0.35));
+          fill:none; #ff0d00; stroke-width:1.4;
+          filter:drop-shadow(0 0 5px #ff0d00) drop-shadow(0 0 14px #ff0d00);
           animation: borderPulse 3s ease-in-out infinite;
           transition: stroke 0.3s, filter 0.3s;
         }
         .svc-card:hover .frame-path {
-          stroke:rgba(0,220,255,0.95);
-          filter:drop-shadow(0 0 8px rgba(0,220,255,1)) drop-shadow(0 0 20px rgba(0,180,255,0.65)) drop-shadow(0 0 36px rgba(0,120,255,0.3));
+          stroke: #ff0d00;
+          filter:drop-shadow(0 0 8px #ff0d00) drop-shadow(0 0 20px #ff0d00) drop-shadow(0 0 36px #ff0d00);
           animation:none;
         }
 
         .frame-accent {
-          fill:none; stroke:rgba(0,200,255,0.9); stroke-width:2.5;
-          filter:drop-shadow(0 0 6px rgba(0,220,255,1));
+          fill:none; stroke: #ff0d00; stroke-width:2.5;
+          filter:drop-shadow(0 0 6px #ff0d00);
         }
         .svc-card:hover .frame-accent {
-          filter:drop-shadow(0 0 10px rgba(0,240,255,1)) drop-shadow(0 0 22px rgba(0,200,255,0.7));
+          filter:drop-shadow(0 0 10px #ff0d00) drop-shadow(0 0 22px #ff0d00);
         }
 
         /* Corner L-brackets */
@@ -321,17 +366,17 @@ export default function SecurityServicesCards() {
           position:absolute; width:16px; height:16px; z-index:8; pointer-events:none;
           animation: cornerBreath 2.5s ease-in-out infinite;
         }
-        .c-tl { top:5px; left:5px; border-top:2px solid #00ccff; border-left:2px solid #00ccff; }
-        .c-tr { top:5px; right:5px; border-top:2px solid #00ccff; border-right:2px solid #00ccff; }
-        .c-bl { bottom:5px; left:5px; border-bottom:2px solid #00ccff; border-left:2px solid #00ccff; }
-        .c-br { bottom:5px; right:5px; border-bottom:2px solid #00ccff; border-right:2px solid #00ccff; }
+        .c-tl { top:5px; left:5px; border-top:2px solid #ff0d00; border-left:2px solid #ff0d00; }
+        .c-tr { top:5px; right:5px; border-top:2px solid #ff0d00; border-right:2px solid #ff0d00; }
+        .c-bl { bottom:5px; left:5px; border-bottom:2px solid #ff0d00; border-left:2px solid #ff0d00; }
+        .c-br { bottom:5px; right:5px; border-bottom:2px solid #ff0d00; border-right:2px solid #ff0d00; }
 
         .svc-card:hover .c-tl,
         .svc-card:hover .c-tr,
         .svc-card:hover .c-bl,
         .svc-card:hover .c-br {
-          border-color:#00eeff;
-          box-shadow:0 0 10px rgba(0,240,255,0.9), 0 0 24px rgba(0,180,255,0.55);
+          border-color: #9a3934;
+          box-shadow:0 0 10px #ff0d00, 0 0 24px #ff0d00;
           animation:none;
         }
 
@@ -339,33 +384,33 @@ export default function SecurityServicesCards() {
         .tick-l,.tick-r {
           position:absolute; top:50%; transform:translateY(-50%);
           width:4px; height:28px; z-index:8; pointer-events:none;
-          background:rgba(0,180,255,0.6);
-          box-shadow:0 0 6px rgba(0,180,255,0.5);
+          background: #ff0d00;
+          box-shadow:0 0 6px #ff0d00;
           transition:background 0.3s, box-shadow 0.3s;
         }
         .tick-l { left:0; }
         .tick-r { right:0; }
         .svc-card:hover .tick-l,
         .svc-card:hover .tick-r {
-          background:rgb(15, 80, 88);
-          box-shadow:0 0 14px rgba(0,220,255,1), 0 0 28px rgba(0,180,255,0.6);
+          background: #ff0d00;
+          box-shadow:0 0 14px #ff0d00, 0 0 28px #ff0d00;
         }
 
         /* Icon badge */
         .icon-wrap {
           position:absolute; bottom:74px; left:50%; transform:translateX(-50%);
           width:62px; height:62px; border-radius:50%; z-index:9;
-          background:radial-gradient(circle, rgba(0,80,180,0.7) 0%, rgba(0,40,120,0.85) 100%);
-          border:1.5px solid rgba(23, 56, 70, 0.65);
+          background:radial-gradient(circle, #ff0d00 0%, #ff0d00 100%);
+          border:1.5px solid #ff0d00;
           display:flex; align-items:center; justify-content:center;
           animation: iconPulse 2.8s ease-in-out infinite;
           transition: border-color 0.3s, transform 0.3s;
         }
         .svc-card:hover .icon-wrap {
-          border-color:rgb(19, 53, 57);
+          border-color: #ff0d00;
           transform:translateX(-50%) scale(1.12);
           animation:none;
-          box-shadow:0 0 18px rgba(0,220,255,0.9), 0 0 36px rgba(0,160,255,0.5), inset 0 0 18px rgba(0,100,220,0.5);
+          box-shadow:0 0 18px #ff0d00, 0 0 36px #aa0d04, inset 0 0 18px #ff0d00;
         }
 
         /* Title */
@@ -373,29 +418,29 @@ export default function SecurityServicesCards() {
           position:absolute; bottom:22px; left:0; right:0; text-align:center;
           font-family:'Rajdhani',sans-serif; font-weight:700;
           font-size:clamp(13px,1.4vw,18px); letter-spacing:0.1em;
-          color:#b8dcf5; z-index:9; pointer-events:none;
-          text-shadow:0 0 14px rgba(0,180,255,0.6), 0 1px 4px rgba(0,0,0,0.8);
+          color: #b8dcf5; z-index:9; pointer-events:none;
+          text-shadow:0 0 14px #ff0d00, 0 1px 4px #ff0d00;
           transition:color 0.3s, text-shadow 0.3s;
         }
         .svc-card:hover .card-title {
-          color:#ffffff;
-          text-shadow:0 0 20px rgba(25, 82, 91, 0.95), 0 0 40px rgba(0,180,255,0.5), 0 1px 4px rgba(0,0,0,0.8);
+          color: #ffffff;
+          text-shadow:0 0 20px #ff0d00, 0 0 40px #ff0d00, 0 1px 4px #ff0d00;
         }
 
         /* Section heading */
         .svc-heading {
           font-family:'Orbitron',monospace; font-weight:700;
           font-size:clamp(16px,2.4vw,28px);
-          color:#cce8f6; text-align:center;
+          color: #cce8f6; text-align:center;
           margin-bottom:clamp(36px,5vw,60px);
           letter-spacing:0.07em; position:relative; z-index:2;
-          text-shadow:0 0 40px rgba(0,180,255,0.4);
+          text-shadow:0 0 40px #ff0d00;
         }
 
         .svc-heading em {
           font-style:normal;
-          color:#00ccff;
-          text-shadow:0 0 24px rgba(0,200,255,0.8), 0 0 50px rgba(0,150,255,0.4);
+          color: #ff0d00;
+          text-shadow:0 0 24px #ff0d00, 0 0 50px #ff0d00;
         }
 
         /* Card row */
@@ -428,9 +473,9 @@ export default function SecurityServicesCards() {
 
       {/* Atmospheric glow blobs */}
       <div style={{ position:'absolute', inset:0, zIndex:0, pointerEvents:'none' }}>
-        <div style={{ position:'absolute', top:'10%', left:'5%', width:'300px', height:'300px', borderRadius:'50%', background:'radial-gradient(circle, rgba(0,80,200,0.12) 0%, transparent 70%)', filter:'blur(40px)' }} />
-        <div style={{ position:'absolute', bottom:'15%', right:'5%', width:'350px', height:'350px', borderRadius:'50%', background:'radial-gradient(circle, rgba(0,60,180,0.1) 0%, transparent 70%)', filter:'blur(50px)' }} />
-        <div style={{ position:'absolute', top:'50%', left:'50%', transform:'translate(-50%,-50%)', width:'500px', height:'200px', borderRadius:'50%', background:'radial-gradient(ellipse, rgba(0,40,120,0.08) 0%, transparent 70%)', filter:'blur(30px)' }} />
+        <div style={{ position:'absolute', top:'10%', left:'5%', width:'300px', height:'300px', borderRadius:'50%', filter:'blur(40px)' }} />
+        <div style={{ position:'absolute', bottom:'15%', right:'5%', width:'350px', height:'350px', borderRadius:'50%', filter:'blur(50px)' }} />
+        <div style={{ position:'absolute', top:'50%', left:'50%', transform:'translate(-50%,-50%)', width:'500px', height:'200px', borderRadius:'50%',  filter:'blur(30px)' }} />
       </div>
 
       {/* Heading */}
@@ -489,7 +534,7 @@ export default function SecurityServicesCards() {
                 <path
                   d="M5,8 L95,8 L95,131 L5,131 Z"
                   fill="none"
-                  stroke="rgba(0,140,255,0.08)"
+                  stroke="#9a3934"
                   strokeWidth="1"
                 />
               </svg>

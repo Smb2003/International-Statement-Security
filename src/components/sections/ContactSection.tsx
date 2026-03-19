@@ -329,7 +329,7 @@ import { motion, useInView } from 'framer-motion'
 // ── Mock data (replace with your imports from @/data/siteData) ──
 const SITE_CONFIG = {
   responseTime: '4 hours',
-  phone: '+1 (800) 000-0000',
+  phone: '+1 (631) 336-7291',
 }
 
 interface ProcessStep {
@@ -378,7 +378,7 @@ export default function ContactSection() {
     width: '100%',
     background: 'rgba(0,212,255,0.02)',
     border: '1px solid rgba(0,212,255,0.12)',
-    color: 'var(--text, #cce8f4)', 
+    color: 'var(--text, #ffffff)', 
     padding: '12px 15px',
     fontSize: 16,
     fontFamily: 'Rajdhani, sans-serif',
@@ -393,7 +393,7 @@ export default function ContactSection() {
     fontFamily: "'Share Tech Mono', 'Courier New', monospace",
     fontSize: 13,
     letterSpacing: '2.5px',
-    color: 'var(--c, #00d4ff)',
+    color: "#ff0d00",
     textTransform: 'uppercase' as const,
     display: 'block',
     marginBottom: 7,
@@ -406,7 +406,7 @@ export default function ContactSection() {
       ref={ref}
       style={{
         padding: 'clamp(60px, 8vw, 100px) clamp(16px, 5vw, 52px)',
-        background: 'var(--bg2, #07111a)',
+        background: '#000',
         position: 'relative',
         zIndex: 2,
       }}
@@ -443,21 +443,21 @@ export default function ContactSection() {
         }
 
         .cyber-card {
-          border: 1px solid rgba(0,212,255,0.1);
-          background: rgba(0,212,255,0.02);
+          border: 1px solid #ff0d00;
+          background: rgba(5, 9, 9, 0.02);
           position: relative;
           transition: border-color 0.3s;
         }
 
         .cyber-card:hover {
-          border-color: rgba(0,212,255,0.22);
+          border-color: #ff0d00;
+          background:rgba(5, 9, 9, 0.02);
         }
 
         .contact-submit-btn {
           width: 100%;
-          background: linear-gradient(90deg, #0055cc, #084c9a, #0055cc);
-          border: 1px solid var(--c, #00d4ff);
-          color: var(--c, #04343e);
+          background: linear-gradient(90deg, #ff0d00, #ff0d00, #ff0d00);
+          color: #FFFFFF;
           padding: 15px;
           font-family: 'Share Tech Mono', 'Courier New', monospace;
           font-size: 14px;
@@ -469,7 +469,7 @@ export default function ContactSection() {
         }
 
         .contact-submit-btn:hover {
-          background: rgba(0,212,255,0.08);
+          background: #830a04;
           transform: scale(1.01);
         }
 
@@ -477,16 +477,17 @@ export default function ContactSection() {
           transform: scale(0.98);
         }
         .contact-input {
-          background: #07111a;
+          background: #030607;
           color: #cce8f4;
+          border-color: #030607 !important;
         }
         .contact-input option {
-          background: #07111a;
+          background: #040709;
           color: #cce8f4;
         }
         /* Input focus via class instead of inline onFocus */
         .contact-input:focus {
-          border-color: rgba(0,212,255,0.45) !important;
+          border-color: #ff0d00 !important;
         }
 
         .stag-wrap {
@@ -494,12 +495,12 @@ export default function ContactSection() {
         }
         .stag-dash {
           display: inline-block; width: 28px; height: 1px;
-          background: var(--c, #00d4ff); flex-shrink: 0;
+          background: #ff0d00; flex-shrink: 0;
         }
         .stag-label {
           font-family: 'Rajdhani', sans-serif;
           font-size: 14px; letter-spacing: 0.25em;
-          color: var(--c, #00d4ff); text-transform: uppercase;
+          color: #ff0d00; text-transform: uppercase;
         }
 
         /* Scrollbar hide for mobile */
@@ -534,7 +535,7 @@ export default function ContactSection() {
             }}
           >
             Request a{' '}
-            <em style={{ color: 'var(--c, #00d4ff)', fontStyle: 'normal' }}>Consultation</em>
+            <em style={{ color: "#ff0d00", fontStyle: 'normal' }}>Consultation</em>
           </h2>
 
           <p
@@ -548,7 +549,7 @@ export default function ContactSection() {
             }}
           >
             All enquiries handled with complete discretion. Reviewed within{' '}
-            <span style={{ color: 'var(--c, #00d4ff)' }}>{SITE_CONFIG.responseTime}</span> by a senior operator.
+            <span style={{ color: 'rgb(255, 13, 0)' }}>{SITE_CONFIG.responseTime}</span> by a senior operator.
           </p>
         </motion.div>
 
@@ -564,7 +565,7 @@ export default function ContactSection() {
             {!submitted ? (
               <div
                 style={{
-                  background: 'var(--bg3, #06101a)',
+                  background:" #090504",
                   border: '1px solid rgba(0,212,255,0.1)',
                   padding: 'clamp(22px, 4vw, 38px)',
                   position: 'relative',
@@ -573,7 +574,7 @@ export default function ContactSection() {
                 {/* Top accent bar */}
                 <div style={{
                   position: 'absolute', top: 0, left: 0, right: 0, height: 2,
-                  background: 'linear-gradient(90deg, var(--c, #00d4ff), transparent)',
+                  background: 'linear-gradient(90deg, #ff0d00, transparent)',
                 }} />
 
                 <form onSubmit={handleSubmit}>
@@ -773,7 +774,7 @@ export default function ContactSection() {
                     fontFamily: "'Share Tech Mono', monospace",
                     fontSize: 14,
                     letterSpacing: '2.5px',
-                    color: 'rgba(0,212,255,0.6)',
+                    color: '#ff0d00',
                     textTransform: 'uppercase' as const,
                     marginBottom: 7,
                   }}
@@ -818,7 +819,7 @@ export default function ContactSection() {
                   fontFamily: "'Share Tech Mono', monospace",
                   fontSize: 12,
                   letterSpacing: '2.5px',
-                  color: 'rgba(0,212,255,0.6)',
+                  color: '#ff0d00',
                   textTransform: 'uppercase' as const,
                   marginBottom: 14,
                 }}
@@ -843,7 +844,7 @@ export default function ContactSection() {
                     style={{
                       fontFamily: 'Orbitron, monospace',
                       fontSize: 14,
-                      color: 'var(--c, #00d4ff)',
+                      color: '#ff0d00',
                       minWidth: 22,
                       paddingTop: 2,
                       flexShrink: 0,
