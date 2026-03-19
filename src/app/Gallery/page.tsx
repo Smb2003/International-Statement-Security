@@ -19,7 +19,7 @@ import Slider6 from "@/assets/slider6.png"
 import Slider7 from "@/assets/slider7.webp"
 import Slider8 from "@/assets/slider8.webp"
 import Slider9 from "@/assets/slider9.webp"
-import Slider10 from "@/assets/slider10.jpeg"
+import Slider10 from "@/assets/Slider10.jpeg"
 import Slider11 from "@/assets/Slider11.jpeg"
 import Owner from "@/assets/owner.webp"
 // ─── Types ────────────────────────────────────────────────────────────────────
