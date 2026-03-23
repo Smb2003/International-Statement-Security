@@ -143,8 +143,8 @@ export default function Navbar() {
               </a>
             ))}
 
-            <a href="#contact" className="btn-primary" style={{background:"#ff0d00"}}>
-              ▶ Request Brief
+            <a href="https://ardianrexhepi.com/trainings/" className="btn-primary" style={{background:"#ff0d00", fontSize:15, textAlign:"center"}}>
+              Training
             </a>
           </motion.div>
         )}
