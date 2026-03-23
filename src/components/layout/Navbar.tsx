@@ -12,7 +12,7 @@ const NAV_LINKS = [
   { label: 'Gallery', href: '/Gallery' },
   { label: 'Contact', href: '#contact' },
   { label: 'Careers', href: '/Career' },
-  { label: 'Training', href: 'https://ardianrexhepi.com/trainings/' },
+  // { label: 'Training', href: 'https://ardianrexhepi.com/trainings/' },
 ]
 
 export default function Navbar() {
@@ -85,11 +85,11 @@ export default function Navbar() {
 
       {/* CTA Desktop */}
       <a
-        href="#contact"
+        href="https://ardianrexhepi.com/trainings/"
         className="btn-primary nav-desktop"
         style={{ fontSize: 14, padding: '8px 18px', background:"#ff0d00" }}
       >
-        ▶ Request Brief
+        Training
       </a>
 
       {/* Mobile Menu Button */}
