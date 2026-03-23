@@ -278,12 +278,12 @@ const galleryItems: GalleryItem[] = [
   { id: 8, src: Slider8.src, alt: "Arrival Security", title: "Corporate Security", category: "Global Operations", description: "Low-profile transportation with full situational awareness." },
   { id: 9, src: Slider9.src, alt: "Command Center", title: "Celebrity Protection", category: "Global Operations", description: "Real-time monitoring and intelligence support for operational continuity." },
   { id: 10, src: Owner.src, alt: "Aerial Surveillance", title: "Executive Protection", category: "Global Operations", description: "Expanded visibility and tactical support for sensitive movements." },
-  { id: 11, src: Slider10.src, alt: "Rapid Mobility", title: "Rapid Mobility", category: "Global Operations", description: "Advanced transport coordination where timing and readiness matter most." },
-  { id: 12, src: Slider11.src, alt: "Night Presence", title: "Night Presence", category: "Close Protection", description: "Visible strength with discreet execution in urban environments." },
-  { id: 13, src: Slider12.src, alt: "Night Presence", title: "Night Presence", category: "Global Protection", description: "Visible strength with discreet execution in urban environments." },
-  { id: 14, src: Slider13.src, alt: "Night Presence", title: "Night Presence", category: "Global Protection", description: "Visible strength with discreet execution in urban environments." },
-  { id: 15, src: Slider14.src, alt: "Night Presence", title: "Night Presence", category: "Global Protection", description: "Visible strength with discreet execution in urban environments." },
-  { id: 16, src: Slider15.src, alt: "Night Presence", title: "Night Presence", category: "Close Protection", description: "Visible strength with discreet execution in urban environments." },
+  { id: 11, src: Slider10.src, alt: "Rapid Mobility", title: "Event Security", category: "Global Operations", description: "Advanced transport coordination where timing and readiness matter most." },
+  { id: 12, src: Slider11.src, alt: "Night Presence", title: "Corpotate Security", category: "Global Protection", description: "Visible strength with discreet execution in urban environments." },
+  { id: 13, src: Slider12.src, alt: "Night Presence", title: "Red Carpet Security", category: "Global Protection", description: "Visible strength with discreet execution in urban environments." },
+  // { id: 14, src: Slider13.src, alt: "Night Presence", title: "Night Presence", category: "Global Protection", description: "Visible strength with discreet execution in urban environments." },
+  { id: 15, src: Slider14.src, alt: "Night Presence", title: "Secure Transportation", category: "Global Protection", description: "Visible strength with discreet execution in urban environments." },
+  { id: 16, src: Slider15.src, alt: "Night Presence", title: "Luxury Transportation", category: "Global Protection", description: "Visible strength with discreet execution in urban environments." },
   { id: 17, src: Slider16.src, alt: "Night Presence", title: "Celebrity Protection", category: "Global Protection", description: "Visible strength with discreet execution in urban environments." },
 ];
 
