@@ -12,6 +12,7 @@ const NAV_LINKS = [
   { label: 'Gallery', href: '/Gallery' },
   { label: 'Contact', href: '#contact' },
   { label: 'Careers', href: '/Career' },
+  { label: 'Training', href: 'https://ardianrexhepi.com/trainings/' },
 ]
 
 export default function Navbar() {

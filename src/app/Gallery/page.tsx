@@ -10,17 +10,22 @@ import Traina from "@/assets/tirana.webp"
 import Dubai from "@/assets/Dubaii.webp"
 import NewYork from "@/assets/NYC.webp"
 import Italy from "@/assets/Italy.webp"
-import Slider1 from "@/assets/slider1.jpg"
-import Slider2 from "@/assets/slider2.jpg"
-import Slider3 from "@/assets/slider3.jpg"
-import Slider4 from "@/assets/slider4.jpg"
-import Slider5 from "@/assets/slider5.png"
-import Slider6 from "@/assets/slider6.png"
+import Slider1 from "@/assets/Gallery/cp6.webp"
+import Slider2 from "@/assets/Gallery/cp5.webp"
+import Slider3 from "@/assets/Gallery/cp4.webp"
+import Slider4 from "@/assets/Gallery/cp3.webp"
+import Slider5 from "@/assets/Gallery/cp8.webp"
+import Slider6 from "@/assets/Gallery/cp7.webp"
 import Slider7 from "@/assets/slider7.webp"
 import Slider8 from "@/assets/slider8.webp"
 import Slider9 from "@/assets/slider9.webp"
-import Slider10 from "@/assets/Slider10.jpg"
-import Slider11 from "@/assets/Slider11.jpg"
+import Slider10 from "@/assets/Gallery/self3.webp"
+import Slider11 from "@/assets/Gallery/ep1.webp"
+import Slider12 from "@/assets/Gallery/cp13.webp"
+import Slider13 from "@/assets/Gallery/cp12.webp"
+import Slider14 from "@/assets/Gallery/st4.webp"
+import Slider15 from "@/assets/Gallery/st2.webp"
+import Slider16 from "@/assets/Gallery/cp1.webp"
 import Owner from "@/assets/owner.webp"
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface GalleryItem {
@@ -275,6 +280,11 @@ const galleryItems: GalleryItem[] = [
   { id: 10, src: Owner.src, alt: "Aerial Surveillance", title: "Executive Protection", category: "Global Operations", description: "Expanded visibility and tactical support for sensitive movements." },
   { id: 11, src: Slider10.src, alt: "Rapid Mobility", title: "Rapid Mobility", category: "Global Operations", description: "Advanced transport coordination where timing and readiness matter most." },
   { id: 12, src: Slider11.src, alt: "Night Presence", title: "Night Presence", category: "Close Protection", description: "Visible strength with discreet execution in urban environments." },
+  { id: 13, src: Slider12.src, alt: "Night Presence", title: "Night Presence", category: "Global Protection", description: "Visible strength with discreet execution in urban environments." },
+  { id: 14, src: Slider13.src, alt: "Night Presence", title: "Night Presence", category: "Global Protection", description: "Visible strength with discreet execution in urban environments." },
+  { id: 15, src: Slider14.src, alt: "Night Presence", title: "Night Presence", category: "Global Protection", description: "Visible strength with discreet execution in urban environments." },
+  { id: 16, src: Slider15.src, alt: "Night Presence", title: "Night Presence", category: "Close Protection", description: "Visible strength with discreet execution in urban environments." },
+  { id: 17, src: Slider16.src, alt: "Night Presence", title: "Celebrity Protection", category: "Global Protection", description: "Visible strength with discreet execution in urban environments." },
 ];
 
 const NAVBAR_XS = 56;
