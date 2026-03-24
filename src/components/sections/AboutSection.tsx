@@ -86,15 +86,36 @@ export default function AboutContact() {
   const [sent, setSent] = useState(false)
   const [errors, setErrors] = useState<Record<string, boolean>>({})
 
-  const handleSend = () => {
+  const handleSend = async () => {
     const e: Record<string, boolean> = {}
     if (!form.name) e.name = true
     if (!form.email) e.email = true
     if (!form.message) e.message = true
-    setErrors(e)
-    if (!Object.keys(e).length) {
+    try {
+      const formData = new FormData()
+
+      formData.append("formType", "aboutForm")
+      formData.append("fullName", form.name)
+      formData.append("email", form.email)
+      formData.append("message", form.message)
+
+      const res = await fetch("/api/apply", {
+        method: "POST",
+        body: formData
+      })
+
+      if (!res.ok) throw new Error("Failed")
+
       setSent(true)
-      setTimeout(() => { setSent(false); setForm({ name: '', email: '', message: '' }) }, 3000)
+
+      setTimeout(() => {
+        setSent(false)
+        setForm({ name: "", email: "", message: "" })
+      }, 3000)
+
+    } catch (err) {
+      console.error(err)
+      alert("Failed to send message")
     }
   }
 

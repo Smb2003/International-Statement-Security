@@ -22,7 +22,9 @@
     "react": "^18",
     "react-bits": "^1.0.5",
     "react-dom": "^18",
+    "resend": "^6.9.4",
     "three": "^0.166.1",
+    "toast": "^0.5.4",
     "tsparticles": "^3.9.1",
     "tsparticles-engine": "^2.12.0"
   },

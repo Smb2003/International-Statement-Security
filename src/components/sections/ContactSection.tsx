@@ -362,17 +362,18 @@ const PROCESS_STEPS: ProcessStep[] = [
 ]
 
 export default function ContactSection() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    service: "",
+    location: "",
+    message: ""
+  })
   const [submitted, setSubmitted] = useState(false)
   const [ref_id, setRefId] = useState('')
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
-
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault()
-    const id = 'ISS-2026-' + Math.floor(Math.random() * 9000 + 1000)
-    setRefId(id)
-    setSubmitted(true)
-  }
 
   const inputStyle: React.CSSProperties = {
     width: '100%',
@@ -400,6 +401,46 @@ export default function ContactSection() {
     opacity: 0.75,
   }
 
+  function handleChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  }
+
+ async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+
+    const id = 'ISS-2026-' + Math.floor(Math.random() * 9000 + 1000)
+    setRefId(id)
+
+    try {
+      // JSON ki jagah FormData use karein taake API ko multipart/form-data mile
+      const formDataToSend = new FormData()
+      formDataToSend.append("formType", "requestConsultation")
+      formDataToSend.append("fullName", `${formData.firstName} ${formData.lastName}`) // API 'fullName' ya 'name' expect kar rahi hai
+      formDataToSend.append("email", formData.email)
+      formDataToSend.append("service", formData.service)
+      formDataToSend.append("location", formData.location)
+      formDataToSend.append("message", formData.message)
+
+      const res = await fetch('/api/apply', {
+        method: "POST",
+        // Headers hata dein, browser automatically boundary ke sath Content-Type set kar dega
+        body: formDataToSend 
+      })
+
+      if (res.ok) {
+        setSubmitted(true)
+      }
+
+    } catch (error) {
+      
+      console.error("Submission Error:", error)
+    }
+  }
   return (
     <section
       id="contact"
@@ -586,8 +627,10 @@ export default function ContactSection() {
                         className="contact-input"
                         style={inputStyle}
                         type="text"
+                        name="firstName"
                         placeholder="John"
                         required
+                        onChange={handleChange}
                       />
                     </div>
                     <div>
@@ -596,8 +639,10 @@ export default function ContactSection() {
                         className="contact-input"
                         style={inputStyle}
                         type="text"
+                        name="lastName"
                         placeholder="Smith"
                         required
+                        onChange={handleChange}
                       />
                     </div>
                   </div>
@@ -607,12 +652,19 @@ export default function ContactSection() {
                     className="contact-input"
                     style={inputStyle}
                     type="email"
+                    name="email"
                     placeholder="your@email.com"
                     required
+                    onChange={handleChange}
                   />
 
                   <label style={labelStyle}>Service Required</label>
-                  <select className="contact-input" style={{ ...inputStyle, cursor: 'pointer' }}>
+                  <select
+                    name="service"
+                    className="contact-input"
+                    style={{ ...inputStyle, cursor: 'pointer' }}
+                    onChange={handleChange}
+                  >
                     <option value="">Select a service...</option>
                     <option>Close Protection</option>
                     <option>Executive & VIP Protection</option>
@@ -623,7 +675,12 @@ export default function ContactSection() {
                   </select>
 
                   <label style={labelStyle}>Primary Location</label>
-                  <select className="contact-input" style={{ ...inputStyle, cursor: 'pointer' }}>
+                  <select
+                    name="location"
+                    className="contact-input"
+                    style={{ ...inputStyle, cursor: 'pointer' }}
+                    onChange={handleChange}
+                  >
                     <option value="">Select location...</option>
                     <option>New York, USA</option>
                     <option>London, UK</option>
@@ -643,6 +700,7 @@ export default function ContactSection() {
                       height: 'clamp(90px, 12vw, 108px)',
                       lineHeight: 1.6,
                     }}
+                    onChange={handleChange}
                     placeholder="Describe your security requirements. All information is treated as strictly confidential."
                   />
 

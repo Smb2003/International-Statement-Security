@@ -143,16 +143,58 @@ function FaqItem({ item, isOpen, onToggle }: { item: typeof faqs[0]; isOpen: boo
     </motion.div>
   )
 }
-
+interface FAQFormData {
+  name: string,
+  email: string,
+  phone: string,
+  message: string 
+}
 // ── Main component ────────────────────────────────────────
 export default function FaqSection() {
+  const [form, setForm] = useState<FAQFormData>({
+  name: "",
+  email: "",
+  phone: "",
+  message: ""
+})
   const [openId, setOpenId] = useState<string>('01')
   const [submitted, setSubmitted] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
-    setTimeout(() => setSubmitted(false), 3000)
+
+    try {
+      const formData = new FormData()
+
+      formData.append("formType","faq")
+      formData.append("fullName",form.name)
+      formData.append("email",form.email)
+      formData.append("phone",form.phone)
+      formData.append("message",form?.message)
+
+      const res = await fetch("/api/apply",{
+        method:"POST",
+        body:formData
+      })
+
+      if(!res.ok) throw new Error("Failed")
+
+      setSubmitted(true)
+
+      setTimeout(()=>{
+        setSubmitted(false)
+        setForm({
+          name:"",
+          email:"",
+          phone:"",
+          message:""
+        })
+      },3000)
+
+    } catch(err){
+      console.error(err)
+      alert("Failed to send message")
+    }
   }
 
   return (
@@ -521,7 +563,14 @@ export default function FaqSection() {
                         <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.58-7 8-7s8 3 8 7"/>
                       </svg>
                     </span>
-                    <input className="cyber-input" type="text" placeholder="Your Name" required />
+                    <input
+                      className="cyber-input"
+                      type="text"
+                      placeholder="Your Name"
+                      value={form.name}
+                      onChange={(e)=>setForm({...form,name:e.target.value})}
+                      required
+                    />
                   </div>
 
                   {/* Email */}
@@ -531,7 +580,14 @@ export default function FaqSection() {
                         <rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 8l10 7 10-7"/>
                       </svg>
                     </span>
-                    <input className="cyber-input" type="email" placeholder="Email" required />
+                    <input
+                      className="cyber-input"
+                      type="email"
+                      placeholder="Email"
+                      value={form.email}
+                      onChange={(e)=>setForm({...form,email:e.target.value})}
+                      required
+                    />
                   </div>
 
                   {/* Phone */}
@@ -541,7 +597,13 @@ export default function FaqSection() {
                         <path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a1 1 0 01-1 1C7.16 21 2 15.84 2 6a1 1 0 011-1z"/>
                       </svg>
                     </span>
-                    <input className="cyber-input" type="tel" placeholder="Phone" />
+                    <input
+                      className="cyber-input"
+                      type="tel"
+                      placeholder="Phone"
+                      value={form.phone}
+                      onChange={(e)=>setForm({...form,phone:e.target.value})}
+                    />
                   </div>
 
                   {/* Message */}
@@ -551,7 +613,12 @@ export default function FaqSection() {
                         <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
                       </svg>
                     </span>
-                    <textarea className="cyber-textarea" placeholder="Questions here..." />
+                    <textarea
+                      className="cyber-textarea"
+                      placeholder="Questions here..."
+                      value={form.message}
+                      onChange={(e)=>setForm({...form,message:e.target.value})}
+                    />
                   </div>
 
                   {/* Submit */}
